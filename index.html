@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ship.yumi.to</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex items-center justify-center">
+    <div class="text-center px-6">
+        <h1 class="text-4xl font-bold mb-2">🚢 ship.yumi.to</h1>
+        <p class="text-gray-400 mb-10">Ideas, shipped.</p>
+        <div class="space-y-4" id="projects"></div>
+    </div>
+    <script>
+        const projects = [
+            { slug: 'chaseflow', name: 'ChaseFlow', desc: 'Automated invoice follow-ups for small businesses', color: 'indigo' },
+            { slug: 'closeflow', name: 'CloseFlow', desc: 'Month-end close without the chaos', color: 'emerald' },
+        ];
+        const el = document.getElementById('projects');
+        projects.forEach(p => {
+            el.innerHTML += `<a href="/${p.slug}/" class="block bg-gray-900/50 border border-gray-800 rounded-xl px-6 py-4 hover:border-${p.color}-500/50 transition-colors text-left"><span class="font-semibold text-lg">${p.name}</span><p class="text-gray-400 text-sm mt-1">${p.desc}</p></a>`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChaseFlow — Stop Chasing Invoices. Start Getting Paid.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow {
+            box-shadow: 0 0 60px rgba(99, 102, 241, 0.15);
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.2);
+        }
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur-xl border-b border-gray-800/50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold">ChaseFlow</span>
+            </div>
+            <a href="#waitlist" class="bg-indigo-500 hover:bg-indigo-400 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors">
+                Get Early Access
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-1.5 mb-8">
+                <span class="pulse-dot w-2 h-2 bg-indigo-400 rounded-full"></span>
+                <span class="text-indigo-300 text-sm font-medium">Coming Soon</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-800 leading-tight mb-6">
+                Stop chasing invoices.<br>
+                <span class="gradient-text">Start getting paid.</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                You shouldn't have to feel awkward asking for money you've already earned. ChaseFlow automates your invoice follow-ups so you can focus on the work — not the collections.
+            </p>
+            <a href="#waitlist" class="inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-colors">
+                Join the Waitlist
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Pain Section -->
+    <section class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Sound familiar?</h2>
+                <p class="text-gray-400 text-lg">You're not alone. This is every service business owner's reality.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 card-hover transition-all">
+                    <div class="text-3xl mb-4">😬</div>
+                    <h3 class="text-lg font-semibold mb-2">"Should I follow up again?"</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">You're walking a tightrope between professional and annoying. So you wait another day. And another. And the invoice gets older.</p>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 card-hover transition-all">
+                    <div class="text-3xl mb-4">📊</div>
+                    <h3 class="text-lg font-semibold mb-2">"Who owes me what?"</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">You're juggling spreadsheets, email threads, and mental notes trying to track who's late. Some invoices slip through the cracks entirely.</p>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 card-hover transition-all">
+                    <div class="text-3xl mb-4">💸</div>
+                    <h3 class="text-lg font-semibold mb-2">"My cash flow is a mess"</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Late payments ripple through your entire business. You can't plan, you can't invest, you can't breathe. And it's not even your fault.</p>
+                </div>
+            </div>
+            <div class="mt-10 bg-gray-900/30 border border-gray-800/50 rounded-2xl p-8 text-center">
+                <p class="text-gray-300 italic text-lg">"Late invoices are killing me. I always feel awkward following up… it's emotionally draining."</p>
+                <p class="text-gray-500 text-sm mt-3">— r/smallbusiness, 126 comments agreeing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let the system do the chasing</h2>
+                <p class="text-gray-400 text-lg">ChaseFlow handles the follow-ups so you never have to send an awkward reminder again.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Smart Follow-Up Sequences</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Friendly reminder → firm follow-up → final notice. Each message escalates in tone naturally, just like you would — but without the anxiety.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Multi-Channel Outreach</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Email, SMS, WhatsApp — reach clients wherever they actually respond. No more messages lost in spam folders.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Learns What Works</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Tracks which days, times, and channels get the fastest responses from each client. Gets smarter with every invoice.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">One Dashboard, Zero Chaos</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">See every overdue invoice, predicted payment dates, and total outstanding at a glance. No more spreadsheet archaeology.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Connects to Your Tools</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">QuickBooks, FreshBooks, Xero, Stripe — ChaseFlow syncs with the invoicing tool you already use. No migration needed.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">It's "The System", Not You</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Clients see automated reminders as standard business practice — not you personally nagging them. Preserves the relationship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">How it works</h2>
+                <p class="text-gray-400 text-lg">Three steps. Five minutes. Never chase again.</p>
+            </div>
+            <div class="space-y-8">
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-500 rounded-2xl flex items-center justify-center text-xl font-bold">1</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Connect your invoicing tool</h3>
+                        <p class="text-gray-400">Link QuickBooks, FreshBooks, Xero, or Stripe. ChaseFlow automatically detects overdue invoices.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-500 rounded-2xl flex items-center justify-center text-xl font-bold">2</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Set your follow-up rules</h3>
+                        <p class="text-gray-400">Choose when to send reminders, how to escalate, and which channels to use. Or just use our proven defaults.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-500 rounded-2xl flex items-center justify-center text-xl font-bold">3</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Get paid faster</h3>
+                        <p class="text-gray-400">ChaseFlow handles the follow-ups. You get notified when payments land. That's it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section id="waitlist" class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-xl mx-auto text-center">
+            <div class="glow bg-gray-900/50 border border-gray-800 rounded-3xl p-10">
+                <h2 class="text-3xl font-bold mb-3">Get early access</h2>
+                <p class="text-gray-400 mb-8">Be the first to know when ChaseFlow launches. No spam, just one email when we're ready.</p>
+                <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@yourbusiness.com"
+                        required
+                        class="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-5 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    >
+                    <button
+                        type="submit"
+                        class="bg-indigo-500 hover:bg-indigo-400 text-white px-8 py-3.5 rounded-xl font-semibold transition-colors whitespace-nowrap"
+                    >
+                        Join Waitlist
+                    </button>
+                </form>
+                <p id="success-msg" class="hidden mt-4 text-indigo-300 font-medium">You're on the list! We'll be in touch.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-6 border-t border-gray-800/50">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-indigo-500 rounded-md flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <span class="font-semibold">ChaseFlow</span>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2026 ChaseFlow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            // In production, this would POST to your backend
+            console.log('Waitlist signup:', email);
+            this.style.display = 'none';
+            document.getElementById('success-msg').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
