@@ -14,17 +14,20 @@
     <div class="text-center px-6">
         <h1 class="text-4xl font-bold mb-2">🚢 ship.yumi.to</h1>
         <p class="text-gray-400 mb-10">Ideas, shipped.</p>
-        <div class="space-y-4" id="projects"></div>
+        <div class="space-y-4 max-w-md mx-auto" id="projects">
+            <a href="/chaseflow/" class="block bg-gray-900/50 border border-gray-800 rounded-xl px-6 py-4 hover:border-indigo-500/50 transition-colors text-left">
+                <span class="font-semibold text-lg">ChaseFlow</span>
+                <p class="text-gray-400 text-sm mt-1">Automated invoice follow-ups for small businesses</p>
+            </a>
+            <a href="/closeflow/" class="block bg-gray-900/50 border border-gray-800 rounded-xl px-6 py-4 hover:border-emerald-500/50 transition-colors text-left">
+                <span class="font-semibold text-lg">CloseFlow</span>
+                <p class="text-gray-400 text-sm mt-1">Month-end close without the chaos</p>
+            </a>
+            <a href="/scopeguard/" class="block bg-gray-900/50 border border-gray-800 rounded-xl px-6 py-4 hover:border-amber-500/50 transition-colors text-left">
+                <span class="font-semibold text-lg">ScopeGuard</span>
+                <p class="text-gray-400 text-sm mt-1">Stop losing money to scope creep</p>
+            </a>
+        </div>
     </div>
-    <script>
-        const projects = [
-            { slug: 'chaseflow', name: 'ChaseFlow', desc: 'Automated invoice follow-ups for small businesses', color: 'indigo' },
-            { slug: 'closeflow', name: 'CloseFlow', desc: 'Month-end close without the chaos', color: 'emerald' },
-        ];
-        const el = document.getElementById('projects');
-        projects.forEach(p => {
-            el.innerHTML += `<a href="/${p.slug}/" class="block bg-gray-900/50 border border-gray-800 rounded-xl px-6 py-4 hover:border-${p.color}-500/50 transition-colors text-left"><span class="font-semibold text-lg">${p.name}</span><p class="text-gray-400 text-sm mt-1">${p.desc}</p></a>`;
-        });
-    </script>
 </body>
 </html>
