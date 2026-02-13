@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradeFlow — AI-Powered Grading Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow {
+            box-shadow: 0 0 60px rgba(16, 185, 129, 0.15);
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.2);
+        }
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur-xl border-b border-gray-800/50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold">GradeFlow</span>
+            </div>
+            <a href="#waitlist" class="bg-emerald-500 hover:bg-emerald-400 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors">
+                Get Early Access
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5 mb-8">
+                <span class="pulse-dot w-2 h-2 bg-emerald-400 rounded-full"></span>
+                <span class="text-emerald-300 text-sm font-medium">Coming Soon</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-800 leading-tight mb-6">
+                Grade smarter.<br>
+                <span class="gradient-text">Teach more.</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                You became a teacher to inspire students — not to spend every weekend buried in essays. GradeFlow uses AI to grade against your rubric and generate meaningful feedback in minutes, not hours.
+            </p>
+            <a href="#waitlist" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-colors">
+                Join the Waitlist
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Pain Section -->
+    <section class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Sound familiar?</h2>
+                <p class="text-gray-400 text-lg">Teachers everywhere are drowning in the same grading trap.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 card-hover transition-all">
+                    <div class="text-3xl mb-4">😩</div>
+                    <h3 class="text-lg font-semibold mb-2">"There goes my weekend"</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">5-15+ hours every week grading essays. Evenings, weekends, holidays — there's always another stack waiting. Burnout isn't a risk, it's a certainty.</p>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 card-hover transition-all">
+                    <div class="text-3xl mb-4">✅</div>
+                    <h3 class="text-lg font-semibold mb-2">"Check. Check. Check."</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">By essay #30, you're just grading for completion. The feedback gets thinner, the comments more generic. Students deserve better — but you're running on fumes.</p>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 card-hover transition-all">
+                    <div class="text-3xl mb-4">📝</div>
+                    <h3 class="text-lg font-semibold mb-2">"I want to give real feedback"</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">You know personalized feedback changes outcomes. But with 120+ students, meaningful comments on every paper is physically impossible.</p>
+                </div>
+            </div>
+            <div class="mt-10 space-y-4">
+                <div class="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-8 text-center">
+                    <p class="text-gray-300 italic text-lg">"Feedback is the biggest time suck. I spend more time grading than planning lessons."</p>
+                    <p class="text-gray-500 text-sm mt-3">— r/Teachers</p>
+                </div>
+                <div class="bg-gray-900/30 border border-gray-800/50 rounded-2xl p-8 text-center">
+                    <p class="text-gray-300 italic text-lg">"How do I give meaningful feedback without spending copious hours on every assignment?"</p>
+                    <p class="text-gray-500 text-sm mt-3">— r/teaching</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Your rubric. AI's speed.</h2>
+                <p class="text-gray-400 text-lg">GradeFlow grades the way you would — just 100x faster.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Rubric-Aligned Grading</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Upload your rubric once. GradeFlow scores every submission against your exact criteria — consistency you can't achieve at 11pm on a Sunday.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Personalized Feedback</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Every student gets specific, actionable comments — not "good job" or "needs work." The kind of feedback that actually improves writing.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Batch Processing</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Drop an entire class worth of submissions. GradeFlow processes them all at once — 30 essays graded in the time it takes to make coffee.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Export to LMS</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">One-click export to Google Classroom, Canvas, or Schoology. Grades and feedback land right where students expect them.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Review & Override</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">You're always in control. Review AI grades, tweak feedback, override scores. It's your assistant, not your replacement.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Class-Wide Insights</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">See patterns across your class — common weaknesses, rubric areas where students struggle. Data that actually informs your teaching.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">How it works</h2>
+                <p class="text-gray-400 text-lg">Three steps. Get your weekends back.</p>
+            </div>
+            <div class="space-y-8">
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-xl font-bold">1</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Upload your rubric</h3>
+                        <p class="text-gray-400">Paste or upload your grading criteria. GradeFlow learns exactly how you evaluate student work.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-xl font-bold">2</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Drop in submissions</h3>
+                        <p class="text-gray-400">Upload essays individually or batch an entire class. PDFs, Google Docs, plain text — all supported.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-xl font-bold">3</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Review and export</h3>
+                        <p class="text-gray-400">Get grades and personalized feedback in minutes. Review, tweak if needed, and export directly to your LMS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section id="waitlist" class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-xl mx-auto text-center">
+            <div class="glow bg-gray-900/50 border border-gray-800 rounded-3xl p-10">
+                <h2 class="text-3xl font-bold mb-3">Get early access</h2>
+                <p class="text-gray-400 mb-8">Be the first to know when GradeFlow launches. No spam, just one email when we're ready.</p>
+                <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" id="email" placeholder="you@school.edu" required class="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-5 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                    <button type="submit" class="bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-3.5 rounded-xl font-semibold transition-colors whitespace-nowrap">Join Waitlist</button>
+                </form>
+                <p id="success-msg" class="hidden mt-4 text-emerald-300 font-medium">You're on the list! We'll be in touch.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-6 border-t border-gray-800/50">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-emerald-500 rounded-md flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <span class="font-semibold">GradeFlow</span>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2026 GradeFlow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            console.log('Waitlist signup:', email);
+            this.style.display = 'none';
+            document.getElementById('success-msg').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
