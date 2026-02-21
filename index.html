@@ -7,7 +7,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        .light body, body.light { background-color: #f8fafc !important; color: #1e293b !important; }
+        html.light body { background-color: #f8fafc !important; color: #1e293b !important; }
+        html.light .text-gray-400 { color: #64748b !important; }
+        html.light .bg-gray-900\/50 { background-color: rgba(241, 245, 249, 0.8) !important; }
+        html.light .border-gray-800 { border-color: #e2e8f0 !important; }
+        html.light .font-semibold { color: #0f172a !important; }
+        #theme-toggle { position: fixed; top: 16px; right: 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 6px 10px; cursor: pointer; font-size: 18px; z-index: 50; transition: background 0.3s; }
+        html.light #theme-toggle { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.15); }
     </style>
 </head>
 <body class="bg-gray-950 text-gray-100 min-h-screen flex items-center justify-center">
@@ -73,5 +81,19 @@
             </a>
         </div>
     </div>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode" onclick="toggleTheme()">🌙</button>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isLight = html.classList.toggle('light');
+            document.getElementById('theme-toggle').textContent = isLight ? '☀️' : '🌙';
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        }
+        // Restore saved preference
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light');
+            document.getElementById('theme-toggle').textContent = '☀️';
+        }
+    </script>
 </body>
 </html>
