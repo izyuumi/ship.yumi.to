@@ -73,5 +73,24 @@
             </a>
         </div>
     </div>
+    <script>
+        // Keyboard navigation: arrow keys to move between project cards
+        document.addEventListener('keydown', (e) => {
+            const cards = Array.from(document.querySelectorAll('#projects > a')).filter(c => c.style.display !== 'none');
+            if (!cards.length) return;
+            const active = document.activeElement;
+            const idx = cards.indexOf(active);
+            const cols = window.innerWidth >= 640 ? 2 : 1;
+            let next = -1;
+            if (e.key === 'ArrowDown') next = Math.min(idx + cols, cards.length - 1);
+            else if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+            else if (e.key === 'ArrowRight') next = Math.min(idx + 1, cards.length - 1);
+            else if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+            else return;
+            if (idx === -1) next = 0;
+            e.preventDefault();
+            cards[next].focus();
+        });
+    </script>
 </body>
 </html>
