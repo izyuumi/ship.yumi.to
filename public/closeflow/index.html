@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloseFlow — Month-End Close Without the Chaos</title>
+    <meta name="description" content="Your team shouldn't spend 10 days copy-pasting between spreadsheets every month. CloseFlow automates reconciliation, tracks progress, and cuts your close time in half.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ship.yumi.to/closeflow/">
+    <meta property="og:title" content="CloseFlow — Month-End Close Without the Chaos">
+    <meta property="og:description" content="Your team shouldn't spend 10 days copy-pasting between spreadsheets every month. CloseFlow automates reconciliation, tracks progress, and cuts your close time in half.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CloseFlow — Month-End Close Without the Chaos">
+    <meta name="twitter:description" content="Your team shouldn't spend 10 days copy-pasting between spreadsheets every month. CloseFlow automates reconciliation, tracks progress, and cuts your close time in half.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow { box-shadow: 0 0 60px rgba(16, 185, 129, 0.15); }
+        .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.2); }
+        .pulse-dot { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur-xl border-b border-gray-800/50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold">CloseFlow</span>
+            </div>
+            <a href="#waitlist" class="bg-emerald-500 hover:bg-emerald-400 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors">
+                Get Early Access
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5 mb-8">
+                <span class="pulse-dot w-2 h-2 bg-emerald-400 rounded-full"></span>
+                <span class="text-emerald-300 text-sm font-medium">Coming Soon</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-800 leading-tight mb-6">
+                Month-end close.<br>
+                <span class="gradient-text">Without the chaos.</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Your team shouldn't spend 10 days copy-pasting between spreadsheets every month. CloseFlow automates reconciliation, tracks progress, and cuts your close time in half.
+            </p>
+            <a href="#waitlist" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-colors">
+                Join the Waitlist
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Pain Section -->
+    <section class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Every month, the same nightmare</h2>
+                <p class="text-gray-400 text-lg">If this is your month-end, you're not alone.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 card-hover transition-all">
+                    <div class="text-3xl mb-4">📋</div>
+                    <h3 class="text-lg font-semibold mb-2">"Export, paste, repeat"</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Bank exports into Excel. Credit card statements into another tab. GL entries into yet another. Hours of copy-paste just to get data in one place.</p>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 card-hover transition-all">
+                    <div class="text-3xl mb-4">🔍</div>
+                    <h3 class="text-lg font-semibold mb-2">"Where's the $47.23 difference?"</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">You're 6 hours into reconciliation, staring at a rounding error that could be anywhere across 400 transactions. This is your life now.</p>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 card-hover transition-all">
+                    <div class="text-3xl mb-4">🗓️</div>
+                    <h3 class="text-lg font-semibold mb-2">"It's the 12th and we're still closing"</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Management wants numbers by the 5th. You're still chasing approvals and fixing other people's mistakes on the 12th. Every. Single. Month.</p>
+                </div>
+            </div>
+            <div class="mt-10 bg-gray-900/30 border border-gray-800/50 rounded-2xl p-8 text-center">
+                <p class="text-gray-300 italic text-lg">"80% of month-end close is cleaning up other people's mistakes."</p>
+                <p class="text-gray-500 text-sm mt-3">— r/Accounting</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Close faster. Stress less.</h2>
+                <p class="text-gray-400 text-lg">CloseFlow replaces spreadsheet chaos with a system that actually works.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Auto-Import & Match</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Connect your bank feeds, credit cards, and accounting software. Transactions auto-match to GL entries — no more copy-paste marathons.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Smart Reconciliation</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">AI-powered matching that learns your patterns. Only exceptions need your attention — the rest just works.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Close Checklist</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Templated tasks with assignments, due dates, and live status. Everyone knows what's done and what's blocking — no more email chains.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">One-Click Reports</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Auto-generate trial balance, variance analysis, and management reports. Stop rebuilding the same spreadsheet every month.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Document Hub</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Drag-and-drop supporting docs, auto-linked to the right accounts. Everything auditors need, right where they'd look for it.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">Built for SMBs</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Enterprise tools cost $30K+/year. CloseFlow gives you the same power at a fraction of the cost. Set up in hours, not months.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">How it works</h2>
+                <p class="text-gray-400 text-lg">Connect. Template. Close.</p>
+            </div>
+            <div class="space-y-8">
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-xl font-bold">1</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Connect your accounts</h3>
+                        <p class="text-gray-400">Link your bank, credit cards, and accounting software (QuickBooks, Xero, NetSuite). Data flows in automatically.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-xl font-bold">2</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Build your close template</h3>
+                        <p class="text-gray-400">Define your close checklist once — tasks, owners, dependencies. Reuse it every month with one click.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-xl font-bold">3</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Close in days, not weeks</h3>
+                        <p class="text-gray-400">Auto-reconciliation handles the grunt work. You review exceptions, approve, and generate reports. Done.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section id="waitlist" class="py-20 px-6 border-t border-gray-800/50">
+        <div class="max-w-xl mx-auto text-center">
+            <div class="glow bg-gray-900/50 border border-gray-800 rounded-3xl p-10">
+                <h2 class="text-3xl font-bold mb-3">Get early access</h2>
+                <p class="text-gray-400 mb-8">Be the first to know when CloseFlow launches. No spam — just one email when we're ready.</p>
+                <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" id="email" placeholder="you@company.com" required
+                        class="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-5 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                    <button type="submit"
+                        class="bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-3.5 rounded-xl font-semibold transition-colors whitespace-nowrap">
+                        Join Waitlist
+                    </button>
+                </form>
+                <p id="success-msg" class="hidden mt-4 text-emerald-300 font-medium">You're on the list! We'll be in touch.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-6 border-t border-gray-800/50">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-emerald-500 rounded-md flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                </div>
+                <span class="font-semibold">CloseFlow</span>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2026 CloseFlow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const btn = this.querySelector('button[type="submit"]');
+            if (!email) return;
+
+            btn.disabled = true;
+            const originalText = btn.textContent;
+            btn.textContent = 'Joining...';
+
+            try {
+                const res = await fetch('/api/waitlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, project: 'closeflow' }),
+                });
+                if (!res.ok) throw new Error('failed');
+                this.style.display = 'none';
+                document.getElementById('success-msg').classList.remove('hidden');
+            } catch {
+                btn.disabled = false;
+                btn.textContent = originalText;
+                const msg = document.getElementById('success-msg');
+                msg.classList.remove('hidden');
+                msg.style.color = '#f87171';
+                msg.textContent = 'Something went wrong. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>

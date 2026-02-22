@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShiftLog — Stop Losing Info Between Shifts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#eefff7',
+              100: '#d7ffee',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { background-color: #0a0f1e; }
+    .glow-green { box-shadow: 0 0 40px rgba(16,185,129,0.2); }
+    .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(16,185,129,0.12); }
+    .gradient-text {
+      background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .noise-bg {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    .delay-100 { animation-delay: 0.1s; opacity: 0; }
+    .delay-200 { animation-delay: 0.2s; opacity: 0; }
+    .delay-300 { animation-delay: 0.3s; opacity: 0; }
+    .delay-400 { animation-delay: 0.4s; opacity: 0; }
+    .delay-500 { animation-delay: 0.5s; opacity: 0; }
+  </style>
+</head>
+<body class="font-sans text-gray-100 antialiased noise-bg">
+
+  <!-- Nav -->
+  <nav class="border-b border-white/5 backdrop-blur-sm sticky top-0 z-50" style="background:rgba(10,15,30,0.9)">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        </div>
+        <span class="font-bold text-lg tracking-tight text-white">ShiftLog</span>
+      </div>
+      <a href="#signup" class="bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-24 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full opacity-10" 
+           style="background: radial-gradient(circle, #10b981 0%, transparent 70%)"></div>
+    </div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5 text-emerald-400 text-sm font-medium mb-8 animate-fade-in-up">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Built for shift-based businesses
+      </div>
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-black leading-tight tracking-tighter mb-6 animate-fade-in-up delay-100">
+        The info died <br/>
+        <span class="gradient-text">between shifts.</span><br/>
+        <span class="text-gray-300">Again.</span>
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up delay-200">
+        Morning crew solves a problem. Doesn't tell afternoon crew. Afternoon crew makes the same mistake. 
+        Evening crew has no idea any of it happened. <strong class="text-gray-200">ShiftLog ends that loop.</strong>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+        <a href="#signup" class="bg-emerald-500 hover:bg-emerald-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all glow-green hover:scale-105">
+          Get Early Access — Free
+        </a>
+        <a href="#how-it-works" class="border border-white/10 hover:border-white/20 text-gray-300 hover:text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors">
+          See How It Works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Section -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Sound familiar?</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">Every shift-based business owner has heard these exact words.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Quote 1 -->
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">💬</div>
+          <p class="text-gray-300 text-base leading-relaxed italic mb-4">
+            "The communication black hole between shifts is the hardest part of running this place. Not customers, not inventory — <strong class="text-white">the shift gap</strong>."
+          </p>
+          <p class="text-emerald-500 text-sm font-medium">— Retail owner, 25 employees, 3 shifts</p>
+        </div>
+        <!-- Quote 2 -->
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">🤦</div>
+          <p class="text-gray-300 text-base leading-relaxed italic mb-4">
+            "WhatsApp groups turned into a nightmare of work stuff, personal chatter, and memes. Nobody checks them for actual important info anymore."
+          </p>
+          <p class="text-emerald-500 text-sm font-medium">— Small business owner, r/smallbusiness</p>
+        </div>
+        <!-- Quote 3 -->
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">😤</div>
+          <p class="text-gray-300 text-base leading-relaxed italic mb-4">
+            "<strong class="text-white">'I never saw that message'</strong> became so common it might as well have been our unofficial company motto."
+          </p>
+          <p class="text-emerald-500 text-sm font-medium">— 3-location shop owner, r/smallbusiness</p>
+        </div>
+      </div>
+
+      <!-- Attempted solutions -->
+      <div class="mt-12 bg-red-950/20 border border-red-500/20 rounded-2xl p-8">
+        <h3 class="text-xl font-bold text-white mb-6 text-center">What you've already tried (and why it failed)</h3>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="flex items-start gap-3">
+            <span class="text-red-400 text-lg">✗</span>
+            <div>
+              <p class="font-semibold text-white">WhatsApp / Group Texts</p>
+              <p class="text-gray-400 text-sm">Gets muted. Work drowns in memes. Zero accountability.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-red-400 text-lg">✗</span>
+            <div>
+              <p class="font-semibold text-white">Paper Log in the Break Room</p>
+              <p class="text-gray-400 text-sm">Requires being physically there. Gets lost. Not searchable.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-red-400 text-lg">✗</span>
+            <div>
+              <p class="font-semibold text-white">Slack / Microsoft Teams</p>
+              <p class="text-gray-400 text-sm">Overkill for hourly workers. Nobody's checking channels.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-red-400 text-lg">✗</span>
+            <div>
+              <p class="font-semibold text-white">Posted Schedules / Printed Notices</p>
+              <p class="text-gray-400 text-sm">Disappear. No way to know who actually saw them.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-red-400 text-lg">✗</span>
+            <div>
+              <p class="font-semibold text-white">Scheduling Apps (Deputy, 7shifts)</p>
+              <p class="text-gray-400 text-sm">Built for scheduling — not daily shift-to-shift notes.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-red-400 text-lg">✗</span>
+            <div>
+              <p class="font-semibold text-white">Email</p>
+              <p class="text-gray-400 text-sm">Nobody checks email on the floor. Way too slow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-20 px-6" style="background: rgba(255,255,255,0.01)">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">How ShiftLog works</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">Three simple steps. Works on any phone. No training required.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="bg-gradient-to-br from-emerald-500/10 to-teal-500/5 border border-emerald-500/20 rounded-2xl p-7 h-full card-hover">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg>
+            </div>
+            <div class="text-emerald-500 text-xs font-bold uppercase tracking-widest mb-2">Step 1</div>
+            <h3 class="text-xl font-bold text-white mb-3">Outgoing shift logs the handoff</h3>
+            <p class="text-gray-400 leading-relaxed">Before clocking out, staff fills a short structured form: what got done, what's still pending, any issues to flag, and urgent alerts. Takes 2 minutes.</p>
+          </div>
+          <div class="hidden md:block absolute -right-4 top-1/2 -translate-y-1/2 z-10">
+            <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="bg-gradient-to-br from-emerald-500/10 to-teal-500/5 border border-emerald-500/20 rounded-2xl p-7 h-full card-hover">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </div>
+            <div class="text-emerald-500 text-xs font-bold uppercase tracking-widest mb-2">Step 2</div>
+            <h3 class="text-xl font-bold text-white mb-3">Incoming shift gets notified</h3>
+            <p class="text-gray-400 leading-relaxed">The next crew receives an automatic push notification with the handoff summary. Urgent flags appear in red at the top so nothing critical gets buried.</p>
+          </div>
+          <div class="hidden md:block absolute -right-4 top-1/2 -translate-y-1/2 z-10">
+            <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div>
+          <div class="bg-gradient-to-br from-emerald-500/10 to-teal-500/5 border border-emerald-500/20 rounded-2xl p-7 h-full card-hover">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="text-emerald-500 text-xs font-bold uppercase tracking-widest mb-2">Step 3</div>
+            <h3 class="text-xl font-bold text-white mb-3">Required acknowledgment — no excuses</h3>
+            <p class="text-gray-400 leading-relaxed">Incoming staff must tap "Got it" to confirm they've read the handoff. Manager dashboard shows who has and hasn't acknowledged. "I didn't know" is now impossible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Everything your shifts need to connect</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">ShiftLog is purpose-built for one thing: seamless knowledge transfer between shifts.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Feature cards -->
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">📋</div>
+          <h3 class="text-lg font-bold text-white mb-2">Structured Handoff Templates</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Pre-built sections so staff always captures what matters: open tasks, customer alerts, equipment issues, and manager notes.</p>
+        </div>
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">🚨</div>
+          <h3 class="text-lg font-bold text-white mb-2">Urgent Flags</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Mark anything critical and it automatically rises to the top of the incoming shift's screen. Can't miss it, can't skip past it.</p>
+        </div>
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">✅</div>
+          <h3 class="text-lg font-bold text-white mb-2">Read Receipts + Acknowledgment</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Every handoff must be acknowledged. You'll know exactly who read the notes and when. "I didn't know" is a thing of the past.</p>
+        </div>
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">📊</div>
+          <h3 class="text-lg font-bold text-white mb-2">Manager Dashboard</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">One view of all your locations and shifts. See pending acknowledgments, recurring issues, and staff activity at a glance.</p>
+        </div>
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">🔍</div>
+          <h3 class="text-lg font-bold text-white mb-2">Searchable 90-Day Log</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">"What happened last Thursday?" Search the full shift log in seconds. Perfect for investigating recurring problems or customer complaints.</p>
+        </div>
+        <div class="bg-white/3 border border-white/8 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">📱</div>
+          <h3 class="text-lg font-bold text-white mb-2">Works on Any Phone</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">No app download required. Works in any mobile browser. If your staff can open a text, they can use ShiftLog in under 30 seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="py-16 px-6" style="background: rgba(255,255,255,0.01)">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-extrabold text-white mb-3">ShiftLog is for you if…</h2>
+      <p class="text-gray-400 mb-10">You run a team that operates in shifts and information keeps falling through the cracks.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {['🏪 Retail Stores', '🍽️ Restaurants & Cafes', '💈 Salons & Spas', '🔧 HVAC & Plumbing', '🏨 Hotels & Hospitality', '🚗 Auto Repair Shops', '💊 Pharmacies', '🏋️ Gyms & Studios', '🏗️ Construction Sites', '🏥 Urgent Care Clinics'].map(tag => `
+        <span class="bg-white/5 border border-white/10 text-gray-300 rounded-full px-4 py-2 text-sm font-medium">${tag}</span>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+  <script>
+    // Render the tags array since template literals don't work in HTML attributes
+    document.addEventListener('DOMContentLoaded', function() {
+      const tags = ['🏪 Retail Stores', '🍽️ Restaurants & Cafes', '💈 Salons & Spas', '🔧 HVAC & Plumbing', '🏨 Hotels & Hospitality', '🚗 Auto Repair Shops', '💊 Pharmacies', '🏋️ Gyms & Studios', '🏗️ Construction Sites', '🏥 Urgent Care Clinics'];
+      const container = document.querySelector('.flex.flex-wrap.justify-center.gap-3');
+      if (container) {
+        container.innerHTML = tags.map(tag => `<span class="bg-white/5 border border-white/10 text-gray-300 rounded-full px-4 py-2 text-sm font-medium">${tag}</span>`).join('');
+      }
+    });
+  </script>
+
+  <!-- Before / After -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Life before and after ShiftLog</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-red-950/20 border border-red-500/20 rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-red-400 mb-6 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+            Before ShiftLog
+          </h3>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">•</span> Afternoon crew makes the same mistake morning crew already fixed</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">•</span> Policy update buried in a WhatsApp thread nobody reads</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">•</span> "I never saw that message" becomes a daily occurrence</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">•</span> Paper log gets thrown away, soaked, or simply ignored</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">•</span> Customer complaint investigated with zero record of what happened</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">•</span> Equipment problem mentioned verbally, never written down, breaks during peak hours</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-950/20 border border-emerald-500/20 rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-emerald-400 mb-6 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            After ShiftLog
+          </h3>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Every incoming crew reads the handoff before they touch anything</li>
+            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Urgent issues are flagged in red and impossible to miss</li>
+            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Manager sees at a glance who acknowledged — no more excuses</li>
+            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Searchable 90-day log for any investigation or audit</li>
+            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Equipment issue logged, flagged, and resolved before it escalates</li>
+            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Entire team aligned — regardless of when they show up</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Signup -->
+  <section id="signup" class="py-24 px-6">
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-gradient-to-br from-emerald-950/60 to-teal-950/40 border border-emerald-500/30 rounded-3xl p-10 text-center glow-green">
+        <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+          </svg>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          End the shift gap.<br/>
+          <span class="gradient-text">Join the early access list.</span>
+        </h2>
+        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+          Be first to try ShiftLog free. We're building with a small group of owners. Your feedback shapes what we build.
+        </p>
+
+        <form id="signup-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            id="email-input"
+            placeholder="your@email.com"
+            required
+            class="flex-1 bg-white/8 border border-white/15 rounded-xl px-5 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-base"
+          />
+          <button
+            type="submit"
+            class="bg-emerald-500 hover:bg-emerald-400 text-white font-bold px-6 py-3.5 rounded-xl text-base transition-all hover:scale-105 whitespace-nowrap"
+          >
+            Get Early Access
+          </button>
+        </form>
+
+        <div id="success-message" class="hidden mt-6 bg-emerald-500/20 border border-emerald-500/40 rounded-xl p-4">
+          <div class="flex items-center gap-3 justify-center">
+            <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <p class="text-emerald-300 font-semibold">You're on the list! We'll be in touch soon.</p>
+          </div>
+        </div>
+
+        <p class="text-gray-500 text-sm mt-4">No spam. No pressure. Cancel anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-8 px-6 text-center text-gray-600 text-sm">
+    <div class="flex items-center gap-2 justify-center mb-2">
+      <div class="w-6 h-6 rounded-md bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        </svg>
+      </div>
+      <span class="font-bold text-gray-400">ShiftLog</span>
+    </div>
+    <p>© 2026 ShiftLog. Built for the people who keep businesses running at 2am.</p>
+  </footer>
+
+  <script>
+        document.getElementById('signup-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value.trim();
+            const btn = this.querySelector('button[type="submit"]');
+            if (!email) return;
+
+            btn.disabled = true;
+            const originalText = btn.textContent;
+            btn.textContent = 'Joining...';
+
+            try {
+                const res = await fetch('/api/waitlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, project: 'shiftlog' }),
+                });
+                if (!res.ok) throw new Error('Request failed');
+                document.getElementById('signup-form').classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+            } catch {
+                btn.disabled = false;
+                btn.textContent = originalText;
+                const msg = document.getElementById('success-message');
+                msg.textContent = 'Something went wrong. Please try again.';
+                msg.classList.remove('hidden');
+                msg.style.color = '#f87171';
+            }
+        });
+    </script>
+
+</body>
+</html>
