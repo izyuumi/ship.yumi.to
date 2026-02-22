@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.ship.yumi.to;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CureTrack — HOA Violation Management for Volunteer Boards</title>
     <meta name="description" content="You volunteered to serve on the board — not to spend 20 hours a month wrestling with Excel, certified mail, and missed deadlines. CureTrack handles violation management so you can focus on your community.">
@@ -166,12 +166,31 @@
     </footer>
 
     <script>
-        document.getElementById('signup-form').addEventListener('submit', function(e) {
+        document.getElementById('signup-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const email = document.getElementById('email-input').value;
-            if (email) {
+            const email = document.getElementById('email-input').value.trim();
+            const btn = this.querySelector('button[type="submit"]');
+            if (!email) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Joining...';
+
+            try {
+                const res = await fetch('https://api.ship.yumi.to/api/waitlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, project: 'curetrack' }),
+                });
+                if (!res.ok) throw new Error('Request failed');
                 document.getElementById('signup-form').classList.add('hidden');
                 document.getElementById('success-msg').classList.remove('hidden');
+            } catch {
+                btn.disabled = false;
+                btn.textContent = 'Join Waitlist';
+                document.getElementById('success-msg').textContent = 'Something went wrong. Please try again.';
+                document.getElementById('success-msg').classList.remove('hidden');
+                document.getElementById('success-msg').classList.remove('text-green-400');
+                document.getElementById('success-msg').classList.add('text-red-400');
             }
         });
     </script>
