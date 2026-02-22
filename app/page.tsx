@@ -1,3 +1,5 @@
+"use client";
+
 const projects = [
   { slug: "chaseflow", name: "ChaseFlow", desc: "Automated invoice follow-ups for small businesses", color: "indigo" },
   { slug: "closeflow", name: "CloseFlow", desc: "Month-end close without the chaos", color: "purple" },

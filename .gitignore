@@ -40,6 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Convex generated files
-convex/_generated/
+# Convex generated files are committed intentionally
+# convex/_generated/ -- DO NOT gitignore, needed for Vercel build
 .env.local
