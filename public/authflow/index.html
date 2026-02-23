@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuthFlow — AI Prior Authorization Assistant for Small Medical Practices</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f9ff',
+              100: '#e0f2fe',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { background-color: #030712; }
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(14,165,233,0.15), transparent);
+    }
+    .card-border {
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(15,23,42,0.6);
+    }
+    .stat-glow {
+      box-shadow: 0 0 30px rgba(14,165,233,0.1);
+    }
+    .step-line::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      width: 2px;
+      height: calc(100% - 16px);
+      background: linear-gradient(to bottom, rgba(14,165,233,0.4), transparent);
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-100 antialiased">
+
+  <!-- Hero -->
+  <div class="hero-glow min-h-screen flex flex-col">
+    <nav class="max-w-6xl mx-auto w-full px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <span class="text-lg font-bold text-white">AuthFlow</span>
+      </div>
+      <a href="#signup" class="text-sm font-medium text-brand-400 hover:text-brand-300 transition-colors">
+        Get early access →
+      </a>
+    </nav>
+
+    <div class="flex-1 flex flex-col items-center justify-center px-6 py-20 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-medium mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+        Built for small specialty practices
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-white leading-tight max-w-4xl mb-6">
+        Stop losing <span class="gradient-text">hours every week</span><br/>
+        to prior authorizations
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">
+        AuthFlow reads your clinical notes, drafts PA requests matched to each payer's exact requirements, tracks every open case, and writes your appeal letters — automatically.
+      </p>
+
+      <a href="#signup" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-base transition-all hover:scale-105 shadow-lg shadow-brand-500/20">
+        Join the waitlist
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+
+      <p class="text-gray-500 text-sm mt-4">No credit card. No commitment. Early access only.</p>
+    </div>
+  </div>
+
+  <!-- Pain Section -->
+  <section class="max-w-5xl mx-auto px-6 py-24">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+        Your front desk isn't failing. The process is.
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Every specialty practice knows the drill. Prior authorizations are a full-time job buried inside everyone else's job.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Pain card 1 -->
+      <div class="card-border rounded-2xl p-6">
+        <div class="text-3xl mb-3">📞</div>
+        <h3 class="font-semibold text-white mb-2">Hours on hold, every day</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Each PA takes 2–3 hours of staff time: hunting for the right form, calling the payer, waiting on hold, faxing, calling again.
+        </p>
+      </div>
+
+      <!-- Pain card 2 -->
+      <div class="card-border rounded-2xl p-6">
+        <div class="text-3xl mb-3">🗓️</div>
+        <h3 class="font-semibold text-white mb-2">Missed deadlines, cancelled procedures</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          One missed PA expiration means a cancelled appointment, a frustrated patient, and a reschedule that might not happen for weeks.
+        </p>
+      </div>
+
+      <!-- Pain card 3 -->
+      <div class="card-border rounded-2xl p-6">
+        <div class="text-3xl mb-3">📋</div>
+        <h3 class="font-semibold text-white mb-2">Every payer plays by different rules</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Aetna, BCBS, United, Cigna — different forms, different portals, different criteria. Your staff has to memorize all of it, or make expensive mistakes.
+        </p>
+      </div>
+
+      <!-- Pain card 4 -->
+      <div class="card-border rounded-2xl p-6">
+        <div class="text-3xl mb-3">❌</div>
+        <h3 class="font-semibold text-white mb-2">30% of PAs denied on first try</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Denials require pulling clinical records, writing justification letters, re-submitting — another 1–2 hours per case, just to get back to square one.
+        </p>
+      </div>
+
+      <!-- Pain card 5 -->
+      <div class="card-border rounded-2xl p-6">
+        <div class="text-3xl mb-3">💸</div>
+        <h3 class="font-semibold text-white mb-2">$50K/yr to hire another front desk person</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          With salary, benefits, and payroll taxes, a second FTE costs $50,000+ per year — and they'll spend half their time on prior auths anyway.
+        </p>
+      </div>
+
+      <!-- Pain card 6 -->
+      <div class="card-border rounded-2xl p-6">
+        <div class="text-3xl mb-3">😔</div>
+        <h3 class="font-semibold text-white mb-2">Good staff burning out fast</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          PA coordinators spend their days on hold, doing repetitive data entry, and getting blamed when things slip. Turnover is high. Institutional knowledge walks out the door.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="bg-gray-900/50 border-y border-gray-800">
+    <div class="max-w-5xl mx-auto px-6 py-12 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-3xl font-extrabold gradient-text">2–3 hrs</p>
+        <p class="text-gray-400 text-sm mt-1">per PA case manually</p>
+      </div>
+      <div>
+        <p class="text-3xl font-extrabold gradient-text">30%</p>
+        <p class="text-gray-400 text-sm mt-1">denied on first submission</p>
+      </div>
+      <div>
+        <p class="text-3xl font-extrabold gradient-text">$50K+</p>
+        <p class="text-gray-400 text-sm mt-1">annual cost of one PA coordinator</p>
+      </div>
+      <div>
+        <p class="text-3xl font-extrabold gradient-text">15–30</p>
+        <p class="text-gray-400 text-sm mt-1">open PAs per busy practice</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="max-w-5xl mx-auto px-6 py-24">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+        AuthFlow handles the paperwork.<br/>
+        <span class="gradient-text">Your staff handles the patients.</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Drop in a clinical note. AuthFlow does the rest — draft, submit, track, appeal.
+      </p>
+    </div>
+
+    <!-- How it works: Steps -->
+    <div class="grid sm:grid-cols-2 gap-10 mb-20">
+      <div class="space-y-8">
+        <!-- Step 1 -->
+        <div class="relative flex gap-4 step-line">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500/20 border border-brand-500/40 flex items-center justify-center text-brand-400 font-bold text-sm z-10">1</div>
+          <div class="pt-1">
+            <h3 class="font-semibold text-white text-lg mb-1">Upload the clinical note</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Paste or upload notes from your EMR. AuthFlow reads them and extracts the diagnosis codes, procedure codes, clinical rationale, and supporting documentation needed for the PA.</p>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="relative flex gap-4 step-line">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500/20 border border-brand-500/40 flex items-center justify-center text-brand-400 font-bold text-sm z-10">2</div>
+          <div class="pt-1">
+            <h3 class="font-semibold text-white text-lg mb-1">AI drafts the PA request</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">AuthFlow matches the case to the specific payer's current medical necessity criteria and fills out the PA form — tailored to Aetna, BCBS, United, Cigna, or whoever the payer is.</p>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="relative flex gap-4 step-line">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500/20 border border-brand-500/40 flex items-center justify-center text-brand-400 font-bold text-sm z-10">3</div>
+          <div class="pt-1">
+            <h3 class="font-semibold text-white text-lg mb-1">Staff reviews &amp; submits in minutes</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Your team reviews the draft, makes any tweaks, and submits. What used to take 2 hours takes 15 minutes — and the submission is cleaner and more complete.</p>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="relative flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500/20 border border-brand-500/40 flex items-center justify-center text-brand-400 font-bold text-sm z-10">4</div>
+          <div class="pt-1">
+            <h3 class="font-semibold text-white text-lg mb-1">AuthFlow tracks & fights denials</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Every PA is tracked in one dashboard. When a denial comes in, AI reads the reason and generates a targeted appeal letter. One click to send. No starting from scratch.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard mockup -->
+      <div class="card-border rounded-2xl p-5 h-fit mt-2 stat-glow">
+        <div class="flex items-center justify-between mb-5">
+          <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">PA Tracker</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/15 text-brand-400">Live</span>
+        </div>
+        <!-- Mock rows -->
+        <div class="space-y-2.5">
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-800/50">
+            <span class="w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-white truncate">Smith, J — Mohs surgery</p>
+              <p class="text-xs text-gray-500">Aetna · Approved · expires 45d</p>
+            </div>
+            <span class="text-xs text-green-400 font-medium flex-shrink-0">✓ Approved</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-800/50">
+            <span class="w-2 h-2 rounded-full bg-yellow-400 flex-shrink-0"></span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-white truncate">Patel, R — Phototherapy</p>
+              <p class="text-xs text-gray-500">BCBS · Pending · submitted 3d ago</p>
+            </div>
+            <span class="text-xs text-yellow-400 font-medium flex-shrink-0">⏳ Pending</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-red-900/20 border border-red-500/20">
+            <span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-white truncate">Garcia, M — Biologic Rx</p>
+              <p class="text-xs text-gray-500">United · Denied — appeal ready</p>
+            </div>
+            <button class="text-xs bg-red-500/20 text-red-400 border border-red-500/30 rounded-md px-2 py-0.5 flex-shrink-0 hover:bg-red-500/30 transition-colors">
+              Appeal →
+            </button>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-800/50">
+            <span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-white truncate">Lee, T — Excision Rx</p>
+              <p class="text-xs text-gray-500">Cigna · Draft ready for review</p>
+            </div>
+            <span class="text-xs text-blue-400 font-medium flex-shrink-0">📝 Review</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-800/50">
+            <span class="w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-white truncate">Kim, S — Intralesional</p>
+              <p class="text-xs text-gray-500">Humana · Approved · expires 12d</p>
+            </div>
+            <span class="text-xs text-green-400 font-medium flex-shrink-0">✓ Approved</span>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-700/50 flex justify-between text-xs text-gray-500">
+          <span>12 open PAs</span>
+          <span>3 expiring soon</span>
+          <span>2 need action</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="card-border rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-brand-500/15 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-white mb-2">Smart PA Drafting</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">AI extracts everything from clinical notes and pre-fills the PA form for any major payer — reducing completion time from 2 hours to 15 minutes.</p>
+      </div>
+
+      <div class="card-border rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-brand-500/15 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-white mb-2">Payer Requirements Database</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Always-current medical necessity criteria for every major payer. No more memorizing Aetna vs. BCBS vs. United rules — AuthFlow knows them all.</p>
+      </div>
+
+      <div class="card-border rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-brand-500/15 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-white mb-2">Deadline Alerts</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Automated reminders when PAs are expiring, follow-up needed, or status hasn't changed in 48 hours. Nothing falls through the cracks.</p>
+      </div>
+
+      <div class="card-border rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-red-500/15 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-white mb-2">One-Click Appeal Generator</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">When a PA is denied, AI reads the denial reason and generates a targeted, evidence-based appeal letter. No more staring at a blank page after a long day.</p>
+      </div>
+
+      <div class="card-border rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-brand-500/15 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-white mb-2">Denial Pattern Analysis</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Over time, AuthFlow learns which payers deny which codes most often and proactively strengthens your submissions to avoid denials before they happen.</p>
+      </div>
+
+      <div class="card-border rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-white mb-2">Works with Your EMR</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Copy-paste notes from any EMR — Epic, Athena, Kareo, Modernizing Medicine, or plain text. No complex integration required to get started.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="bg-gray-900/40 border-y border-gray-800 py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-white mb-3">Built for small specialty practices</h2>
+        <p class="text-gray-400">If you have 1–10 physicians and a front desk that's overwhelmed, AuthFlow is for you.</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3">
+        {["Dermatology", "Orthopedics", "Gastroenterology", "ENT / Otolaryngology", "Ophthalmology", "Cardiology", "Urology", "Neurology", "Rheumatology", "Physical Therapy", "Psychiatry", "Dental / Oral Surgery"].map(specialty => `
+          <span class="px-4 py-2 rounded-full card-border text-sm text-gray-300">${specialty}</span>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof / Quote Section -->
+  <section class="max-w-4xl mx-auto px-6 py-24 text-center">
+    <blockquote class="text-xl sm:text-2xl text-gray-200 italic leading-relaxed mb-6 max-w-3xl mx-auto">
+      "My front desk person is juggling phones, patient intake, appointment scheduling, referral coordination, <strong class="text-white not-italic">and prior authorizations.</strong> She's one person doing a three-person job, and things are slipping: <strong class="text-white not-italic">missed prior auths that delay procedures</strong>, phone calls going to voicemail..."
+    </blockquote>
+    <p class="text-gray-500 text-sm">— Dermatology practice owner, r/smallbusiness (276 people responded)</p>
+  </section>
+
+  <!-- CTA / Signup -->
+  <section id="signup" class="max-w-2xl mx-auto px-6 pb-32 text-center">
+    <div class="card-border rounded-3xl p-10 stat-glow">
+      <h2 class="text-3xl font-bold text-white mb-3">Get early access</h2>
+      <p class="text-gray-400 mb-8 leading-relaxed">
+        We're building AuthFlow for small specialty practices that are tired of the PA treadmill. Join the waitlist and be first to know when we launch.
+      </p>
+
+      <div id="signup-form">
+        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            id="email-input"
+            placeholder="your@practice.com"
+            class="flex-1 px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-sm"
+          />
+          <button
+            onclick="handleSignup()"
+            class="px-6 py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm transition-all hover:scale-105 whitespace-nowrap"
+          >
+            Join waitlist
+          </button>
+        </div>
+        <p class="text-gray-600 text-xs mt-4">No spam. Just a heads-up when AuthFlow is ready.</p>
+      </div>
+
+      <div id="success-message" class="hidden">
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-14 h-14 rounded-full bg-green-500/15 flex items-center justify-center">
+            <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white">You're on the list!</h3>
+          <p class="text-gray-400 text-sm max-w-xs">We'll reach out as soon as AuthFlow is ready for your practice. Thank you for your interest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800 py-8 px-6 text-center text-gray-600 text-sm">
+    <p>© 2026 AuthFlow. Prior authorization automation for small medical practices.</p>
+  </footer>
+
+  <script>
+    // Render specialty badges dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+      const specialties = [
+        "Dermatology", "Orthopedics", "Gastroenterology", "ENT / Otolaryngology",
+        "Ophthalmology", "Cardiology", "Urology", "Neurology",
+        "Rheumatology", "Physical Therapy", "Psychiatry", "Dental / Oral Surgery"
+      ];
+      const container = document.querySelector('.flex.flex-wrap.justify-center.gap-3');
+      if (container) {
+        container.innerHTML = specialties.map(s =>
+          `<span class="px-4 py-2 rounded-full text-sm text-gray-300" style="background:rgba(15,23,42,0.6);border:1px solid rgba(255,255,255,0.07)">${s}</span>`
+        ).join('');
+      }
+    });
+
+    function handleSignup() {
+      const emailInput = document.getElementById('email-input');
+      const email = emailInput.value.trim();
+
+      if (!email || !email.includes('@')) {
+        emailInput.style.borderColor = '#ef4444';
+        emailInput.focus();
+        setTimeout(() => { emailInput.style.borderColor = ''; }, 2000);
+        return;
+      }
+
+      // Show success
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('success-message').classList.remove('hidden');
+
+      // Optional: analytics event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'signup', { event_category: 'waitlist', event_label: 'authflow' });
+      }
+    }
+
+    // Allow Enter key
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('email-input');
+      if (input) {
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') handleSignup();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

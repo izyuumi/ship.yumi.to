@@ -16,6 +16,7 @@ const projects = [
   { slug: "pricebite", name: "PriceBite", desc: "AI invoice scanner that catches vendor price creep for restaurants", color: "orange" },
   { slug: "curetrack", name: "CureTrack", desc: "AI violation management for self-managed HOA boards", color: "blue" },
   { slug: "shiftlog", name: "ShiftLog", desc: "Structured shift handoffs with read receipts", color: "emerald" },
+  { slug: "authflow", name: "AuthFlow", desc: "AI prior authorization automation for small medical practices", color: "cyan" },
 ];
 
 const colorMap: Record<string, string> = {
