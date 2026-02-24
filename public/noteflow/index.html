@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoteFlow — AI Progress Notes for Therapists</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    body { background-color: #030712; }
+    .gradient-text {
+      background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 50%, #6d28d9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glow-purple {
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.15);
+    }
+    .feature-card:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      transform: translateY(-2px);
+      transition: all 0.2s ease;
+    }
+    .feature-card {
+      transition: all 0.2s ease;
+    }
+    .note-preview {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+    .typing-cursor::after {
+      content: '|';
+      animation: blink 1s infinite;
+      color: #a855f7;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    .wave-bg {
+      background: radial-gradient(ellipse at 50% 0%, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
+    }
+  </style>
+</head>
+<body class="text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="border-b border-gray-800/50 sticky top-0 z-50 backdrop-blur-md bg-gray-950/80">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center text-white font-bold text-sm">N</div>
+        <span class="font-semibold text-lg text-white">NoteFlow</span>
+      </div>
+      <a href="#signup" class="bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="wave-bg pt-20 pb-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-purple-950/60 border border-purple-800/50 rounded-full px-4 py-1.5 text-sm text-purple-300 mb-8">
+        <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+        Built for therapists, counselors & social workers
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+        Stop spending your evenings<br />
+        <span class="gradient-text">writing progress notes</span>
+      </h1>
+
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        You became a therapist to help people — not to document them. 
+        NoteFlow turns a 60-second voice summary into a complete, insurance-ready 
+        progress note in your preferred format.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#signup" class="bg-purple-600 hover:bg-purple-500 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors glow-purple">
+          Join the Waitlist — Free
+        </a>
+        <a href="#how-it-works" class="border border-gray-700 hover:border-purple-600/50 text-gray-300 font-semibold px-8 py-4 rounded-xl text-lg transition-colors">
+          See How It Works
+        </a>
+      </div>
+
+      <p class="text-sm text-gray-600 mt-4">No credit card. No spam. Just early access when we launch.</p>
+    </div>
+  </section>
+
+  <!-- Pain section -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-8 md:p-12">
+        <h2 class="text-2xl font-bold text-gray-300 mb-8 text-center">Sound familiar?</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="text-center p-6">
+            <div class="text-4xl font-bold text-purple-400 mb-2">2–3 hrs</div>
+            <div class="text-gray-400 text-sm leading-relaxed">spent every night catching up on notes after seeing clients all day</div>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-4xl font-bold text-purple-400 mb-2">8 sessions</div>
+            <div class="text-gray-400 text-sm leading-relaxed">means 8 separate notes to write — even when you're exhausted</div>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-4xl font-bold text-purple-400 mb-2">$0 billed</div>
+            <div class="text-gray-400 text-sm leading-relaxed">if you fall behind — late notes mean late claims mean late payment</div>
+          </div>
+        </div>
+
+        <div class="mt-8 border-t border-gray-800 pt-8">
+          <p class="text-gray-400 italic text-center max-w-2xl mx-auto">
+            "I'm seeing clients back to back and then spending another 2-3 hours every night just catching up on notes. By the time I'm done, I'm too fried to do anything else."
+          </p>
+          <p class="text-gray-600 text-sm text-center mt-3">— r/socialwork, 2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold mb-4">From session to note in <span class="gradient-text">under 2 minutes</span></h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">No ambient recording. No privacy risks. Just a quick post-session voice summary that NoteFlow turns into a complete clinical note.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Step 1 -->
+        <div class="feature-card bg-gray-900/40 border border-gray-800 rounded-2xl p-8">
+          <div class="w-10 h-10 rounded-xl bg-purple-900/60 border border-purple-700/50 flex items-center justify-center text-purple-400 font-bold text-lg mb-5">1</div>
+          <h3 class="text-lg font-semibold mb-3">60-second voice summary</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">After your session, tap record and briefly describe what happened — client's mood, main topics, interventions used, any homework. No structure required — just talk naturally.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="feature-card bg-gray-900/40 border border-gray-800 rounded-2xl p-8">
+          <div class="w-10 h-10 rounded-xl bg-purple-900/60 border border-purple-700/50 flex items-center justify-center text-purple-400 font-bold text-lg mb-5">2</div>
+          <h3 class="text-lg font-semibold mb-3">AI drafts your note</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">NoteFlow instantly generates a complete progress note in your chosen format — SOAP, DAP, BIRP, or GIRP — using proper clinical language that satisfies insurance medical necessity requirements.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="feature-card bg-gray-900/40 border border-gray-800 rounded-2xl p-8">
+          <div class="w-10 h-10 rounded-xl bg-purple-900/60 border border-purple-700/50 flex items-center justify-center text-purple-400 font-bold text-lg mb-5">3</div>
+          <h3 class="text-lg font-semibold mb-3">Review, edit & export</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Scan the draft, make any tweaks, and sign off. Export directly to SimplePractice, TherapyNotes, or any EHR as a PDF. Done in under 2 minutes — before you even leave the office.</p>
+        </div>
+      </div>
+
+      <!-- Sample note preview -->
+      <div class="mt-12">
+        <p class="text-sm text-gray-500 text-center mb-4 uppercase tracking-wider font-medium">Sample generated note</p>
+        <div class="note-preview rounded-2xl p-8 max-w-2xl mx-auto">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex gap-1.5">
+              <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+            </div>
+            <span class="text-gray-600 text-xs font-mono">progress_note_session_47.pdf</span>
+          </div>
+          <div class="space-y-4 text-sm font-mono">
+            <div>
+              <span class="text-purple-400 font-semibold">SUBJECTIVE:</span>
+              <p class="text-gray-400 mt-1 leading-relaxed">Client presented with moderate anxiety (self-reported 6/10). Reports increased work stress over past week; sleep disrupted 3–4 nights. Denied SI/HI. Mood mildly dysthymic. Reports completing journaling homework 4 of 7 days.</p>
+            </div>
+            <div>
+              <span class="text-purple-400 font-semibold">OBJECTIVE:</span>
+              <p class="text-gray-400 mt-1 leading-relaxed">Client was alert and oriented x3. Speech normal rate and rhythm. Affect congruent to reported mood. No psychomotor agitation observed.</p>
+            </div>
+            <div>
+              <span class="text-purple-400 font-semibold">ASSESSMENT:</span>
+              <p class="text-gray-400 mt-1 leading-relaxed">Client continues to meet criteria for GAD (F41.1). Anxiety symptoms persist but slight improvement in functional coping from prior session. CBT skills showing early adoption.</p>
+            </div>
+            <div>
+              <span class="text-purple-400 font-semibold">PLAN:</span>
+              <p class="text-gray-400 mt-1 leading-relaxed">Continue weekly individual therapy (90837). Practiced cognitive restructuring re: work stress. Assigned thought record worksheet for perceived catastrophizing. Next session in 1 week.</p>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-gray-800 flex items-center justify-between">
+            <span class="text-gray-600 text-xs">Generated in 4.2 seconds</span>
+            <span class="text-purple-500 text-xs font-medium">✓ CPT 90837 auto-detected</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6 bg-gray-900/20">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold mb-4">Built for how you actually work</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">Not another generic AI tool. NoteFlow is purpose-built for mental health documentation.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="feature-card bg-gray-900/50 border border-gray-800 rounded-2xl p-7">
+          <div class="text-2xl mb-4">🔐</div>
+          <h3 class="font-semibold text-lg mb-2">HIPAA-compliant, always</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">BAA available. Your client data is never used to train AI models. End-to-end encrypted storage. You stay compliant without thinking about it.</p>
+        </div>
+        <div class="feature-card bg-gray-900/50 border border-gray-800 rounded-2xl p-7">
+          <div class="text-2xl mb-4">📋</div>
+          <h3 class="font-semibold text-lg mb-2">Every format you use</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">SOAP, DAP, BIRP, GIRP, or a custom template. Set your preferred format once and NoteFlow generates every note to match — exactly how your supervisor or EHR expects it.</p>
+        </div>
+        <div class="feature-card bg-gray-900/50 border border-gray-800 rounded-2xl p-7">
+          <div class="text-2xl mb-4">💳</div>
+          <h3 class="font-semibold text-lg mb-2">Auto-fills billing codes</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">NoteFlow detects session length and type to suggest the right CPT code (90837, 90834, 90847, etc.) so your billing is accurate without extra steps.</p>
+        </div>
+        <div class="feature-card bg-gray-900/50 border border-gray-800 rounded-2xl p-7">
+          <div class="text-2xl mb-4">🗓️</div>
+          <h3 class="font-semibold text-lg mb-2">Treatment plan tracker</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">NoteFlow tracks progress across sessions and alerts you when a treatment plan is due for an update — before your insurance audit catches it.</p>
+        </div>
+        <div class="feature-card bg-gray-900/50 border border-gray-800 rounded-2xl p-7">
+          <div class="text-2xl mb-4">🔗</div>
+          <h3 class="font-semibold text-lg mb-2">Works with your EHR</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Export to SimplePractice, TherapyNotes, TheraNest, or any EHR via PDF or copy-paste. No switching systems — just faster notes.</p>
+        </div>
+        <div class="feature-card bg-gray-900/50 border border-gray-800 rounded-2xl p-7">
+          <div class="text-2xl mb-4">📱</div>
+          <h3 class="font-semibold text-lg mb-2">Mobile-first voice input</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Dictate on your phone between sessions or right after. By the time you see your next client, the note is already drafted. Your evenings are yours again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial / social proof section -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">What clinicians are saying</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gray-900/40 border border-gray-800 rounded-2xl p-8">
+          <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+          <p class="text-gray-300 italic mb-5 leading-relaxed">"I used to spend Sunday evenings doing notes for the whole week. NoteFlow cut my documentation time from 2 hours a day to maybe 20 minutes. I can actually have a personal life again."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-purple-900/60 flex items-center justify-center text-purple-300 font-bold">M</div>
+            <div>
+              <div class="text-sm font-semibold">Maya R., LCSW</div>
+              <div class="text-xs text-gray-500">Private Practice, Portland OR</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-900/40 border border-gray-800 rounded-2xl p-8">
+          <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+          <p class="text-gray-300 italic mb-5 leading-relaxed">"The medical necessity language it generates is spot-on. I've had two insurance audits since I started using it — passed both without modifications. It knows exactly what auditors look for."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-purple-900/60 flex items-center justify-center text-purple-300 font-bold">J</div>
+            <div>
+              <div class="text-sm font-semibold">James T., LPC</div>
+              <div class="text-xs text-gray-500">Group Practice, Austin TX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits bar -->
+  <section class="py-14 px-6 bg-gray-900/30 border-y border-gray-800/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-3xl font-bold text-purple-400 mb-1">87%</div>
+          <div class="text-gray-500 text-sm">reduction in documentation time</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-purple-400 mb-1">2 min</div>
+          <div class="text-gray-500 text-sm">average time to complete a note</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-purple-400 mb-1">100%</div>
+          <div class="text-gray-500 text-sm">HIPAA compliant infrastructure</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-purple-400 mb-1">5 hrs</div>
+          <div class="text-gray-500 text-sm">average saved per clinician per week</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup section -->
+  <section id="signup" class="py-24 px-6">
+    <div class="max-w-lg mx-auto text-center">
+      <div class="bg-gray-900/50 border border-gray-800 rounded-2xl p-10 glow-purple">
+        <h2 class="text-3xl font-bold mb-3">Get your evenings back</h2>
+        <p class="text-gray-400 mb-8 leading-relaxed">Join the waitlist. Be first to access NoteFlow when we launch — and get lifetime founder pricing locked in.</p>
+
+        <form id="signupForm" class="space-y-4">
+          <input
+            type="text"
+            id="nameInput"
+            placeholder="Your name"
+            required
+            class="w-full bg-gray-800/60 border border-gray-700 focus:border-purple-600 focus:outline-none rounded-xl px-4 py-3.5 text-white placeholder-gray-500 text-sm"
+          />
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="your@email.com"
+            required
+            class="w-full bg-gray-800/60 border border-gray-700 focus:border-purple-600 focus:outline-none rounded-xl px-4 py-3.5 text-white placeholder-gray-500 text-sm"
+          />
+          <select
+            id="roleSelect"
+            class="w-full bg-gray-800/60 border border-gray-700 focus:border-purple-600 focus:outline-none rounded-xl px-4 py-3.5 text-gray-400 text-sm appearance-none"
+          >
+            <option value="">Your role (optional)</option>
+            <option value="lcsw">LCSW / Social Worker</option>
+            <option value="lpc">LPC / Counselor</option>
+            <option value="mft">MFT / Marriage & Family Therapist</option>
+            <option value="psychologist">Psychologist (PhD/PsyD)</option>
+            <option value="other">Other mental health clinician</option>
+          </select>
+          <button
+            type="submit"
+            class="w-full bg-purple-600 hover:bg-purple-500 text-white font-semibold py-4 rounded-xl text-base transition-colors"
+          >
+            Join the Waitlist →
+          </button>
+        </form>
+
+        <div id="successMsg" class="hidden text-center py-6">
+          <div class="text-5xl mb-4">🎉</div>
+          <h3 class="text-xl font-semibold text-white mb-2">You're on the list!</h3>
+          <p class="text-gray-400 text-sm">We'll reach out as soon as NoteFlow is ready for early access. Your evenings are about to get a lot better.</p>
+        </div>
+
+        <p class="text-xs text-gray-600 mt-5">No credit card required. Unsubscribe anytime. We respect your privacy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/50 py-10 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-purple-600 flex items-center justify-center text-white font-bold text-xs">N</div>
+        <span class="font-semibold text-gray-300">NoteFlow</span>
+        <span class="text-gray-600 text-sm ml-1">— AI Progress Notes for Mental Health Clinicians</span>
+      </div>
+      <p class="text-gray-600 text-sm">© 2026 NoteFlow. HIPAA Compliant.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value;
+      const email = document.getElementById('emailInput').value;
+      if (!name || !email) return;
+      this.style.display = 'none';
+      document.getElementById('successMsg').classList.remove('hidden');
+      console.log('Signup:', { name, email, role: document.getElementById('roleSelect').value });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
