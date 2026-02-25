@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToolKeeper — Know Where Every Tool Is. Always.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#F97316',
+              orangeLight: '#FB923C',
+              dark: '#0F1117',
+              card: '#1A1D27',
+              cardBorder: '#2A2D3A',
+              muted: '#8B8FA8',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { background-color: #0F1117; }
+    .gradient-text {
+      background: linear-gradient(135deg, #F97316, #FB923C, #FCD34D);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glow-orange {
+      box-shadow: 0 0 40px rgba(249, 115, 22, 0.25);
+    }
+    .card-hover {
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      border-color: rgba(249, 115, 22, 0.4);
+    }
+    .hero-grid {
+      background-image: 
+        linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #F97316, transparent);
+    }
+  </style>
+</head>
+<body class="font-sans text-white antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 backdrop-blur-sm" style="background: rgba(15,17,23,0.9);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+          </svg>
+        </div>
+        <span class="font-bold text-lg tracking-tight">ToolKeeper</span>
+      </div>
+      <a href="#signup" class="hidden sm:inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-semibold text-sm px-4 py-2 rounded-lg transition-colors">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-grid pt-32 pb-24 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-orange-500/5 via-transparent to-transparent pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto text-center relative">
+      
+      <div class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium px-4 py-2 rounded-full mb-8">
+        <span class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
+        Built for construction crews. Not enterprise IT.
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-none tracking-tight mb-6">
+        Stop losing jobs to<br />
+        <span class="gradient-text">missing tools</span>
+      </h1>
+
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Every crew has that moment: you need a tool right now and it's <em>gone</em>. No one knows who has it. The pump moves on. The inspector leaves. It cost you $600. Again.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#signup" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-bold text-base px-8 py-4 rounded-xl transition-colors glow-orange">
+          Join the Waitlist — Free
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+        <a href="#how" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 font-semibold text-base px-8 py-4 rounded-xl transition-colors">
+          See How It Works
+        </a>
+      </div>
+
+      <!-- Social proof -->
+      <p class="mt-8 text-sm text-gray-500">
+        💬 "Half a day lost and a €600 penalty. All because one tool vanished and no one owned it." — r/Construction (957 upvotes)
+      </p>
+
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="py-20 px-6 border-t border-white/5">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-black mb-4">Sound familiar?</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Every crew deals with this. It's not laziness — it's a systems problem.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6 card-hover">
+          <div class="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">The "Where's the grinder?" delay</h3>
+          <p class="text-sm text-gray-400">You need it right now. Nobody knows. You spend 90 minutes searching. The concrete pump leaves. You eat the penalty.</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6 card-hover">
+          <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Tools living in other guys' trucks</h3>
+          <p class="text-sm text-gray-400">Your best drill hasn't been on your site in three weeks. You find out when you need it most. It's at a job two towns over.</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6 card-hover">
+          <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Emergency rentals eating profit</h3>
+          <p class="text-sm text-gray-400">You own the saw. But it's "somewhere." So you rent one for $150/day. Three times this month. You already paid for that tool.</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6 card-hover">
+          <div class="w-10 h-10 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Theft you don't catch for months</h3>
+          <p class="text-sm text-gray-400">Did Mike take it? Did it get stolen? Did you lend it out? You have no record, no recourse, and no insurance claim.</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6 card-hover">
+          <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125h-1.5m1.5-1.5v-1.5m0 1.5h-17.25" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Whiteboard that washes off</h3>
+          <p class="text-sm text-gray-400">Paper sign-out sheets. A whiteboard in the trailer. Nobody fills it in. It gets rained on. It's a fantasy, not a system.</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6 card-hover">
+          <div class="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Enterprise tools are overkill</h3>
+          <p class="text-sm text-gray-400">ToolWatch and Hilti ON!Track are built for 200-person firms with IT departments. You have 8 guys and a job site. You need something that works today.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="py-20 px-6 border-t border-white/5">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-black mb-4">Dead simple. Works in the field.</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Checking a tool out takes 10 seconds. Less time than sending a text. No hardware. No training. Just accountability.</p>
+      </div>
+
+      <div class="relative pl-14">
+        <div class="timeline-line"></div>
+
+        <div class="space-y-10">
+          
+          <div class="relative">
+            <div class="absolute -left-14 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center font-bold text-white text-sm">1</div>
+            <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6">
+              <h3 class="font-bold text-lg mb-2">Foreman builds the inventory once</h3>
+              <p class="text-gray-400">Add tools by photo, name, and optional serial number. Print sticky QR labels from any printer — $0.02 each. One afternoon of setup. Done forever.</p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-14 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center font-bold text-white text-sm">2</div>
+            <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6">
+              <h3 class="font-bold text-lg mb-2">Workers check out tools each morning</h3>
+              <p class="text-gray-400">Scan the QR or tap the tool name in the app. Takes 10 seconds. The foreman sees exactly who has what, on which site, right now.</p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-14 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center font-bold text-white text-sm">3</div>
+            <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6">
+              <h3 class="font-bold text-lg mb-2">Check back in at end of shift (or leave a note)</h3>
+              <p class="text-gray-400">Takes 30 seconds. Worker can add a photo of any damage. If a tool stays on-site overnight, they mark it as "on site" — not AWOL.</p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-14 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center font-bold text-white text-sm">4</div>
+            <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-6">
+              <h3 class="font-bold text-lg mb-2">Overdue alerts go to the worker — and you</h3>
+              <p class="text-gray-400">Tool not returned after 24 hours? The worker gets a push notification. You get one too. No more hunting. Accountability is automatic.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-20 px-6 border-t border-white/5">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-black mb-4">Everything a crew actually needs</h2>
+        <p class="text-gray-400">No bloat. No enterprise BS. Just the stuff that keeps jobs running.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1">QR Label Printing</h3>
+            <p class="text-sm text-gray-400">Print standard sticky labels from any printer. Slap one on every tool. No special hardware needed.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 8.25h3m-3 0a1.5 1.5 0 00-1.5 1.5h6a1.5 1.5 0 00-1.5-1.5m-3 0v-3.75h3V9.75" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1">Mobile-First App</h3>
+            <p class="text-sm text-gray-400">Works on any smartphone. No app store required — runs in the browser. Your crew won't need training.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1">Overdue Alerts</h3>
+            <p class="text-sm text-gray-400">Auto-notify the worker and foreman when a tool hasn't been returned. No chasing. The system does the chasing.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1">Full Audit Trail</h3>
+            <p class="text-sm text-gray-400">Every checkout and return is logged. See exactly who had it, when, and on which site. Useful for insurance claims too.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1">Damage Reporting</h3>
+            <p class="text-sm text-gray-400">Workers attach a photo when checking in a damaged tool. No more "it was like that when I got it" arguments.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-1">Simple Team Management</h3>
+            <p class="text-sm text-gray-400">Add workers by phone number. They join in one tap. No email, no passwords, no IT department required.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI Section -->
+  <section class="py-20 px-6 border-t border-white/5">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-br from-orange-500/10 to-orange-900/10 border border-orange-500/20 rounded-3xl p-8 sm:p-12">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black mb-4">One avoided delay pays for a year</h2>
+          <p class="text-gray-400">The math is obvious. The question is why you haven't fixed this already.</p>
+        </div>
+        
+        <div class="grid sm:grid-cols-3 gap-6 text-center">
+          <div>
+            <p class="text-5xl font-black text-orange-400 mb-2">€600</p>
+            <p class="text-sm text-gray-400">Penalty from one missing grinder on one job (documented in r/Construction)</p>
+          </div>
+          <div>
+            <p class="text-5xl font-black text-orange-400 mb-2">$150</p>
+            <p class="text-sm text-gray-400">Average cost of a single emergency tool rental when you can't find what you own</p>
+          </div>
+          <div>
+            <p class="text-5xl font-black text-orange-400 mb-2">$1B+</p>
+            <p class="text-sm text-gray-400">Estimated annual US construction industry losses to tool theft alone</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial / Quote -->
+  <section class="py-20 px-6 border-t border-white/5">
+    <div class="max-w-3xl mx-auto text-center">
+      <svg class="w-10 h-10 text-orange-500 mx-auto mb-6 opacity-60" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+      </svg>
+      <blockquote class="text-xl sm:text-2xl font-semibold text-gray-200 leading-relaxed mb-6">
+        "Monday morning, site's humming, concrete pour scheduled for 9:00 sharp. I shout for the grinder. Nowhere. We tear the site apart — half a day lost and a €600 penalty. All because one tool vanished and no one owned it."
+      </blockquote>
+      <p class="text-gray-500 text-sm">— r/Construction, 957 upvotes, 289 comments</p>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section id="signup" class="py-24 px-6 border-t border-white/5">
+    <div class="max-w-xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium px-4 py-2 rounded-full mb-8">
+        🚧 Building Now — Join the Waitlist
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black mb-4">Stop losing money to<br/>missing tools today</h2>
+      <p class="text-gray-400 mb-10 leading-relaxed">
+        ToolKeeper is being built for crews like yours. Join the waitlist and we'll reach out when early access opens — and ask for your input on features.
+      </p>
+
+      <div id="form-container">
+        <form id="signup-form" class="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            id="email-input"
+            placeholder="your@email.com"
+            required
+            class="flex-1 bg-white/5 border border-white/10 text-white placeholder-gray-500 px-4 py-3 rounded-xl focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-sm"
+          />
+          <button
+            type="submit"
+            class="bg-orange-500 hover:bg-orange-400 text-white font-bold px-6 py-3 rounded-xl transition-colors whitespace-nowrap text-sm"
+          >
+            Get Early Access
+          </button>
+        </form>
+        <p class="mt-4 text-xs text-gray-500">No spam. No sales pitch. Just a heads-up when we're ready.</p>
+      </div>
+
+      <div id="success-message" class="hidden">
+        <div class="bg-green-500/10 border border-green-500/20 rounded-2xl p-8">
+          <div class="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-green-400 mb-2">You're on the list!</h3>
+          <p class="text-gray-400 text-sm">We'll be in touch soon. Your tools are about to get a lot less lost.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-orange-500 flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+          </svg>
+        </div>
+        <span class="font-semibold text-sm">ToolKeeper</span>
+      </div>
+      <p class="text-gray-600 text-sm">© 2026 ToolKeeper. Know where every tool is. Always.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (!email) return;
+
+      // Simulate form submission
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('success-message').classList.remove('hidden');
+
+      // Optional: log to console (in production this would POST to your backend)
+      console.log('Signup submitted:', email);
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

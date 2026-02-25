@@ -18,6 +18,7 @@ const projects = [
   { slug: "shiftlog", name: "ShiftLog", desc: "Structured shift handoffs with read receipts", color: "emerald" },
   { slug: "authflow", name: "AuthFlow", desc: "AI prior authorization automation for small medical practices", color: "cyan" },
   { slug: "noteflow", name: "NoteFlow", desc: "AI progress notes for therapists — turn a 60-sec voice summary into a complete SOAP/DAP/BIRP note", color: "purple" },
+  { slug: "toolkeeper", name: "ToolKeeper", desc: "Tool checkout/check-in so construction crews stop losing time and money to missing tools", color: "orange" },
 ];
 
 const colorMap: Record<string, string> = {
