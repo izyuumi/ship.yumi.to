@@ -21,6 +21,7 @@ const projects = [
   { slug: "toolkeeper", name: "ToolKeeper", desc: "Tool checkout/check-in so construction crews stop losing time and money to missing tools", color: "orange" },
   { slug: "billbox", name: "BillBox", desc: "Turn your invoice inbox into lightweight spend analytics (Gmail/Drive)", color: "cyan" },
   { slug: "treatplan", name: "TreatPlan", desc: "AI-powered dental treatment plan reactivation — recover $40K+ in unscheduled work automatically", color: "sky" },
+  { slug: "showup", name: "ShowUp", desc: "Stop losing money to no-shows — smart booking protection for independent tour & experience operators", color: "orange" },
 ];
 
 const colorMap: Record<string, string> = {
