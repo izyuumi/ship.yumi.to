@@ -22,6 +22,7 @@ const projects = [
   { slug: "billbox", name: "BillBox", desc: "Turn your invoice inbox into lightweight spend analytics (Gmail/Drive)", color: "cyan" },
   { slug: "treatplan", name: "TreatPlan", desc: "AI-powered dental treatment plan reactivation — recover $40K+ in unscheduled work automatically", color: "sky" },
   { slug: "showup", name: "ShowUp", desc: "Stop losing money to no-shows — smart booking protection for independent tour & experience operators", color: "orange" },
+  { slug: "admitflow", name: "AdmitFlow", desc: "Hospital admission documentation in 20 minutes — smart pre-fill, voice-to-form, built-in translation, and one-tap EMR sync", color: "sky" },
 ];
 
 const colorMap: Record<string, string> = {

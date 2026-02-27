@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AdmitFlow — Hospital Admission Documentation, Finally Fixed</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glow {
+      box-shadow: 0 0 40px rgba(56, 189, 248, 0.15);
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(56, 189, 248, 0.12);
+    }
+    .stat-pill {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .feature-icon {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15));
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .timeline-dot {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.4); }
+    }
+    .cta-btn {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    .cta-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      transition: all 0.2s ease;
+    }
+    .quote-card {
+      border-left: 3px solid;
+      border-image: linear-gradient(to bottom, #38bdf8, #818cf8) 1;
+    }
+    .progress-bar {
+      background: linear-gradient(90deg, #ef4444, #f97316);
+    }
+    .progress-bar-green {
+      background: linear-gradient(90deg, #38bdf8, #22c55e);
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800/50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg feature-icon flex items-center justify-center text-sky-400 font-bold text-sm">A</div>
+        <span class="font-semibold text-white">AdmitFlow</span>
+      </div>
+      <a href="#signup" class="text-sm font-medium text-sky-400 hover:text-sky-300 transition-colors">Get Early Access →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 stat-pill rounded-full px-4 py-2 text-sm text-sky-400 font-medium mb-8">
+        <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+        Built for hospital nurses, by people who listened
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+        Stop spending<br/>
+        <span class="gradient-text">3 hours on admission paperwork</span><br/>
+        you could do in 20 minutes
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        AdmitFlow pre-populates from prior visits, translates in real-time, saves your progress when you're interrupted, and pushes everything to Epic or Cerner in one tap.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#signup" class="cta-btn text-white font-semibold px-8 py-4 rounded-xl text-lg inline-block">
+          Join the Waitlist
+        </a>
+        <a href="#how" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold px-8 py-4 rounded-xl text-lg inline-block transition-colors">
+          See How It Works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Stat Bar -->
+  <section class="py-12 px-6 border-y border-gray-800/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-extrabold text-red-400 mb-2">90 min</div>
+          <div class="text-gray-400 text-sm">average admission documentation time per patient</div>
+        </div>
+        <div>
+          <div class="text-4xl font-extrabold text-orange-400 mb-2">35%</div>
+          <div class="text-gray-400 text-sm">of a nurse's shift spent on documentation, not patient care</div>
+        </div>
+        <div>
+          <div class="text-4xl font-extrabold text-yellow-400 mb-2">$52K</div>
+          <div class="text-gray-400 text-sm">cost to replace one burned-out nurse — documentation is #1 complaint</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Real Story -->
+  <section class="py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-white mb-4">This is your admission shift. Right now.</h2>
+        <p class="text-gray-400">If this sounds familiar, you know the problem is real.</p>
+      </div>
+
+      <!-- Timeline of pain -->
+      <div class="space-y-6">
+        <div class="flex gap-4 card-hover bg-gray-900/60 rounded-xl p-5 border border-gray-800/50">
+          <div class="w-10 h-10 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center font-bold flex-shrink-0 text-sm">1</div>
+          <div>
+            <div class="font-semibold text-white mb-1">New admit arrives. You already have 2 patients.</div>
+            <div class="text-gray-400 text-sm">You open Epic. The admission form is blank. Previous visit from 6 months ago? Good luck finding it manually.</div>
+          </div>
+        </div>
+
+        <div class="flex gap-4 card-hover bg-gray-900/60 rounded-xl p-5 border border-gray-800/50">
+          <div class="w-10 h-10 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold flex-shrink-0 text-sm">2</div>
+          <div>
+            <div class="font-semibold text-white mb-1">Patient speaks Mandarin. You need an interpreter.</div>
+            <div class="text-gray-400 text-sm">Call the interpreter line. Wait 8 minutes. Try to hold the phone while typing. Every question takes 3x longer. Your other patient's call bell is going off.</div>
+          </div>
+        </div>
+
+        <div class="flex gap-4 card-hover bg-gray-900/60 rounded-xl p-5 border border-gray-800/50">
+          <div class="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center font-bold flex-shrink-0 text-sm">3</div>
+          <div>
+            <div class="font-semibold text-white mb-1">Halfway through the form. Code in room 4.</div>
+            <div class="text-gray-400 text-sm">You run. 25 minutes later you're back. Your admission session timed out. You start over. You still have the MRI screening form and medication reconciliation to finish.</div>
+          </div>
+        </div>
+
+        <div class="flex gap-4 card-hover bg-gray-900/60 rounded-xl p-5 border border-gray-800/50">
+          <div class="w-10 h-10 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center font-bold flex-shrink-0 text-sm">4</div>
+          <div>
+            <div class="font-semibold text-white mb-1">End of shift. Admission docs still incomplete.</div>
+            <div class="text-gray-400 text-sm">Your preceptor asks why. You stay 45 minutes late — again, unpaid — to finish. This is the third time this week.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reddit quote -->
+      <div class="mt-10 quote-card bg-gray-900/40 rounded-xl p-6">
+        <p class="text-gray-300 italic text-sm leading-relaxed mb-3">
+          "I had to admit my new patient, who speaks Mandarin so I needed to use the translator and finish the MRI screening as well as all the admission documentation. Well, halfway through that process, I had to stop and go give meds to my other patient. Back and forth, starting and stopping tasks without fully finishing things..."
+        </p>
+        <div class="text-gray-500 text-xs">— ICU nurse, r/nursing (195 comments, 88% upvoted)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How AdmitFlow Fixes It -->
+  <section id="how" class="py-20 px-6 bg-gray-900/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-white mb-4">How AdmitFlow <span class="gradient-text">cuts admission time by 80%</span></h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Six features that directly attack the six biggest time-sinks in the admission workflow.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card-hover bg-gray-900/60 rounded-xl p-6 border border-gray-800/50">
+          <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-4 text-2xl">⚡</div>
+          <h3 class="font-semibold text-white text-lg mb-2">Smart Pre-Population</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Patient admitted before? AdmitFlow pulls prior visit data via FHIR API. Medications, allergies, social history, code status — pre-filled and ready to confirm. You just verify, not re-enter.
+          </p>
+          <div class="mt-4 text-sky-400 text-sm font-medium">Saves ~40 minutes per returning patient</div>
+        </div>
+
+        <div class="card-hover bg-gray-900/60 rounded-xl p-6 border border-gray-800/50">
+          <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-4 text-2xl">🎙️</div>
+          <h3 class="font-semibold text-white text-lg mb-2">Voice-to-Form</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Speak naturally. AdmitFlow maps your words to structured fields in real-time. No typing while balancing a tablet and managing a patient. Review, correct, done.
+          </p>
+          <div class="mt-4 text-sky-400 text-sm font-medium">Hands-free at the bedside</div>
+        </div>
+
+        <div class="card-hover bg-gray-900/60 rounded-xl p-6 border border-gray-800/50">
+          <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-4 text-2xl">🌐</div>
+          <h3 class="font-semibold text-white text-lg mb-2">Built-In Real-Time Translation</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            No separate interpreter phone call. AdmitFlow translates intake questions and patient responses in real-time for 50+ languages. Two-way, bidirectional, embedded in the workflow.
+          </p>
+          <div class="mt-4 text-sky-400 text-sm font-medium">Eliminates interpreter wait time (~10-15 min)</div>
+        </div>
+
+        <div class="card-hover bg-gray-900/60 rounded-xl p-6 border border-gray-800/50">
+          <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-4 text-2xl">💾</div>
+          <h3 class="font-semibold text-white text-lg mb-2">Resumable Sessions</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Called away mid-admission? Your progress is auto-saved to the exact question. Return and pick up instantly. Charge nurse can see completion status across all pending admissions on a dashboard.
+          </p>
+          <div class="mt-4 text-sky-400 text-sm font-medium">No more starting over from scratch</div>
+        </div>
+
+        <div class="card-hover bg-gray-900/60 rounded-xl p-6 border border-gray-800/50">
+          <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-4 text-2xl">🧠</div>
+          <h3 class="font-semibold text-white text-lg mb-2">Smart Question Branching</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            No cardiac history? Skip the 8 cardiac follow-ups. No diabetes? Skip A1C and insulin questions. AdmitFlow shows only the questions that matter for this specific patient.
+          </p>
+          <div class="mt-4 text-sky-400 text-sm font-medium">30-50% fewer questions per patient</div>
+        </div>
+
+        <div class="card-hover bg-gray-900/60 rounded-xl p-6 border border-gray-800/50">
+          <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-4 text-2xl">🔗</div>
+          <h3 class="font-semibold text-white text-lg mb-2">One-Tap EMR Sync</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Admission complete? One tap pushes structured data directly into Epic or Cerner. No double-entry. Fall risk scores, Braden scale, CIWA screening — calculated automatically, delivered to the right fields.
+          </p>
+          <div class="mt-4 text-sky-400 text-sm font-medium">Eliminates re-typing into the EMR</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-white mb-4">Before vs. After</h2>
+        <p class="text-gray-400">One shift. Same patient load. Very different end of day.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Before -->
+        <div class="bg-red-950/20 border border-red-900/40 rounded-xl p-6">
+          <div class="text-red-400 font-semibold text-lg mb-5 flex items-center gap-2">
+            <span>❌</span> Without AdmitFlow
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+              <span>90-180 min per admission, done manually in Epic</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+              <span>Separate interpreter phone call, ~10 min hold, fumbling with phone + tablet</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+              <span>Interrupted → session times out → start over from the beginning</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+              <span>Risk scores (Braden, fall, CIWA) calculated manually or skipped</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+              <span>Incomplete admission docs at end of shift → stay late or get written up</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+              <span>Prior medication list re-entered from scratch every visit</span>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-red-900/40">
+            <div class="text-red-400 text-sm font-medium mb-2">Time to complete admission:</div>
+            <div class="bg-gray-900/40 rounded-full h-4 overflow-hidden">
+              <div class="progress-bar h-full rounded-full" style="width: 100%"></div>
+            </div>
+            <div class="text-red-300 text-xs mt-1 font-bold">~90–180 minutes</div>
+          </div>
+        </div>
+
+        <!-- After -->
+        <div class="bg-sky-950/20 border border-sky-900/40 rounded-xl p-6">
+          <div class="text-sky-400 font-semibold text-lg mb-5 flex items-center gap-2">
+            <span>✅</span> With AdmitFlow
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-sky-400 mt-0.5 flex-shrink-0">✓</span>
+              <span>Prior visit data pre-loaded — just confirm changes, don't retype</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-sky-400 mt-0.5 flex-shrink-0">✓</span>
+              <span>Built-in 50-language translation — start immediately, no hold time</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-sky-400 mt-0.5 flex-shrink-0">✓</span>
+              <span>Interrupted? Session saves instantly, resume exactly where you left off</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-sky-400 mt-0.5 flex-shrink-0">✓</span>
+              <span>All risk scores auto-calculated from entered data</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-sky-400 mt-0.5 flex-shrink-0">✓</span>
+              <span>Admission docs complete before end of shift, every shift</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm text-gray-300">
+              <span class="text-sky-400 mt-0.5 flex-shrink-0">✓</span>
+              <span>One-tap push to Epic/Cerner — zero re-entry</span>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-sky-900/40">
+            <div class="text-sky-400 text-sm font-medium mb-2">Time to complete admission:</div>
+            <div class="bg-gray-900/40 rounded-full h-4 overflow-hidden">
+              <div class="progress-bar-green h-full rounded-full" style="width: 18%"></div>
+            </div>
+            <div class="text-sky-300 text-xs mt-1 font-bold">~15–25 minutes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="py-20 px-6 bg-gray-900/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-white mb-4">Built for every admission-heavy role</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-hover bg-gray-900/60 rounded-xl p-6 border border-gray-800/50 text-center">
+          <div class="text-4xl mb-4">🏥</div>
+          <h3 class="font-semibold text-white text-lg mb-2">Med-Surg & ICU Nurses</h3>
+          <p class="text-gray-400 text-sm">Managing 4-6 patients with unpredictable admissions throughout the shift. AdmitFlow keeps you in control even when the floor explodes.</p>
+        </div>
+        <div class="card-hover bg-gray-900/60 rounded-xl p-6 border border-gray-800/50 text-center">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="font-semibold text-white text-lg mb-2">ED Nurses Doing Handoffs</h3>
+          <p class="text-gray-400 text-sm">Sending patients to the floor shouldn't mean a 45-minute verbal and written handoff. AdmitFlow transfers structured data with zero re-entry on either end.</p>
+        </div>
+        <div class="card-hover bg-gray-900/60 rounded-xl p-6 border border-gray-800/50 text-center">
+          <div class="text-4xl mb-4">🌙</div>
+          <h3 class="font-semibold text-white text-lg mb-2">Night Shift Nurses (Solo)</h3>
+          <p class="text-gray-400 text-sm">At 2 AM with no charge nurse and a new admit, you need something that works without help. AdmitFlow runs on your phone, with or without a cart computer nearby.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof / vibe -->
+  <section class="py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-white mb-4">Nurses told us what they needed</h2>
+        <p class="text-gray-400">We built AdmitFlow by spending months in Reddit threads, Discord servers, and hospital hallways. Here's what we kept hearing.</p>
+      </div>
+
+      <div class="space-y-5">
+        <div class="quote-card bg-gray-900/40 rounded-xl p-5">
+          <p class="text-gray-300 italic text-sm leading-relaxed mb-3">
+            "Just in general never being able to start and complete a task without interruption from a call bell, a coworker, a doctor, physical therapy, transport, lab... Each phone call adds a new task to the list of tasks interrupting the task you're trying to finish."
+          </p>
+          <div class="text-gray-500 text-xs">— r/nursing, 155 upvotes</div>
+        </div>
+
+        <div class="quote-card bg-gray-900/40 rounded-xl p-5">
+          <p class="text-gray-300 italic text-sm leading-relaxed mb-3">
+            "Every task I had was just a series of unlocking new side quests. A patient fell down and on my way to grab the obs machine, another nurse hands me the phone to take handover for an admission."
+          </p>
+          <div class="text-gray-500 text-xs">— r/nursing, 26 upvotes</div>
+        </div>
+
+        <div class="quote-card bg-gray-900/40 rounded-xl p-5">
+          <p class="text-gray-300 italic text-sm leading-relaxed mb-3">
+            "Why do I feel like my charting is the main priority rather than patient care? I'm so burned out and I barely even started."
+          </p>
+          <div class="text-gray-500 text-xs">— ICU nurse, r/nursing orientation thread</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Signup -->
+  <section id="signup" class="py-24 px-6">
+    <div class="max-w-2xl mx-auto">
+      <div class="glow bg-gray-900/80 rounded-2xl p-10 border border-gray-700/50 text-center">
+        <div class="text-4xl mb-4">🩺</div>
+        <h2 class="text-3xl font-bold text-white mb-3">Get Early Access</h2>
+        <p class="text-gray-400 mb-8 leading-relaxed">
+          We're onboarding our first hospital units now. Join the waitlist and we'll reach out when we're ready to set up your floor. Free pilot, no commitment.
+        </p>
+
+        <form id="waitlist-form" class="space-y-4" onsubmit="handleSubmit(event)">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input
+              type="text"
+              id="name"
+              placeholder="Your name (optional)"
+              class="flex-1 bg-gray-800/70 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 transition-colors text-sm"
+            />
+          </div>
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="your.email@hospital.org"
+            class="w-full bg-gray-800/70 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 transition-colors text-sm"
+          />
+          <select
+            id="role"
+            class="w-full bg-gray-800/70 border border-gray-700 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-sky-500 transition-colors text-sm appearance-none"
+          >
+            <option value="">Your role (optional)</option>
+            <option value="rn-floor">RN — Floor / Med-Surg</option>
+            <option value="rn-icu">RN — ICU / Critical Care</option>
+            <option value="rn-ed">RN — Emergency Department</option>
+            <option value="charge">Charge Nurse</option>
+            <option value="nm">Nurse Manager / Director</option>
+            <option value="cno">CNO / VP of Nursing</option>
+            <option value="cio">Hospital IT / CIO</option>
+            <option value="other">Other</option>
+          </select>
+          <button
+            type="submit"
+            class="cta-btn w-full text-white font-semibold px-6 py-4 rounded-xl text-base"
+          >
+            Join the Waitlist →
+          </button>
+        </form>
+
+        <div id="success-msg" class="hidden mt-6 p-4 bg-green-900/30 border border-green-700/40 rounded-xl text-green-400 text-sm font-medium">
+          ✅ You're on the list! We'll be in touch when your region is ready for early access.
+        </div>
+
+        <p class="text-gray-600 text-xs mt-6">No spam. No sales pressure. We'll reach out when we're genuinely ready to work with you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/50 py-10 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg feature-icon flex items-center justify-center text-sky-400 font-bold text-xs">A</div>
+        <span class="text-gray-400 text-sm font-medium">AdmitFlow</span>
+      </div>
+      <div class="text-gray-600 text-xs text-center">
+        Built because nurses deserve to spend their shift on patients, not paperwork.
+      </div>
+      <div class="text-gray-600 text-xs">
+        © 2026 AdmitFlow
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const name = document.getElementById('name').value;
+      const role = document.getElementById('role').value;
+
+      if (!email) return;
+
+      // Simulate submission
+      const form = document.getElementById('waitlist-form');
+      const success = document.getElementById('success-msg');
+
+      form.style.opacity = '0.5';
+      form.style.pointerEvents = 'none';
+
+      setTimeout(() => {
+        form.style.display = 'none';
+        success.classList.remove('hidden');
+      }, 600);
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
