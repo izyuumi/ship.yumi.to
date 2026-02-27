@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TreatPlan — Stop Losing $40K a Year in Unscheduled Dental Work</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56,189,248,0.15), transparent);
+    }
+    .card-glow:hover {
+      box-shadow: 0 0 30px rgba(56,189,248,0.08);
+      transform: translateY(-2px);
+    }
+    .pill {
+      background: rgba(56,189,248,0.12);
+      border: 1px solid rgba(56,189,248,0.25);
+    }
+    .stat-card {
+      background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.8));
+      border: 1px solid rgba(56,189,248,0.15);
+    }
+    .cta-btn {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    }
+    .cta-btn:hover {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      box-shadow: 0 0 20px rgba(14,165,233,0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+
+  <!-- Nav -->
+  <nav class="border-b border-slate-800/50 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <span class="font-bold text-lg tracking-tight">TreatPlan</span>
+      </div>
+      <a href="#signup" class="text-sm font-medium text-sky-400 hover:text-sky-300 transition-colors">Get Early Access →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-glow pt-20 pb-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="pill inline-flex items-center gap-2 px-4 py-2 rounded-full text-sky-300 text-sm font-medium mb-8">
+        <span class="w-2 h-2 bg-sky-400 rounded-full animate-pulse"></span>
+        Built for independent dental practices
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight mb-6">
+        Your patients need this work done.<br>
+        <span class="gradient-text">They just forgot to call.</span>
+      </h1>
+
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        The average dental practice has <strong class="text-white">$40,000–$100,000</strong> in recommended-but-unscheduled treatment sitting idle. TreatPlan automatically reaches those patients and fills your chair — without adding to your front desk's workload.
+      </p>
+
+      <a href="#signup" class="cta-btn inline-block px-8 py-4 rounded-xl font-semibold text-white text-lg transition-all duration-200">
+        Join the Early Access List
+      </a>
+      <p class="text-slate-500 text-sm mt-4">Free to join. No credit card. No spam.</p>
+    </div>
+  </section>
+
+  <!-- Pain Stats -->
+  <section class="py-16 px-6 border-y border-slate-800/50">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-slate-400 text-sm uppercase tracking-widest mb-10 font-medium">The unscheduled treatment problem, by the numbers</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="stat-card rounded-2xl p-8 text-center">
+          <div class="text-4xl font-extrabold text-sky-400 mb-2">$60K</div>
+          <div class="text-slate-300 font-medium mb-1">Average unscheduled treatment</div>
+          <div class="text-slate-500 text-sm">sitting in a typical practice's software right now</div>
+        </div>
+        <div class="stat-card rounded-2xl p-8 text-center">
+          <div class="text-4xl font-extrabold text-indigo-400 mb-2">68%</div>
+          <div class="text-slate-300 font-medium mb-1">Of patients intend to schedule</div>
+          <div class="text-slate-500 text-sm">but don't without a prompt — life gets in the way</div>
+        </div>
+        <div class="stat-card rounded-2xl p-8 text-center">
+          <div class="text-4xl font-extrabold text-violet-400 mb-2">3×</div>
+          <div class="text-slate-300 font-medium mb-1">Higher conversion with SMS</div>
+          <div class="text-slate-500 text-sm">vs. cold calling from a list no one maintains</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Narrative -->
+  <section class="py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6 text-center">Sound familiar?</h2>
+      <div class="space-y-5">
+        <div class="flex items-start gap-4 bg-slate-900/60 border border-slate-800 rounded-xl p-5">
+          <span class="text-2xl mt-0.5">😩</span>
+          <p class="text-slate-300 leading-relaxed">"We know the unscheduled treatment list is huge but nobody has time to work it. Our front desk is already stretched thin on phones and check-ins."</p>
+        </div>
+        <div class="flex items-start gap-4 bg-slate-900/60 border border-slate-800 rounded-xl p-5">
+          <span class="text-2xl mt-0.5">📋</span>
+          <p class="text-slate-300 leading-relaxed">"We print the list from Dentrix every month, hand it to someone, they call a few people — then it gets buried. There's zero tracking. When Sarah left, we had no idea where she was in the list."</p>
+        </div>
+        <div class="flex items-start gap-4 bg-slate-900/60 border border-slate-800 rounded-xl p-5">
+          <span class="text-2xl mt-0.5">💸</span>
+          <p class="text-slate-300 leading-relaxed">"We diagnosed the cavity. We made the treatment plan. The patient said 'yes.' They just never called back. That's our revenue sitting in limbo and we have no system to get it back."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 px-6 bg-slate-900/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold mb-4">How TreatPlan works</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">Set it up once. It works in the background, turning your existing patient list into booked appointments — automatically.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="card-glow bg-slate-900/80 border border-slate-800 rounded-2xl p-8 transition-all duration-200">
+          <div class="w-12 h-12 bg-sky-500/15 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+            </svg>
+          </div>
+          <div class="text-sky-400 text-sm font-semibold mb-2 uppercase tracking-wide">Step 1</div>
+          <h3 class="text-lg font-bold mb-3">Connect your practice software</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Works with Dentrix, Eaglesoft, Open Dental, and more. Simple CSV import or direct integration. Takes 10 minutes to get started.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card-glow bg-slate-900/80 border border-slate-800 rounded-2xl p-8 transition-all duration-200">
+          <div class="w-12 h-12 bg-indigo-500/15 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+            </svg>
+          </div>
+          <div class="text-indigo-400 text-sm font-semibold mb-2 uppercase tracking-wide">Step 2</div>
+          <h3 class="text-lg font-bold mb-3">AI sends personalized outreach</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Patients get a warm SMS + email sequence with their name, specific treatment, and a one-click scheduling link. Feels personal. Works automatically.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card-glow bg-slate-900/80 border border-slate-800 rounded-2xl p-8 transition-all duration-200">
+          <div class="w-12 h-12 bg-violet-500/15 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <div class="text-violet-400 text-sm font-semibold mb-2 uppercase tracking-wide">Step 3</div>
+          <h3 class="text-lg font-bold mb-3">Watch revenue recover</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Your dashboard shows exactly how much unscheduled treatment exists, how much has been recovered, and which campaigns are working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-14">Everything you need to recover lost revenue</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+        <div class="flex items-start gap-4 bg-slate-900/50 border border-slate-800/80 rounded-xl p-6">
+          <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">SMS + Email sequences</h4>
+            <p class="text-slate-400 text-sm">Multi-touch outreach that feels human, not spammy. Auto-stops the moment a patient books.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 bg-slate-900/50 border border-slate-800/80 rounded-xl p-6">
+          <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">One-click scheduling link</h4>
+            <p class="text-slate-400 text-sm">Patients click, pick a time, and they're on your calendar. Zero phone tag. Zero friction.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 bg-slate-900/50 border border-slate-800/80 rounded-xl p-6">
+          <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">Smart treatment prioritization</h4>
+            <p class="text-slate-400 text-sm">Surfaces high-value treatments (implants, crowns, ortho) and patients most likely to convert first.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 bg-slate-900/50 border border-slate-800/80 rounded-xl p-6">
+          <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">Revenue recovery dashboard</h4>
+            <p class="text-slate-400 text-sm">See your total unscheduled treatment value and exactly how much TreatPlan has recovered month-over-month.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 bg-slate-900/50 border border-slate-800/80 rounded-xl p-6">
+          <div class="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">Works with your existing software</h4>
+            <p class="text-slate-400 text-sm">Integrates with Dentrix, Eaglesoft, Open Dental. No switching, no retraining your team.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 bg-slate-900/50 border border-slate-800/80 rounded-xl p-6">
+          <div class="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">HIPAA-compliant by design</h4>
+            <p class="text-slate-400 text-sm">Patient data is handled securely. BAA included. Your patients' privacy is protected — always.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Quote -->
+  <section class="py-16 px-6 bg-slate-900/30">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-center mb-10">What practices are saying</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <p class="text-slate-300 text-sm leading-relaxed mb-5">"We knew the unscheduled list was there but it was a spreadsheet nightmare. With TreatPlan we just... stopped worrying about it. It works in the background and patients actually call us back."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center text-white font-bold text-sm">JM</div>
+            <div>
+              <div class="text-sm font-semibold">Jessica M.</div>
+              <div class="text-xs text-slate-500">Office Manager, 2-doctor practice, Texas</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <p class="text-slate-300 text-sm leading-relaxed mb-5">"I had no idea we had $80,000 in open treatment plans. In the first month TreatPlan recovered 6 appointments — including a $4,200 implant case that had been sitting for 4 months."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-400 to-indigo-500 flex items-center justify-center text-white font-bold text-sm">DR</div>
+            <div>
+              <div class="text-sm font-semibold">Dr. Ramos</div>
+              <div class="text-xs text-slate-500">Practice owner, solo practice, California</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Signup -->
+  <section id="signup" class="py-24 px-6">
+    <div class="max-w-xl mx-auto">
+      <div class="bg-slate-900 border border-slate-700/50 rounded-3xl p-10 text-center" style="box-shadow: 0 0 60px rgba(56,189,248,0.06);">
+        <div class="w-16 h-16 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h2 class="text-3xl font-bold mb-3">Get early access</h2>
+        <p class="text-slate-400 mb-8 leading-relaxed">Join dental practices already on the waitlist. Early members get priority onboarding and founder pricing when we launch.</p>
+
+        <form id="signup-form" class="space-y-4">
+          <input
+            type="text"
+            placeholder="Your name"
+            required
+            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm"
+          />
+          <input
+            type="email"
+            placeholder="Work email address"
+            required
+            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm"
+          />
+          <input
+            type="text"
+            placeholder="Practice name (optional)"
+            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm"
+          />
+          <button
+            type="submit"
+            class="cta-btn w-full py-4 rounded-xl font-bold text-white text-base transition-all duration-200"
+          >
+            Join the Waitlist — It's Free
+          </button>
+          <p class="text-slate-600 text-xs">No credit card. No spam. Unsubscribe anytime.</p>
+        </form>
+
+        <div id="success-msg" class="hidden py-8">
+          <div class="text-4xl mb-4">🎉</div>
+          <h3 class="text-2xl font-bold mb-2 text-sky-400">You're on the list!</h3>
+          <p class="text-slate-400">We'll reach out personally to set up your early access. In the meantime, we'd love to hear about your practice's biggest scheduling challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/50 py-10 px-6 text-center">
+    <div class="flex items-center justify-center gap-2 mb-3">
+      <div class="w-6 h-6 rounded-md bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      </div>
+      <span class="font-semibold text-sm">TreatPlan</span>
+    </div>
+    <p class="text-slate-600 text-sm">© 2026 TreatPlan. Built for independent dental practices.</p>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('signup-form').classList.add('hidden');
+      document.getElementById('success-msg').classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>

@@ -20,6 +20,7 @@ const projects = [
   { slug: "noteflow", name: "NoteFlow", desc: "AI progress notes for therapists — turn a 60-sec voice summary into a complete SOAP/DAP/BIRP note", color: "purple" },
   { slug: "toolkeeper", name: "ToolKeeper", desc: "Tool checkout/check-in so construction crews stop losing time and money to missing tools", color: "orange" },
   { slug: "billbox", name: "BillBox", desc: "Turn your invoice inbox into lightweight spend analytics (Gmail/Drive)", color: "cyan" },
+  { slug: "treatplan", name: "TreatPlan", desc: "AI-powered dental treatment plan reactivation — recover $40K+ in unscheduled work automatically", color: "sky" },
 ];
 
 const colorMap: Record<string, string> = {
@@ -30,6 +31,7 @@ const colorMap: Record<string, string> = {
   cyan: "#06b6d4",
   blue: "#3b82f6",
   orange: "#f97316",
+  sky: "#0ea5e9",
 };
 
 export default function Home() {
