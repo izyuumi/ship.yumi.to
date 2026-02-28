@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OwnerPack — Month-end owner reports without the Excel weekend</title>
+  <meta name="description" content="OwnerPack turns AppFolio exports into clean, owner-specific report packets automatically—P&Ls, maintenance detail, photos, and more. Stop losing weekends to month-end reporting." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg0: '#070A12',
+            bg1: '#0B1020',
+            card: 'rgba(255,255,255,0.06)'
+          },
+          boxShadow: {
+            glow: '0 0 0 1px rgba(255,255,255,0.10), 0 20px 80px rgba(0,0,0,0.55)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { color-scheme: dark; }
+    .gridfade {
+      background-image:
+        radial-gradient(800px 400px at 30% -10%, rgba(99,102,241,.35), transparent 60%),
+        radial-gradient(700px 380px at 90% 10%, rgba(16,185,129,.25), transparent 55%),
+        radial-gradient(900px 500px at 50% 110%, rgba(236,72,153,.18), transparent 60%),
+        linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: auto, auto, auto, 42px 42px, 42px 42px;
+      background-position: center, center, center, center, center;
+    }
+    .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  </style>
+</head>
+<body class="min-h-screen bg-bg0 text-slate-100">
+  <div class="gridfade">
+    <header class="mx-auto max-w-6xl px-6 pt-10 pb-6">
+      <nav class="flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-xl bg-white/10 ring-1 ring-white/15 grid place-items-center shadow-glow">
+            <span class="text-sm font-semibold tracking-tight">OP</span>
+          </div>
+          <div>
+            <div class="text-sm font-semibold">OwnerPack</div>
+            <div class="text-xs text-slate-300">Owner reporting automation</div>
+          </div>
+        </a>
+        <div class="hidden sm:flex items-center gap-6 text-sm text-slate-300">
+          <a class="hover:text-white" href="#problem">Problem</a>
+          <a class="hover:text-white" href="#solution">Solution</a>
+          <a class="hover:text-white" href="#how">How it works</a>
+          <a class="hover:text-white" href="#signup">Early access</a>
+        </div>
+      </nav>
+
+      <div class="mt-14 grid gap-10 lg:grid-cols-12 items-start">
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/5 ring-1 ring-white/10 px-3 py-1 text-xs text-slate-300">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            Built for AppFolio + small PM teams
+          </div>
+          <h1 class="mt-5 text-4xl sm:text-5xl font-semibold leading-tight tracking-tight">
+            Month-end owner reports shouldn’t cost you a weekend.
+          </h1>
+          <p class="mt-5 text-lg text-slate-300 leading-relaxed">
+            If you’re exporting from AppFolio into Excel, reformatting the same data 12 different ways, and chasing down
+            maintenance photos for “just one more owner request”… you’re doing real work twice.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#signup" class="inline-flex items-center justify-center rounded-xl bg-indigo-500 hover:bg-indigo-400 px-5 py-3 text-sm font-semibold shadow-glow ring-1 ring-white/10">
+              Get early access
+            </a>
+            <a href="#solution" class="inline-flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 px-5 py-3 text-sm font-semibold ring-1 ring-white/10">
+              See how OwnerPack helps
+            </a>
+          </div>
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-4">
+              <div class="text-sm font-semibold">One click</div>
+              <div class="mt-1 text-xs text-slate-300">Generate all owner packets at once</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-4">
+              <div class="text-sm font-semibold">Owner-specific</div>
+              <div class="mt-1 text-xs text-slate-300">Same data, different templates</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-4">
+              <div class="text-sm font-semibold">Audit trail</div>
+              <div class="mt-1 text-xs text-slate-300">Know what was sent, when, and to whom</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="glass rounded-3xl bg-card ring-1 ring-white/10 p-6 shadow-glow">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm font-semibold">Owner packet preview</div>
+                <div class="text-xs text-slate-300">Branded. Clean. Consistent.</div>
+              </div>
+              <div class="text-xs text-slate-400">PDF</div>
+            </div>
+
+            <div class="mt-6 space-y-3">
+              <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-4">
+                <div class="flex items-center justify-between">
+                  <div class="text-sm font-semibold">P&L (MTD + YTD)</div>
+                  <div class="text-xs text-slate-400">Auto</div>
+                </div>
+                <div class="mt-1 text-xs text-slate-300">Standardized layout owners actually read.</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-4">
+                <div class="flex items-center justify-between">
+                  <div class="text-sm font-semibold">Maintenance detail</div>
+                  <div class="text-xs text-slate-400">Optional</div>
+                </div>
+                <div class="mt-1 text-xs text-slate-300">Include work orders, invoices, and notes.</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-4">
+                <div class="flex items-center justify-between">
+                  <div class="text-sm font-semibold">Photo pages</div>
+                  <div class="text-xs text-slate-400">Optional</div>
+                </div>
+                <div class="mt-1 text-xs text-slate-300">Attach photos once — they land in the right packet.</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-4">
+                <div class="flex items-center justify-between">
+                  <div class="text-sm font-semibold">Market comps section</div>
+                  <div class="text-xs text-slate-400">Optional</div>
+                </div>
+                <div class="mt-1 text-xs text-slate-300">Stop doing “comps every month” as a custom project.</div>
+              </div>
+            </div>
+
+            <div class="mt-6 rounded-2xl bg-gradient-to-r from-indigo-500/20 to-emerald-500/15 ring-1 ring-white/10 p-4">
+              <div class="text-sm font-semibold">Designed for small teams</div>
+              <div class="mt-1 text-xs text-slate-300">Keep the owners. Keep your weekends.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 pb-20">
+      <section id="problem" class="mt-12">
+        <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8">
+          <h2 class="text-2xl font-semibold tracking-tight">The problem</h2>
+          <p class="mt-3 text-slate-300 leading-relaxed">
+            Property management software is great at operations. It’s not great at
+            <span class="text-white">owner-ready reporting</span>.
+            So you export, paste, reformat, screenshot, attach photos, and rebuild the same report packet over and over.
+          </p>
+
+          <div class="mt-6 grid gap-4 md:grid-cols-2">
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+              <div class="text-sm font-semibold">“Every owner wants something slightly different.”</div>
+              <div class="mt-1 text-sm text-slate-300">One-page P&L, maintenance photos per line item, monthly comps…</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+              <div class="text-sm font-semibold">“The canned statement is fine for 3 owners.”</div>
+              <div class="mt-1 text-sm text-slate-300">The rest becomes an Excel weekend.</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+              <div class="text-sm font-semibold">It doesn’t scale past 40–100 doors.</div>
+              <div class="mt-1 text-sm text-slate-300">You either hire for reporting, or burn out.</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+              <div class="text-sm font-semibold">You’re afraid to push back.</div>
+              <div class="mt-1 text-sm text-slate-300">Big accounts ask for more — and you don’t want to lose them.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="mt-10">
+        <div class="grid gap-6 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8 h-full">
+              <h2 class="text-2xl font-semibold tracking-tight">The solution</h2>
+              <p class="mt-3 text-slate-300 leading-relaxed">
+                OwnerPack turns your exports into a system: templates, owner rules, and auto-generated packets.
+                Same underlying data — delivered in the format each owner expects.
+              </p>
+              <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span><span class="text-white font-medium">Template once</span> (P&L-only, P&L + maintenance, full packet).</span></li>
+                <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span><span class="text-white font-medium">Assign per owner</span> (photos on/off, detail level, notes).</span></li>
+                <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-pink-400"></span><span><span class="text-white font-medium">Generate all</span> packets at once with a review step.</span></li>
+                <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400"></span><span><span class="text-white font-medium">Send + track</span> delivery so nothing is missed.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8">
+              <h3 class="text-lg font-semibold">What OwnerPack handles</h3>
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+                  <div class="text-sm font-semibold">Branded packets</div>
+                  <div class="mt-1 text-sm text-slate-300">Your logo, your layout, every month—consistent and professional.</div>
+                </div>
+                <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+                  <div class="text-sm font-semibold">Maintenance photos</div>
+                  <div class="mt-1 text-sm text-slate-300">Attach once; they land in the correct owner packet automatically.</div>
+                </div>
+                <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+                  <div class="text-sm font-semibold">Owner-specific views</div>
+                  <div class="mt-1 text-sm text-slate-300">Different owners, different sections—without reformatting.</div>
+                </div>
+                <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+                  <div class="text-sm font-semibold">Standardization without drama</div>
+                  <div class="mt-1 text-sm text-slate-300">Use “tiers” internally and keep the relationship smooth.</div>
+                </div>
+              </div>
+
+              <div class="mt-6 rounded-2xl bg-white/4 ring-1 ring-white/10 p-5">
+                <div class="text-sm font-semibold">Not another PM system</div>
+                <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+                  OwnerPack complements what you already use (AppFolio, Buildium, Yardi, etc.).
+                  We focus on the painful last mile: turning raw exports into owner-ready reporting.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="mt-10">
+        <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8">
+          <h2 class="text-2xl font-semibold tracking-tight">How it works (MVP)</h2>
+          <div class="mt-6 grid gap-4 md:grid-cols-4">
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+              <div class="text-xs text-slate-400">Step 1</div>
+              <div class="mt-1 text-sm font-semibold">Import</div>
+              <div class="mt-1 text-sm text-slate-300">Upload/export CSV/XLSX from AppFolio (or connect mailbox).</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+              <div class="text-xs text-slate-400">Step 2</div>
+              <div class="mt-1 text-sm font-semibold">Template</div>
+              <div class="mt-1 text-sm text-slate-300">Define layouts once. Toggle sections like photos and detail.</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+              <div class="text-xs text-slate-400">Step 3</div>
+              <div class="mt-1 text-sm font-semibold">Generate</div>
+              <div class="mt-1 text-sm text-slate-300">Create all owner PDFs at once with a quick review screen.</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+              <div class="text-xs text-slate-400">Step 4</div>
+              <div class="mt-1 text-sm font-semibold">Deliver</div>
+              <div class="mt-1 text-sm text-slate-300">Send via email/portal link and track delivery status.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="signup" class="mt-10">
+        <div class="rounded-3xl bg-gradient-to-b from-white/8 to-white/4 ring-1 ring-white/10 p-8 shadow-glow">
+          <div class="grid gap-8 lg:grid-cols-12 items-center">
+            <div class="lg:col-span-7">
+              <h2 class="text-2xl font-semibold tracking-tight">Get early access</h2>
+              <p class="mt-3 text-slate-300 leading-relaxed">
+                If month-end reporting is your recurring time sink, join the early access list.
+                We’re interviewing PMs and building the first templates around real workflows.
+              </p>
+              <div class="mt-4 text-xs text-slate-400">No pricing on this page. Just a simple waitlist.</div>
+            </div>
+            <div class="lg:col-span-5">
+              <form id="waitlist" class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+                <label class="block text-sm font-semibold" for="email">Email</label>
+                <input id="email" name="email" type="email" required placeholder="you@company.com"
+                  class="mt-2 w-full rounded-xl bg-bg1/60 ring-1 ring-white/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-indigo-400" />
+                <label class="mt-4 block text-sm font-semibold" for="pm">PM software (optional)</label>
+                <input id="pm" name="pm" type="text" placeholder="AppFolio / Buildium / Yardi / Other"
+                  class="mt-2 w-full rounded-xl bg-bg1/60 ring-1 ring-white/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-indigo-400" />
+
+                <button type="submit" class="mt-4 w-full rounded-xl bg-indigo-500 hover:bg-indigo-400 px-5 py-3 text-sm font-semibold ring-1 ring-white/10">
+                  Join the waitlist
+                </button>
+                <p id="success" class="mt-3 hidden text-sm text-emerald-300">Thanks — you’re on the list. We’ll reach out soon.</p>
+                <p id="error" class="mt-3 hidden text-sm text-rose-300">Something went wrong. Please try again.</p>
+
+                <p class="mt-4 text-xs text-slate-400 leading-relaxed">
+                  By submitting, you agree we can email you about OwnerPack. Unsubscribe anytime.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mt-12 pb-6 text-center text-xs text-slate-500">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2">
+          <span>© <span id="y"></span> OwnerPack</span>
+          <span class="hidden sm:inline">•</span>
+          <span>Built to eliminate the month-end reporting grind.</span>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('waitlist');
+    const success = document.getElementById('success');
+    const error = document.getElementById('error');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      success.classList.add('hidden');
+      error.classList.add('hidden');
+
+      try {
+        // Demo-only: pretend we sent it somewhere.
+        // If/when you add a backend, replace this with fetch().
+        const email = (document.getElementById('email').value || '').trim();
+        if (!email) throw new Error('missing email');
+
+        form.reset();
+        success.classList.remove('hidden');
+      } catch (err) {
+        error.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

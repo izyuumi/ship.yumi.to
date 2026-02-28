@@ -11,6 +11,7 @@ const projects = [
   { slug: "claimguard", name: "ClaimGuard", desc: "AI billing copilot for small medical practices", color: "blue" },
   { slug: "vetscribe", name: "VetScribe", desc: "AI medical records for veterinary clinics", color: "emerald" },
   { slug: "billsense", name: "BillSense", desc: "AI time tracking for solo & small law firms", color: "blue" },
+  { slug: "ownerpack", name: "OwnerPack", desc: "Month-end owner reporting without the Excel weekend", color: "indigo" },
   { slug: "turnsnap", name: "TurnSnap", desc: "AI move-out inspections for property managers", color: "blue" },
   { slug: "certvault", name: "CertVault", desc: "AI-powered COI tracking for GCs & property managers", color: "blue" },
   { slug: "pricebite", name: "PriceBite", desc: "AI invoice scanner that catches vendor price creep for restaurants", color: "orange" },
