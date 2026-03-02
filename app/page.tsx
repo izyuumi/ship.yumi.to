@@ -24,6 +24,7 @@ const projects = [
   { slug: "treatplan", name: "TreatPlan", desc: "AI-powered dental treatment plan reactivation — recover $40K+ in unscheduled work automatically", color: "sky" },
   { slug: "showup", name: "ShowUp", desc: "Stop losing money to no-shows — smart booking protection for independent tour & experience operators", color: "orange" },
   { slug: "admitflow", name: "AdmitFlow", desc: "Hospital admission documentation in 20 minutes — smart pre-fill, voice-to-form, built-in translation, and one-tap EMR sync", color: "sky" },
+  { slug: "gatherflow", name: "GatherFlow", desc: "Stop chasing clients for tax documents — automated reminders, secure upload portals, and a live status dashboard for accountants", color: "blue" },
 ];
 
 const colorMap: Record<string, string> = {
