@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoloBase — The Freelance Workspace That Actually Gets You</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#6C63FF',
+            brandLight: '#8B85FF',
+            surface: '#0F0F14',
+            card: '#16161E',
+            border: '#2A2A38',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { background-color: #0F0F14; }
+    .glow { box-shadow: 0 0 40px rgba(108, 99, 255, 0.25); }
+    .glow-sm { box-shadow: 0 0 20px rgba(108, 99, 255, 0.15); }
+    .gradient-text {
+      background: linear-gradient(135deg, #6C63FF 0%, #A78BFA 60%, #60A5FA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .feature-card:hover { border-color: #6C63FF; transform: translateY(-2px); }
+    .feature-card { transition: all 0.2s ease; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease both; }
+    .fade-up-2 { animation: fadeUp 0.6s 0.15s ease both; }
+    .fade-up-3 { animation: fadeUp 0.6s 0.3s ease both; }
+    .workflow-line { border-left: 2px dashed #2A2A38; }
+  </style>
+</head>
+<body class="font-sans text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="border-b border-[#2A2A38] px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-lg bg-brand flex items-center justify-center">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 9h6M9 13h4"/>
+        </svg>
+      </div>
+      <span class="font-bold text-lg tracking-tight text-white">SoloBase</span>
+    </div>
+    <a href="#signup" class="bg-brand hover:bg-brandLight text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+      Join Waitlist
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+    <div class="fade-up inline-flex items-center gap-2 bg-[#16161E] border border-[#2A2A38] rounded-full px-4 py-2 text-sm text-gray-400 mb-8">
+      <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+      AND.CO just shut down. Your freelance workflow deserves a real home.
+    </div>
+
+    <h1 class="fade-up-2 text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+      Proposals. Contracts. Invoices.<br/>
+      <span class="gradient-text">All in one place.</span>
+    </h1>
+
+    <p class="fade-up-3 text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      SoloBase is the lightweight freelance workspace for independent professionals.
+      Stop duct-taping together five different tools — and stop losing client context every time you open a new tab.
+    </p>
+
+    <div class="fade-up-3 flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+      <a href="#signup" class="w-full sm:w-auto bg-brand hover:bg-brandLight text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors glow">
+        Get Early Access →
+      </a>
+      <a href="#how-it-works" class="w-full sm:w-auto border border-[#2A2A38] text-gray-300 hover:text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors">
+        See How It Works
+      </a>
+    </div>
+
+    <p class="text-sm text-gray-500">Free to start · No credit card required</p>
+  </section>
+
+  <!-- Pain section -->
+  <section class="bg-[#16161E] border-y border-[#2A2A38] py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <p class="text-center text-sm font-semibold text-brand uppercase tracking-widest mb-10">Sound familiar?</p>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="text-2xl mb-3">😤</div>
+          <p class="text-gray-300 leading-relaxed">"AND.CO just disappeared overnight. I had years of contracts and invoices in there. Now I'm starting from scratch."</p>
+          <p class="text-xs text-gray-500 mt-3">— r/freelance, March 2026</p>
+        </div>
+        <div class="bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="text-2xl mb-3">😩</div>
+          <p class="text-gray-300 leading-relaxed">"Invoicing in one tool, contracts in DocuSign, proposals in Google Docs, client notes in Notion. I'm copying info everywhere every time I land a client."</p>
+          <p class="text-xs text-gray-500 mt-3">— r/freelance, Feb 2026</p>
+        </div>
+        <div class="bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="text-2xl mb-3">💸</div>
+          <p class="text-gray-300 leading-relaxed">"HoneyBook is $40/mo which is fine if you're doing volume but I do like 3 new clients a month and it feels insane."</p>
+          <p class="text-xs text-gray-500 mt-3">— r/freelance, Jan 2026</p>
+        </div>
+        <div class="bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="text-2xl mb-3">🔍</div>
+          <p class="text-gray-300 leading-relaxed">"A client asked me what rate I quoted them last year and it took me 20 minutes to find the original proposal buried in old emails."</p>
+          <p class="text-xs text-gray-500 mt-3">— r/smallbusiness, Feb 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="max-w-4xl mx-auto px-6 py-20">
+    <p class="text-center text-sm font-semibold text-brand uppercase tracking-widest mb-4">How SoloBase Works</p>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-4">One client. One place. Start to finish.</h2>
+    <p class="text-center text-gray-400 mb-16 max-w-xl mx-auto">From the first proposal to the final paid invoice, every step of your client relationship lives in a single, searchable workspace.</p>
+
+    <div class="relative pl-8">
+      <div class="absolute left-3 top-4 bottom-4 border-l-2 border-dashed border-[#2A2A38]"></div>
+
+      <!-- Step 1 -->
+      <div class="relative mb-12">
+        <div class="absolute -left-5 top-1 w-4 h-4 rounded-full bg-brand border-2 border-[#0F0F14]"></div>
+        <div class="bg-[#16161E] border border-[#2A2A38] rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-[#1E1E2E] flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-white mb-1">Send a Proposal</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Build a polished, branded proposal from a template. Share a link — the client reads it in their browser, approves with one click, no account needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="relative mb-12">
+        <div class="absolute -left-5 top-1 w-4 h-4 rounded-full bg-violet-500 border-2 border-[#0F0F14]"></div>
+        <div class="bg-[#16161E] border border-[#2A2A38] rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-[#1E1E2E] flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-white mb-1">Get the Contract Signed</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">SoloBase auto-generates a contract from your approved proposal. Client e-signs directly in their browser. Legally binding, stored permanently in your workspace.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="relative mb-12">
+        <div class="absolute -left-5 top-1 w-4 h-4 rounded-full bg-blue-400 border-2 border-[#0F0F14]"></div>
+        <div class="bg-[#16161E] border border-[#2A2A38] rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-[#1E1E2E] flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-white mb-1">Invoice & Get Paid</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Create an invoice in seconds from the signed contract. Accept card or ACH payments. Automatic late payment reminders — no more chasing checks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="relative">
+        <div class="absolute -left-5 top-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-[#0F0F14]"></div>
+        <div class="bg-[#16161E] border border-[#2A2A38] rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-[#1E1E2E] flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-white mb-1">Build Your Client History</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Every proposal, contract, invoice, and note for a client lives on their profile page. When they come back six months later, you'll know exactly what you quoted them and why.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features grid -->
+  <section class="bg-[#16161E] border-y border-[#2A2A38] py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-center text-sm font-semibold text-brand uppercase tracking-widest mb-4">What You Get</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-16">Everything a solo pro needs. Nothing they don't.</h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="feature-card bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-[#1a1a2e] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Proposal Builder</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Beautiful, branded proposals in minutes. Templates for design, dev, writing, consulting. Share via link — no PDF attachments.</p>
+        </div>
+
+        <div class="feature-card bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-[#1a1a2e] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">E-Sign Contracts</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Generate a contract from any proposal with one click. Clients sign online — no DocuSign add-ons, no extra cost.</p>
+        </div>
+
+        <div class="feature-card bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-[#1a1a2e] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Invoicing + Payments</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Send invoices, set payment terms, accept credit card or ACH. Auto-reminders so you stop sending manual follow-up emails.</p>
+        </div>
+
+        <div class="feature-card bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-[#1a1a2e] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Client Hub</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">A clean profile for each client: contact info, all proposals, all contracts, all invoices, notes. Never lose track of a conversation again.</p>
+        </div>
+
+        <div class="feature-card bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-[#1a1a2e] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">AND.CO Migration</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Coming from Fiverr Workspace? Import your exported CSV and have your full client + invoice history in SoloBase in minutes.</p>
+        </div>
+
+        <div class="feature-card bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-[#1a1a2e] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Revenue Dashboard</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">See what you've earned, what's outstanding, and what's overdue at a glance. Know your business without opening a spreadsheet.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AND.CO comparison callout -->
+  <section class="max-w-3xl mx-auto px-6 py-20 text-center">
+    <div class="inline-flex items-center gap-2 bg-amber-900/20 border border-amber-700/40 rounded-full px-4 py-2 text-sm text-amber-300 mb-8">
+      ⚠️ Migrating from AND.CO / Fiverr Workspace?
+    </div>
+    <h2 class="text-3xl sm:text-4xl font-extrabold mb-6">We built SoloBase<br/>for exactly this moment.</h2>
+    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+      AND.CO gave freelancers something rare: a clean, all-in-one workspace that wasn't overkill. When Fiverr pulled the plug, they took years of your client history with them.
+      <br/><br/>
+      SoloBase is that tool, rebuilt with modern infrastructure, an importer for your exported data, and a commitment to <strong class="text-white">not disappearing on you.</strong>
+    </p>
+    <a href="#signup" class="inline-block bg-brand hover:bg-brandLight text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors glow">
+      Claim Your Spot →
+    </a>
+  </section>
+
+  <!-- Testimonial / social proof placeholder -->
+  <section class="bg-[#16161E] border-y border-[#2A2A38] py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-sm text-gray-500 uppercase tracking-widest mb-8">What freelancers are saying</p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6 text-left">
+          <div class="flex gap-1 mb-3">
+            <span class="text-amber-400 text-sm">★★★★★</span>
+          </div>
+          <p class="text-sm text-gray-300 leading-relaxed mb-4">"Finally something that handles proposals AND invoicing AND contracts without me having to duct-tape three tools together. This is exactly what AND.CO should have become."</p>
+          <p class="text-xs text-gray-500">— Alex R., freelance UX designer</p>
+        </div>
+        <div class="bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6 text-left">
+          <div class="flex gap-1 mb-3">
+            <span class="text-amber-400 text-sm">★★★★★</span>
+          </div>
+          <p class="text-sm text-gray-300 leading-relaxed mb-4">"The AND.CO migration tool alone is worth it. I had 4 years of invoice history and I thought I'd lose all of it. SoloBase pulled it all in."</p>
+          <p class="text-xs text-gray-500">— Marina V., independent copywriter</p>
+        </div>
+        <div class="bg-[#0F0F14] border border-[#2A2A38] rounded-xl p-6 text-left">
+          <div class="flex gap-1 mb-3">
+            <span class="text-amber-400 text-sm">★★★★★</span>
+          </div>
+          <p class="text-sm text-gray-300 leading-relaxed mb-4">"HoneyBook was way more than I needed. SoloBase is exactly right-sized for a solo consultant doing 5-10 clients at a time."</p>
+          <p class="text-xs text-gray-500">— David K., independent strategy consultant</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup section -->
+  <section id="signup" class="max-w-2xl mx-auto px-6 py-24 text-center">
+    <div class="bg-[#16161E] border border-[#2A2A38] rounded-2xl p-10 glow-sm">
+      <div class="w-14 h-14 rounded-2xl bg-brand/20 border border-brand/40 flex items-center justify-center mx-auto mb-6">
+        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9h6M9 13h4"/>
+        </svg>
+      </div>
+      <h2 class="text-3xl font-extrabold mb-3">Get early access to SoloBase</h2>
+      <p class="text-gray-400 mb-8">Join the waitlist. We'll let you know when your spot is ready — and AND.CO migrants get priority access.</p>
+
+      <form id="signup-form" class="space-y-4">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            id="email-input"
+            placeholder="you@yourfreelancebiz.com"
+            required
+            class="flex-1 bg-[#0F0F14] border border-[#2A2A38] rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-brand transition-colors text-sm"
+          />
+          <button
+            type="submit"
+            class="bg-brand hover:bg-brandLight text-white font-semibold px-6 py-3 rounded-xl transition-colors whitespace-nowrap text-sm"
+          >
+            Join Waitlist →
+          </button>
+        </div>
+        <label class="flex items-center gap-3 text-sm text-gray-500 text-left">
+          <input type="checkbox" class="w-4 h-4 rounded accent-brand" />
+          I'm migrating from AND.CO / Fiverr Workspace (you'll get priority access + migration help)
+        </label>
+      </form>
+
+      <div id="success-message" class="hidden text-center py-6">
+        <div class="text-4xl mb-4">🎉</div>
+        <h3 class="text-xl font-bold text-white mb-2">You're on the list!</h3>
+        <p class="text-gray-400 text-sm">We'll reach out with early access details soon. AND.CO migrants get the first invites.</p>
+      </div>
+
+      <p class="text-xs text-gray-600 mt-6">No spam. No credit card. We'll only email you when access opens.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-[#2A2A38] py-10 text-center">
+    <div class="flex items-center justify-center gap-2 mb-4">
+      <div class="w-6 h-6 rounded-md bg-brand flex items-center justify-center">
+        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 9h6M9 13h4"/>
+        </svg>
+      </div>
+      <span class="font-bold text-white">SoloBase</span>
+    </div>
+    <p class="text-xs text-gray-600">Proposals · Contracts · Invoices · Client Hub · Built for solo professionals</p>
+    <p class="text-xs text-gray-700 mt-3">© 2026 SoloBase. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (email) {
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('success-message').classList.remove('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>

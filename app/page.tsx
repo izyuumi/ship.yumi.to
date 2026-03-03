@@ -25,6 +25,7 @@ const projects = [
   { slug: "showup", name: "ShowUp", desc: "Stop losing money to no-shows — smart booking protection for independent tour & experience operators", color: "orange" },
   { slug: "admitflow", name: "AdmitFlow", desc: "Hospital admission documentation in 20 minutes — smart pre-fill, voice-to-form, built-in translation, and one-tap EMR sync", color: "sky" },
   { slug: "gatherflow", name: "GatherFlow", desc: "Stop chasing clients for tax documents — automated reminders, secure upload portals, and a live status dashboard for accountants", color: "blue" },
+  { slug: "solobase", name: "SoloBase", desc: "The freelance workspace that replaces AND.CO — proposals, contracts, invoices, and client hub in one place", color: "violet" },
 ];
 
 const colorMap: Record<string, string> = {
@@ -36,6 +37,7 @@ const colorMap: Record<string, string> = {
   blue: "#3b82f6",
   orange: "#f97316",
   sky: "#0ea5e9",
+  violet: "#8b5cf6",
 };
 
 export default function Home() {
