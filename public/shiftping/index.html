@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShiftPing — Stop Scheduling Your Staff via Group Chat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(249,115,22,0.15) 0%, transparent 70%);
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .chat-bubble {
+      animation: fadeSlide 0.4s ease forwards;
+      opacity: 0;
+    }
+    .chat-bubble:nth-child(1) { animation-delay: 0.1s; }
+    .chat-bubble:nth-child(2) { animation-delay: 0.3s; }
+    .chat-bubble:nth-child(3) { animation-delay: 0.5s; }
+    .chat-bubble:nth-child(4) { animation-delay: 0.7s; }
+    .chat-bubble:nth-child(5) { animation-delay: 0.9s; }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .ping-dot::after {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      margin-left: 6px;
+      animation: ping 1.5s infinite;
+    }
+    @keyframes ping {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen">
+
+  <!-- Nav -->
+  <nav class="border-b border-gray-800/50 sticky top-0 z-50 backdrop-blur-sm bg-gray-950/90">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center text-white font-bold text-sm">SP</div>
+        <span class="font-bold text-lg text-white">ShiftPing</span>
+      </div>
+      <a href="#signup" class="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-4 py-2 rounded-lg text-sm transition-colors">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-glow pt-20 pb-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium px-4 py-2 rounded-full mb-8">
+        <span class="ping-dot">Built for teams of 5–50</span>
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+        Your staff isn't missing shifts.<br/>
+        <span class="gradient-text">They're just missing your messages.</span>
+      </h1>
+
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Stop texting schedules into a group chat that half your staff muted.
+        ShiftPing delivers shifts as confirmed push notifications — not noise.
+      </p>
+
+      <a href="#signup" class="inline-block bg-orange-500 hover:bg-orange-400 text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg shadow-orange-500/20">
+        Join the Waitlist →
+      </a>
+      <p class="text-gray-500 text-sm mt-4">Free to try · No credit card · Ships soon</p>
+    </div>
+  </section>
+
+  <!-- Problem section: "The Group Chat Hell" -->
+  <section class="py-20 px-6 border-t border-gray-800/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Sound familiar?</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">You send the schedule. They say they never saw it. Every. Single. Week.</p>
+      </div>
+
+      <!-- Fake group chat mockup -->
+      <div class="max-w-md mx-auto bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden mb-16 shadow-2xl">
+        <div class="bg-gray-800 px-4 py-3 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-xs font-bold">WA</div>
+          <div>
+            <div class="text-sm font-semibold text-white">Staff Group Chat (41)</div>
+            <div class="text-xs text-gray-400">Maria, Jake, Devon, Luis +37 more</div>
+          </div>
+        </div>
+        <div class="p-4 space-y-3 text-sm">
+          <div class="chat-bubble flex gap-2">
+            <div class="w-6 h-6 rounded-full bg-blue-500 flex-shrink-0 flex items-center justify-center text-xs font-bold">M</div>
+            <div class="bg-gray-800 rounded-xl rounded-tl-sm px-3 py-2 max-w-[75%]">
+              <div class="text-gray-400 text-xs mb-1">Manager</div>
+              Here's the schedule for next week 📅
+            </div>
+          </div>
+          <div class="chat-bubble flex gap-2 justify-end">
+            <div class="bg-gray-700 rounded-xl rounded-tr-sm px-3 py-2 max-w-[75%]">
+              <div class="text-gray-400 text-xs mb-1">Devon</div>
+              lmaooo did you see that video of the cat 😂😂
+            </div>
+            <div class="w-6 h-6 rounded-full bg-purple-500 flex-shrink-0 flex items-center justify-center text-xs font-bold">D</div>
+          </div>
+          <div class="chat-bubble flex gap-2 justify-end">
+            <div class="bg-gray-700 rounded-xl rounded-tr-sm px-3 py-2 max-w-[75%]">
+              <div class="text-gray-400 text-xs mb-1">Jake</div>
+              😂😂😂😂
+            </div>
+            <div class="w-6 h-6 rounded-full bg-yellow-500 flex-shrink-0 flex items-center justify-center text-xs font-bold">J</div>
+          </div>
+          <div class="chat-bubble flex gap-2">
+            <div class="w-6 h-6 rounded-full bg-red-500 flex-shrink-0 flex items-center justify-center text-xs font-bold">L</div>
+            <div class="bg-gray-800 rounded-xl rounded-tl-sm px-3 py-2 max-w-[75%]">
+              <div class="text-gray-400 text-xs mb-1">Luis — Friday, 7:30 AM</div>
+              Hey wait am I working today??
+            </div>
+          </div>
+          <div class="chat-bubble flex gap-2">
+            <div class="w-6 h-6 rounded-full bg-blue-500 flex-shrink-0 flex items-center justify-center text-xs font-bold">M</div>
+            <div class="bg-gray-800 rounded-xl rounded-tl-sm px-3 py-2 max-w-[75%]">
+              <div class="text-gray-400 text-xs mb-1">Manager</div>
+              YES. You were on the schedule I posted. Your shift starts in 30 minutes 😤
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pain points grid -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">🔇</div>
+          <h3 class="font-bold text-lg mb-2 text-white">Muted & Missed</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Staff mute the group because it's too noisy. Your schedule update gets buried under 40 memes. They claim they never saw it.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">🔄</div>
+          <h3 class="font-bold text-lg mb-2 text-white">Shift Swap Chaos</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Someone posts "can anyone take my Saturday?" and it gets lost in the thread. You find out they swapped 10 minutes before service.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-3">📵</div>
+          <h3 class="font-bold text-lg mb-2 text-white">Zero Accountability</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">No read receipts. No confirmations. No way to prove they saw the message. And you're the one scrambling at 6am to fill a shift.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution / Features -->
+  <section class="py-20 px-6 bg-gray-900/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Schedules that actually get <span class="gradient-text">seen and confirmed</span>
+        </h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">ShiftPing replaces your chaotic group chat with a clean, purpose-built scheduling system your whole team will actually use.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Feature 1 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-7 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-2xl flex-shrink-0">📲</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2 text-white">Tap-to-Confirm Shifts</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">When you post the schedule, every employee gets a push notification. They tap once to confirm. You see who's confirmed and who hasn't — no guessing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-7 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-2xl flex-shrink-0">⏰</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2 text-white">Automatic Shift Reminders</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">ShiftPing sends a reminder 24 hours and 2 hours before each shift. Staff can't claim they forgot. "I never saw it" becomes a thing of the past.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-7 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-2xl flex-shrink-0">🔁</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2 text-white">Shift Swap Marketplace</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Employee needs to drop a shift? They post it in ShiftPing, eligible coworkers see it, and you approve the swap with one tap. Structured. Documented. Done.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-7 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-2xl flex-shrink-0">📅</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2 text-white">Availability Collection</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Staff submit their availability each week. You drag-and-drop to build the schedule around it. No more cross-referencing text messages to figure out who can work when.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-7 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-2xl flex-shrink-0">📢</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2 text-white">Broadcast Announcements</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Send urgent updates to your whole team with required read receipts. Not buried in a group chat — delivered as a direct notification that demands a response.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-7 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-2xl flex-shrink-0">🚫</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2 text-white">No App Download Required</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Staff get their schedule via SMS link. One tap opens their personal shift view — no account creation, no app store. Adoption is instant, even for tech-averse employees.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-20 px-6 border-t border-gray-800/50">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Up and running in 10 minutes</h2>
+        <p class="text-gray-400 text-lg">No complex onboarding. No IT department required.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-2xl bg-orange-500 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4">1</div>
+          <h3 class="font-bold text-lg mb-2">Add Your Team</h3>
+          <p class="text-gray-400 text-sm">Enter your staff's names and phone numbers. They get a text invite — no passwords, no app download needed.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-2xl bg-orange-500 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4">2</div>
+          <h3 class="font-bold text-lg mb-2">Build the Schedule</h3>
+          <p class="text-gray-400 text-sm">Drag and drop shifts onto your team's calendar. Pull from saved shift templates. Takes minutes, not hours.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-2xl bg-orange-500 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4">3</div>
+          <h3 class="font-bold text-lg mb-2">Hit Publish</h3>
+          <p class="text-gray-400 text-sm">Every employee gets a push notification. You watch confirmations roll in. Done. No more chasing people in the chat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof / testimonial style callouts -->
+  <section class="py-16 px-6 bg-gray-900/30">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+          <div class="flex gap-1 mb-3 text-orange-400 text-lg">★★★★★</div>
+          <p class="text-gray-300 text-sm leading-relaxed italic mb-4">"I manage a staff of 40. Our WhatsApp group was a disaster — people muted it because it got too noisy with jokes. Then they'd claim they never saw the schedule. I am so tired of the excuses."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-emerald-700 flex items-center justify-center text-sm font-bold">R</div>
+            <div>
+              <div class="text-sm font-semibold text-white">Restaurant Owner</div>
+              <div class="text-xs text-gray-500">r/restaurantowners</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+          <div class="flex gap-1 mb-3 text-orange-400 text-lg">★★★★★</div>
+          <p class="text-gray-300 text-sm leading-relaxed italic mb-4">"We've been using group chats and printed sheets but people keep missing shifts or forgetting when they're on. I need something where employees can see their hours on their phones, simply."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-700 flex items-center justify-center text-sm font-bold">S</div>
+            <div>
+              <div class="text-sm font-semibold text-white">Retail Shop Owner</div>
+              <div class="text-xs text-gray-500">r/smallbusiness</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Email signup -->
+  <section id="signup" class="py-24 px-6 border-t border-gray-800/50">
+    <div class="max-w-xl mx-auto text-center">
+      <div class="text-4xl mb-4">🔔</div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Ready to ditch the<br/><span class="gradient-text">group chat nightmare?</span>
+      </h2>
+      <p class="text-gray-400 text-lg mb-10">Join the waitlist. We'll reach out when ShiftPing is ready, and early signups get free priority access.</p>
+
+      <div id="form-container">
+        <form id="signup-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            id="email-input"
+            required
+            placeholder="you@yourbusiness.com"
+            class="flex-1 bg-gray-900 border border-gray-700 text-white placeholder-gray-500 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-orange-500 transition-colors"
+          />
+          <button
+            type="submit"
+            class="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition-colors whitespace-nowrap"
+          >
+            Join Waitlist
+          </button>
+        </form>
+        <p class="text-gray-600 text-xs mt-4">No spam. Unsubscribe anytime.</p>
+      </div>
+
+      <div id="success-message" class="hidden bg-green-500/10 border border-green-500/20 text-green-400 rounded-2xl px-8 py-6">
+        <div class="text-3xl mb-2">🎉</div>
+        <div class="font-bold text-lg mb-1">You're on the list!</div>
+        <div class="text-sm text-green-500/80">We'll ping you (pun intended) as soon as ShiftPing is ready. Your chaos-free scheduling era is coming.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/50 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-orange-500 flex items-center justify-center text-white font-bold text-xs">SP</div>
+        <span class="font-bold text-gray-300">ShiftPing</span>
+      </div>
+      <p class="text-gray-600 text-sm">© 2026 ShiftPing. Built for the humans who keep small businesses running.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (!email) return;
+
+      // Simulate submission
+      document.getElementById('form-container').classList.add('hidden');
+      document.getElementById('success-message').classList.remove('hidden');
+
+      // Could POST to a real endpoint here
+      console.log('Signup:', email);
+    });
+  </script>
+</body>
+</html>

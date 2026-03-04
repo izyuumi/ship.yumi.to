@@ -26,6 +26,7 @@ const projects = [
   { slug: "admitflow", name: "AdmitFlow", desc: "Hospital admission documentation in 20 minutes — smart pre-fill, voice-to-form, built-in translation, and one-tap EMR sync", color: "sky" },
   { slug: "gatherflow", name: "GatherFlow", desc: "Stop chasing clients for tax documents — automated reminders, secure upload portals, and a live status dashboard for accountants", color: "blue" },
   { slug: "solobase", name: "SoloBase", desc: "The freelance workspace that replaces AND.CO — proposals, contracts, invoices, and client hub in one place", color: "violet" },
+  { slug: "shiftping", name: "ShiftPing", desc: "Stop scheduling staff via group chat — shift confirmations, swap requests, and reminders that actually get seen", color: "orange" },
 ];
 
 const colorMap: Record<string, string> = {
