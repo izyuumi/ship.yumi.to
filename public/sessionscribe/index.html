@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionScribe — Therapy Notes in 60 Seconds</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-glow {
+      box-shadow: 0 0 0 1px rgba(129,140,248,0.15), 0 4px 24px rgba(129,140,248,0.08);
+    }
+    .card-glow:hover {
+      box-shadow: 0 0 0 1px rgba(129,140,248,0.35), 0 8px 40px rgba(129,140,248,0.18);
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(129,140,248,0.15) 0%, transparent 70%);
+    }
+    .step-line::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 18px;
+      width: 2px;
+      height: calc(100% + 16px);
+      background: linear-gradient(to bottom, rgba(129,140,248,0.4), transparent);
+    }
+    .quote-card {
+      border-left: 3px solid rgba(167,139,250,0.5);
+    }
+    input, textarea {
+      background: rgba(255,255,255,0.05) !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      color: #f1f5f9 !important;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus, textarea:focus {
+      outline: none !important;
+      border-color: rgba(129,140,248,0.6) !important;
+      box-shadow: 0 0 0 3px rgba(129,140,248,0.12) !important;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(148,163,184,0.6); }
+    .cta-btn {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .cta-btn:active { transform: translateY(0); }
+    .note-demo {
+      background: rgba(30,27,75,0.5);
+      border: 1px solid rgba(129,140,248,0.2);
+    }
+    .typing-cursor::after {
+      content: '|';
+      animation: blink 1s infinite;
+      color: #818cf8;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 backdrop-blur-md bg-gray-950/80">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-white text-lg tracking-tight">SessionScribe</span>
+      </div>
+      <a href="#signup" class="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors">Get Early Access →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-glow pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+        Built for therapists, by people who actually listened
+      </div>
+      <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+        Stop spending your<br/>
+        <span class="gradient-text">evenings on notes.</span>
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        You became a therapist to help people — not to spend 3 hours every night writing progress notes. SessionScribe turns your quick session recap into a complete, clinical-quality note in under 60 seconds.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <a href="#signup" class="cta-btn px-8 py-3.5 rounded-xl font-semibold text-white text-lg shadow-lg shadow-indigo-500/25">
+          Join the Waitlist — Free
+        </a>
+        <a href="#how-it-works" class="px-8 py-3.5 rounded-xl font-medium text-gray-300 hover:text-white border border-white/10 hover:border-white/20 transition-colors">
+          See How It Works ↓
+        </a>
+      </div>
+      <p class="mt-5 text-sm text-gray-500">No credit card. No EHR required. Just faster notes.</p>
+    </div>
+  </section>
+
+  <!-- Pain Quotes -->
+  <section class="py-16 px-6 bg-gray-900/30">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-gray-500 text-sm font-medium uppercase tracking-widest mb-10">Real therapists, real exhaustion</p>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="quote-card p-5 rounded-xl bg-gray-900/60">
+          <p class="text-gray-300 text-sm leading-relaxed italic mb-4">"If I don't do notes in-session, I spend my <strong class="text-white not-italic">entire weekend</strong> doing them. It was contributing to burnout."</p>
+          <p class="text-gray-500 text-xs">— r/therapists</p>
+        </div>
+        <div class="quote-card p-5 rounded-xl bg-gray-900/60">
+          <p class="text-gray-300 text-sm leading-relaxed italic mb-4">"Way behind on notes. I'm seeing 7 clients a day and I genuinely don't know how to catch up anymore. <strong class="text-white not-italic">Send help.</strong>"</p>
+          <p class="text-gray-500 text-xs">— r/therapists</p>
+        </div>
+        <div class="quote-card p-5 rounded-xl bg-gray-900/60">
+          <p class="text-gray-300 text-sm leading-relaxed italic mb-4">"I stayed late every single day last week just to finish charts. I love my clients but the <strong class="text-white not-italic">documentation is destroying me.</strong>"</p>
+          <p class="text-gray-500 text-xs">— r/therapists</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo -->
+  <section id="how-it-works" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">From bullet points to billable note<br/><span class="gradient-text">in under a minute.</span></h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">You handle the session. SessionScribe handles the paperwork.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <!-- Input side -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-3">① You type this (30 seconds)</p>
+          <div class="note-demo rounded-xl p-5">
+            <div class="flex items-center gap-2 mb-3 pb-3 border-b border-white/5">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-400/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-400/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-400/60"></div>
+              <span class="text-gray-500 text-xs ml-2">Session Recap — Client #4 (Thursday)</span>
+            </div>
+            <div class="text-gray-300 text-sm leading-relaxed space-y-1.5">
+              <p>• Reported high anxiety this week, work deadline stress</p>
+              <p>• Catastrophizing thoughts re: performance review</p>
+              <p>• Practiced cognitive restructuring exercise</p>
+              <p>• Identified 3 distorted thoughts, reframed successfully</p>
+              <p>• Assigned thought journal homework</p>
+              <p>• Good session, engaged, mood lifted by end</p>
+              <p class="typing-cursor text-gray-500">&nbsp;</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output side -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-3">② SessionScribe generates this (SOAP format)</p>
+          <div class="note-demo rounded-xl p-5">
+            <div class="flex items-center gap-2 mb-3 pb-3 border-b border-white/5">
+              <div class="w-2.5 h-2.5 rounded-full bg-indigo-400/60 animate-pulse"></div>
+              <span class="text-gray-500 text-xs ml-2">Progress Note — Generated Draft</span>
+            </div>
+            <div class="text-gray-300 text-sm leading-relaxed space-y-3">
+              <div>
+                <span class="text-indigo-400 font-semibold text-xs uppercase">Subjective</span>
+                <p class="text-gray-400 mt-1">Client reported experiencing elevated anxiety levels this week, citing an upcoming work performance review as a primary stressor. Client described pervasive worry and difficulty concentrating.</p>
+              </div>
+              <div>
+                <span class="text-indigo-400 font-semibold text-xs uppercase">Objective</span>
+                <p class="text-gray-400 mt-1">Client presented as engaged and cooperative. Affect was initially anxious but improved to euthymic by session end. Speech was clear and goal-directed.</p>
+              </div>
+              <div>
+                <span class="text-indigo-400 font-semibold text-xs uppercase">Assessment</span>
+                <p class="text-gray-400 mt-1">Client demonstrated insight into catastrophizing cognitive patterns. Successfully identified and reframed three distorted thoughts using cognitive restructuring techniques consistent with CBT treatment plan goals.</p>
+              </div>
+              <div>
+                <span class="text-indigo-400 font-semibold text-xs uppercase">Plan</span>
+                <p class="text-gray-400 mt-1">Continue CBT modality. Client assigned thought journal homework to be reviewed at next session. Follow up on work performance review outcome and associated affect.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-6">You review, edit, approve — then copy to your EHR. That's it.</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6 bg-gray-900/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold mb-3">Everything you need. Nothing you don't.</h2>
+        <p class="text-gray-400">Designed to fit inside your existing workflow — no EHR migration required.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="card-glow p-6 rounded-xl bg-gray-900/60 transition-all duration-200">
+          <div class="w-10 h-10 rounded-lg bg-indigo-500/15 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">AI Note Drafting</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Enter a few session bullet points, get a complete clinical progress note in your preferred format — SOAP, DAP, BIRP, GIRP.</p>
+        </div>
+        <div class="card-glow p-6 rounded-xl bg-gray-900/60 transition-all duration-200">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Custom Templates</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Build templates tied to specific diagnoses, modalities (CBT, DBT, trauma-focused), and presenting problems. Your language, not generic boilerplate.</p>
+        </div>
+        <div class="card-glow p-6 rounded-xl bg-gray-900/60 transition-all duration-200">
+          <div class="w-10 h-10 rounded-lg bg-violet-500/15 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Voice Capture</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Between sessions, speak your recap aloud on your phone. SessionScribe transcribes and expands it — no typing, no forgetting details later.</p>
+        </div>
+        <div class="card-glow p-6 rounded-xl bg-gray-900/60 transition-all duration-200">
+          <div class="w-10 h-10 rounded-lg bg-pink-500/15 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">HIPAA-Minded Design</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">No client names required. Use client IDs or initials. Drafts stay private. Built from day one with clinical privacy requirements in mind.</p>
+        </div>
+        <div class="card-glow p-6 rounded-xl bg-gray-900/60 transition-all duration-200">
+          <div class="w-10 h-10 rounded-lg bg-sky-500/15 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">EHR-Agnostic Export</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">One-click copy to clipboard, formatted for SimplePractice, TherapyNotes, Therapy Brands, or any EHR. No integrations to set up.</p>
+        </div>
+        <div class="card-glow p-6 rounded-xl bg-gray-900/60 transition-all duration-200">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Note Backlog Dashboard</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">See all your pending and completed notes at a glance. No more "wait, did I finish that one?" anxiety. Your charting status, always clear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it saves time -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold mb-3">The math is hard to ignore.</h2>
+        <p class="text-gray-400">For a therapist seeing 7 clients a day, 5 days a week.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-8 rounded-2xl border border-red-500/20 bg-red-500/5">
+          <p class="text-red-400 font-semibold text-sm uppercase tracking-wider mb-4">Without SessionScribe</p>
+          <div class="space-y-3 text-gray-300">
+            <div class="flex justify-between items-center"><span>Minutes per note (avg)</span><span class="font-semibold text-white">18 min</span></div>
+            <div class="flex justify-between items-center"><span>Notes per day</span><span class="font-semibold text-white">7</span></div>
+            <div class="flex justify-between items-center"><span>Documentation per day</span><span class="font-semibold text-white">2.1 hrs</span></div>
+            <div class="border-t border-red-500/20 pt-3 flex justify-between items-center"><span>Per week</span><span class="font-bold text-red-400 text-lg">10.5 hrs of paperwork</span></div>
+          </div>
+        </div>
+        <div class="p-8 rounded-2xl border border-emerald-500/20 bg-emerald-500/5">
+          <p class="text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-4">With SessionScribe</p>
+          <div class="space-y-3 text-gray-300">
+            <div class="flex justify-between items-center"><span>Time to enter recap</span><span class="font-semibold text-white">~2 min</span></div>
+            <div class="flex justify-between items-center"><span>Review & edit draft</span><span class="font-semibold text-white">~3 min</span></div>
+            <div class="flex justify-between items-center"><span>Documentation per day</span><span class="font-semibold text-white">35 min</span></div>
+            <div class="border-t border-emerald-500/20 pt-3 flex justify-between items-center"><span>Per week</span><span class="font-bold text-emerald-400 text-lg">~3 hrs total</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-gray-400 mt-8 text-lg">That's <span class="text-white font-semibold">7+ hours back</span> every week. Your evenings belong to you again.</p>
+    </div>
+  </section>
+
+  <!-- Social proof / testimonial style -->
+  <section class="py-16 px-6 bg-gray-900/30">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="text-5xl mb-6">🧠</div>
+      <blockquote class="text-xl text-gray-200 leading-relaxed italic mb-6">
+        "Documentation is one of the top reasons therapists leave the field. We're trained to sit with complexity — but nobody trained us to spend 3 hours a night on paperwork."
+      </blockquote>
+      <p class="text-gray-500 text-sm">Consistent finding across r/therapists, NASW burnout surveys, and clinical workforce studies.</p>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section id="signup" class="py-24 px-6">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-bold mb-4">Get early access.<br/><span class="gradient-text">Leave work on time.</span></h2>
+        <p class="text-gray-400 text-lg">Join the waitlist. Be among the first therapists to try SessionScribe when we launch. Free for early adopters.</p>
+      </div>
+
+      <form id="signupForm" class="space-y-4" onsubmit="handleSubmit(event)">
+        <div>
+          <label class="block text-sm font-medium text-gray-400 mb-1.5">Your Name</label>
+          <input type="text" id="nameInput" placeholder="Dr. Sarah Chen" required
+            class="w-full px-4 py-3 rounded-xl text-sm focus:ring-0" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-400 mb-1.5">Work Email</label>
+          <input type="email" id="emailInput" placeholder="sarah@therapypractice.com" required
+            class="w-full px-4 py-3 rounded-xl text-sm focus:ring-0" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-400 mb-1.5">Your Role (optional)</label>
+          <input type="text" id="roleInput" placeholder="LCSW, Private Practice / LMFT, Group Practice / etc."
+            class="w-full px-4 py-3 rounded-xl text-sm focus:ring-0" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-400 mb-1.5">Biggest note-writing frustration? (optional)</label>
+          <textarea id="frustrationInput" rows="3" placeholder="e.g. I spend every Friday evening finishing the week's charts and I'm exhausted..."
+            class="w-full px-4 py-3 rounded-xl text-sm focus:ring-0 resize-none"></textarea>
+        </div>
+        <button type="submit" class="cta-btn w-full py-4 rounded-xl font-semibold text-white text-lg shadow-lg shadow-indigo-500/20">
+          Join the Waitlist — It's Free
+        </button>
+        <p class="text-center text-gray-500 text-xs">No spam. No credit card. We'll reach out when early access opens.</p>
+      </form>
+
+      <!-- Success State -->
+      <div id="successMsg" class="hidden text-center py-10">
+        <div class="text-5xl mb-4">🎉</div>
+        <h3 class="text-2xl font-bold text-white mb-3">You're on the list!</h3>
+        <p class="text-gray-400 text-lg">Thank you for signing up. We'll be in touch when early access opens — and we promise, your evenings are about to get a whole lot better.</p>
+        <p class="mt-4 text-sm text-gray-500">In the meantime, share SessionScribe with a fellow therapist who needs this. 💜</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+          <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <span class="font-medium text-gray-400 text-sm">SessionScribe</span>
+      </div>
+      <p class="text-gray-600 text-sm">SessionScribe is a note drafting tool. All clinical decisions remain with the licensed therapist. Not a diagnostic tool.</p>
+      <p class="text-gray-700 text-sm">© 2026 SessionScribe</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value;
+      const email = document.getElementById('emailInput').value;
+      if (!name || !email) return;
+
+      // Simulate submission
+      document.getElementById('signupForm').style.display = 'none';
+      document.getElementById('successMsg').classList.remove('hidden');
+
+      // Scroll to success message
+      document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>

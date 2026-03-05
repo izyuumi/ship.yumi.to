@@ -27,6 +27,7 @@ const projects = [
   { slug: "gatherflow", name: "GatherFlow", desc: "Stop chasing clients for tax documents — automated reminders, secure upload portals, and a live status dashboard for accountants", color: "blue" },
   { slug: "solobase", name: "SoloBase", desc: "The freelance workspace that replaces AND.CO — proposals, contracts, invoices, and client hub in one place", color: "violet" },
   { slug: "shiftping", name: "ShiftPing", desc: "Stop scheduling staff via group chat — shift confirmations, swap requests, and reminders that actually get seen", color: "orange" },
+  { slug: "sessionscribe", name: "SessionScribe", desc: "Therapy progress notes in 60 seconds — enter a few session bullet points, get a complete SOAP/DAP note ready to paste into your EHR", color: "violet" },
 ];
 
 const colorMap: Record<string, string> = {
