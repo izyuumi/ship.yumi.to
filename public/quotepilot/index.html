@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuotePilot — Stop Building Estimates That Get Ignored</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glow-orange {
+      box-shadow: 0 0 40px rgba(249, 115, 22, 0.15);
+    }
+    .feature-card {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid rgba(249, 115, 22, 0.15);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+      border-color: rgba(249, 115, 22, 0.4);
+      transform: translateY(-2px);
+    }
+    .step-line {
+      position: absolute;
+      left: 1.25rem;
+      top: 3rem;
+      bottom: -1rem;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(249,115,22,0.4), transparent);
+    }
+    .stat-card {
+      background: rgba(249, 115, 22, 0.08);
+      border: 1px solid rgba(249, 115, 22, 0.2);
+      border-radius: 0.75rem;
+    }
+    .cta-btn {
+      background: linear-gradient(135deg, #ea580c, #f97316);
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+    .cta-btn:active { transform: translateY(0); }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fadeIn 0.5s ease both; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur border-b border-gray-800/60">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">📋</span>
+        <span class="font-bold text-lg">QuotePilot</span>
+      </div>
+      <a href="#signup" class="cta-btn text-white text-sm font-semibold px-4 py-2 rounded-lg">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-24 px-6 text-center max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-1.5 text-sm text-orange-400 font-medium mb-8">
+      <span>🔨</span> Built for independent contractors
+    </div>
+    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+      Stop building estimates<br/>
+      <span class="gradient-text">that disappear into silence</span>
+    </h1>
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      You spend 3 hours on a detailed scope. You send it. Nothing.
+      <strong class="text-gray-200">QuotePilot</strong> builds professional estimates in 15 minutes, tells you the second your client opens it, and follows up automatically so you never chase a ghost again.
+    </p>
+    <a href="#signup" class="cta-btn inline-block text-white font-bold text-lg px-8 py-4 rounded-xl">
+      Join the waitlist →
+    </a>
+    <p class="text-sm text-gray-500 mt-4">Free to try. No credit card. Built for solo crews and small shops.</p>
+  </section>
+
+  <!-- Pain stats -->
+  <section class="pb-20 px-6">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="stat-card p-6 text-center">
+        <div class="text-4xl font-extrabold text-orange-400 mb-2">15 hrs</div>
+        <p class="text-gray-400 text-sm">Average hours contractors spend on free estimates every week</p>
+      </div>
+      <div class="stat-card p-6 text-center">
+        <div class="text-4xl font-extrabold text-orange-400 mb-2">~50%</div>
+        <p class="text-gray-400 text-sm">Of estimates sent never receive any response from the client</p>
+      </div>
+      <div class="stat-card p-6 text-center">
+        <div class="text-4xl font-extrabold text-orange-400 mb-2">$0</div>
+        <p class="text-gray-400 text-sm">Revenue earned for all that time if the job doesn't close</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem section -->
+  <section class="py-20 px-6 bg-gray-900/40 border-y border-gray-800/50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Sound familiar?</h2>
+      <p class="text-gray-400 mb-12">Every contractor knows this cycle. QuotePilot is built to break it.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-5">
+          <div class="text-2xl mb-3">🕐</div>
+          <h3 class="font-semibold text-white mb-2">Hours lost to manual estimates</h3>
+          <p class="text-gray-400 text-sm">You copy-paste from old Word docs, adjust line items one by one, then format it to look professional. For every job. Every time.</p>
+        </div>
+        <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-5">
+          <div class="text-2xl mb-3">👻</div>
+          <h3 class="font-semibold text-white mb-2">Clients disappear after you send</h3>
+          <p class="text-gray-400 text-sm">You hit send and wait. Days pass. You don't know if they opened it, ignored it, or already hired someone else — and you're too busy to call every lead.</p>
+        </div>
+        <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-5">
+          <div class="text-2xl mb-3">🛒</div>
+          <h3 class="font-semibold text-white mb-2">Your estimate gets price-shopped</h3>
+          <p class="text-gray-400 text-sm">You do the work of scoping a job thoroughly. Then the client takes your detailed breakdown and hands it to a cheaper competitor. You educated them for free.</p>
+        </div>
+        <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-5">
+          <div class="text-2xl mb-3">📉</div>
+          <h3 class="font-semibold text-white mb-2">No system to close the deal</h3>
+          <p class="text-gray-400 text-sm">You forget to follow up at the right time. Or you follow up too much. Studies show 80% of sales need 5+ touches — but you're too busy on the job site to track it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution / Features -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          QuotePilot fixes the whole pipeline
+        </h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">From first contact to signed estimate — faster, smarter, and automated.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="feature-card rounded-xl p-6 glow-orange">
+          <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center text-xl mb-4">⚡</div>
+          <h3 class="font-bold text-white text-lg mb-2">15-Minute Estimate Builder</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Save your standard line items by trade and job type. Pull a template, adjust quantities, and you're done. No more copy-pasting from old files.</p>
+        </div>
+
+        <div class="feature-card rounded-xl p-6">
+          <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center text-xl mb-4">👁️</div>
+          <h3 class="font-bold text-white text-lg mb-2">Open Tracking</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Get a push notification the instant your client opens your estimate. Know exactly when to call. No more guessing if they got it.</p>
+        </div>
+
+        <div class="feature-card rounded-xl p-6">
+          <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center text-xl mb-4">🔁</div>
+          <h3 class="font-bold text-white text-lg mb-2">Automated Follow-Ups</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Set it once: if no reply in 3 days, QuotePilot sends a polite follow-up for you. 5 days later, another nudge. Close more jobs without more work.</p>
+        </div>
+
+        <div class="feature-card rounded-xl p-6">
+          <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center text-xl mb-4">📋</div>
+          <h3 class="font-bold text-white text-lg mb-2">Lead Intake Forms</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Before you drive out, send the client a 2-minute form. Scope, timeline, budget range. Filter tire-kickers before you invest your evening building a scope.</p>
+        </div>
+
+        <div class="feature-card rounded-xl p-6">
+          <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center text-xl mb-4">📊</div>
+          <h3 class="font-bold text-white text-lg mb-2">Estimate Dashboard</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">See every open estimate, its status, when it was last viewed, and your close rate. Stop losing track of active bids scattered across your inbox.</p>
+        </div>
+
+        <div class="feature-card rounded-xl p-6">
+          <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center text-xl mb-4">✅</div>
+          <h3 class="font-bold text-white text-lg mb-2">One-Click to Invoice</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Client approves? Convert the estimate to an invoice instantly. No re-entering line items, no reformatting. Collect a deposit and get to work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-20 px-6 bg-gray-900/40 border-y border-gray-800/50">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-14">How QuotePilot works</h2>
+
+      <div class="space-y-10">
+        <div class="flex gap-5 relative">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 font-bold z-10">1</div>
+          <div class="step-line"></div>
+          <div>
+            <h3 class="font-semibold text-white text-lg mb-1">Client fills your intake form</h3>
+            <p class="text-gray-400 text-sm">Share your link. Client answers scope questions in 2 minutes. You know what you're walking into — and whether it's worth your time.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 relative">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 font-bold z-10">2</div>
+          <div class="step-line"></div>
+          <div>
+            <h3 class="font-semibold text-white text-lg mb-1">Build the estimate in minutes</h3>
+            <p class="text-gray-400 text-sm">Pull your saved template for this job type, tweak quantities and notes, and generate a professional PDF or shareable link. Done in under 20 minutes.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 relative">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 font-bold z-10">3</div>
+          <div class="step-line"></div>
+          <div>
+            <h3 class="font-semibold text-white text-lg mb-1">Track opens and trigger follow-ups</h3>
+            <p class="text-gray-400 text-sm">You get a ping when they open it. If silence follows, QuotePilot sends follow-up messages on your behalf — so you can focus on the job site.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 font-bold z-10">4</div>
+          <div>
+            <h3 class="font-semibold text-white text-lg mb-1">Close, invoice, get paid</h3>
+            <p class="text-gray-400 text-sm">Client approves with a click. Convert to invoice instantly, collect a deposit, and get started. The whole cycle in one tool — no spreadsheets, no chaos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial-style quotes -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-center mb-12 text-gray-300">What contractors are saying right now</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+          <p class="text-gray-300 italic text-sm leading-relaxed mb-4">"Every week I'm spending 10–20 hours driving out to jobs, taking notes, then spending my nights building detailed scopes and pricing — all for free. Half the time I don't even get a response."</p>
+          <p class="text-gray-500 text-xs">— r/Contractor, 400+ upvotes</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+          <p class="text-gray-300 italic text-sm leading-relaxed mb-4">"Other times they take my estimate and hand it to the next guy to beat my price. I want to stop giving away my time and expertise."</p>
+          <p class="text-gray-500 text-xs">— r/Contractor</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+          <p class="text-gray-300 italic text-sm leading-relaxed mb-4">"I am a contractor and I don't give quotes for free. The same frustration you feel — I feel it when spending hours putting an estimate together and then the customer ghosts us."</p>
+          <p class="text-gray-500 text-xs">— r/Contractor</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+          <p class="text-gray-300 italic text-sm leading-relaxed mb-4">"There really isn't a great option for building the estimates and sending quick proposals. Most software out there is clunky and built for big general contractors — not guys like me."</p>
+          <p class="text-gray-500 text-xs">— r/Construction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="py-16 px-6 bg-gray-900/40 border-y border-gray-800/50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-8">Built for trades that live and die by the estimate</h2>
+      <div class="flex flex-wrap justify-center gap-3 text-sm">
+        {["🔧 Plumbers", "⚡ Electricians", "🌡️ HVAC", "🏠 Remodelers", "🌿 Landscapers", "🎨 Painters", "🏗️ Concrete", "🪵 Carpenters", "🔩 Roofers", "🚧 Fencing"].map(t => t)}
+      </div>
+      <div class="flex flex-wrap justify-center gap-3 mt-3">
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">🔧 Plumbers</span>
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">⚡ Electricians</span>
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">🌡️ HVAC</span>
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">🏠 Remodelers</span>
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">🌿 Landscapers</span>
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">🎨 Painters</span>
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">🏗️ Concrete</span>
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">🪵 Carpenters</span>
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">🔩 Roofers</span>
+        <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full">🚧 Fencing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Signup -->
+  <section id="signup" class="py-24 px-6">
+    <div class="max-w-xl mx-auto text-center">
+      <div class="text-4xl mb-5">📬</div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Get early access to QuotePilot
+      </h2>
+      <p class="text-gray-400 mb-8 leading-relaxed">
+        We're building this for contractors, with contractors. Join the waitlist and be the first to use it — free during early access.
+      </p>
+
+      <div id="signup-form-wrap">
+        <form id="signup-form" class="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            id="email-input"
+            required
+            placeholder="your@email.com"
+            class="flex-1 bg-gray-900 border border-gray-700 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/60 focus:ring-1 focus:ring-orange-500/30 transition"
+          />
+          <button
+            type="submit"
+            class="cta-btn text-white font-bold px-6 py-3.5 rounded-xl whitespace-nowrap"
+          >
+            Join Waitlist →
+          </button>
+        </form>
+        <p class="text-gray-600 text-xs mt-4">No spam. No credit card. Unsubscribe anytime.</p>
+      </div>
+
+      <div id="signup-success" class="hidden animate-fade-in">
+        <div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6">
+          <div class="text-4xl mb-3">🎉</div>
+          <h3 class="text-xl font-bold text-white mb-2">You're on the list!</h3>
+          <p class="text-gray-400 text-sm">We'll reach out when early access opens. You'll be first in line.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/60 py-8 px-6 text-center text-gray-600 text-sm">
+    <p>
+      <span class="text-gray-400 font-semibold">QuotePilot</span> — Estimates that close jobs, not drain your evenings.
+    </p>
+    <p class="mt-2">A <a href="https://ship.yumi.to" class="text-orange-500/70 hover:text-orange-400 transition">ship.yumi.to</a> project</p>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (!email) return;
+
+      // Simulate submission
+      document.getElementById('signup-form-wrap').style.display = 'none';
+      document.getElementById('signup-success').classList.remove('hidden');
+
+      // Log for analytics
+      console.log('Waitlist signup:', email);
+    });
+  </script>
+</body>
+</html>
