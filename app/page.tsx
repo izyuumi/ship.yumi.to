@@ -29,6 +29,7 @@ const projects = [
   { slug: "shiftping", name: "ShiftPing", desc: "Stop scheduling staff via group chat — shift confirmations, swap requests, and reminders that actually get seen", color: "orange" },
   { slug: "sessionscribe", name: "SessionScribe", desc: "Therapy progress notes in 60 seconds — enter a few session bullet points, get a complete SOAP/DAP note ready to paste into your EHR", color: "violet" },
   { slug: "quotepilot", name: "QuotePilot", desc: "Stop building estimates that get ghosted — fast estimate builder with open tracking and automated follow-ups for independent contractors", color: "orange" },
+  { slug: "iepscribe", name: "IEPScribe", desc: "AI IEP drafting for special ed teachers — generate PLAAFP narratives, SMART goals, and progress notes in minutes, not hours", color: "indigo" },
 ];
 
 const colorMap: Record<string, string> = {

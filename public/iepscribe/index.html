@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IEPScribe — Write IEPs in Minutes, Not Hours</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-glow {
+      box-shadow: 0 0 0 1px rgba(129,140,248,0.15), 0 8px 32px rgba(129,140,248,0.08);
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(129,140,248,0.15), transparent);
+    }
+    .feature-icon {
+      background: linear-gradient(135deg, rgba(129,140,248,0.2), rgba(192,132,252,0.2));
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+      transition: all 0.2s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(129,140,248,0.4);
+    }
+    .quote-border {
+      border-left: 3px solid #818cf8;
+    }
+    .step-number {
+      background: linear-gradient(135deg, #818cf8, #c084fc);
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="border-b border-gray-800/60 backdrop-blur-sm sticky top-0 z-50 bg-gray-950/90">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <span class="font-bold text-lg tracking-tight">IEPScribe</span>
+      </div>
+      <a href="#waitlist" class="btn-primary text-white text-sm font-semibold px-5 py-2 rounded-lg">
+        Join Waitlist
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-glow pt-24 pb-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-1.5 text-sm text-indigo-300 font-medium mb-8">
+        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+        Built for special education teachers
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+        Stop spending your<br/>
+        <span class="gradient-text">weekends writing IEPs.</span>
+      </h1>
+
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        IEPScribe uses AI to draft your PLAAFP narratives, measurable goals, and quarterly progress notes in minutes — not the 4–8 hours you're losing right now.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <a href="#waitlist" class="btn-primary text-white font-bold px-8 py-4 rounded-xl text-lg">
+          Join the Waitlist — It's Free
+        </a>
+        <a href="#how-it-works" class="border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors">
+          See How It Works
+        </a>
+      </div>
+
+      <!-- Pain stat bar -->
+      <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white mb-1">4–8 hrs</div>
+          <div class="text-sm text-gray-500">per IEP written today</div>
+        </div>
+        <div class="text-center border-x border-gray-800">
+          <div class="text-3xl font-bold text-white mb-1">80%</div>
+          <div class="text-sm text-gray-500">is copy-paste boilerplate</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white mb-1">&lt; 30 min</div>
+          <div class="text-sm text-gray-500">with IEPScribe</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Empathy / pain section -->
+  <section class="py-20 px-6 bg-gray-900/50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-4">We know what your Sunday nights look like.</h2>
+      <p class="text-gray-400 text-center max-w-xl mx-auto mb-12">
+        You didn't become a special education teacher to spend half your life copy-pasting compliance language into software that looks like Windows XP.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-12">
+        <!-- Reddit-style quotes -->
+        <div class="bg-gray-900 rounded-2xl p-6 quote-border card-glow">
+          <p class="text-gray-300 italic mb-4">"80% of our IEPs are copy and pasted. It is so so so so time-consuming. It's 2025, there's gotta be a better way."</p>
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold text-gray-400">u/</div>
+            <span class="text-sm text-gray-500">Special ed teacher, Pennsylvania — r/specialed</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 quote-border card-glow">
+          <p class="text-gray-300 italic mb-4">"I feel like I'm either able to teach, or do paperwork during the school day. 80% of it is done outside school hours."</p>
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold text-gray-400">u/</div>
+            <span class="text-sm text-gray-500">Sped case manager — r/specialed</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 quote-border card-glow">
+          <p class="text-gray-300 italic mb-4">"The IEP paperwork is by far the most stressful part. I'm constantly copying suggested wording 10,000 times."</p>
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold text-gray-400">u/</div>
+            <span class="text-sm text-gray-500">First-year sped teacher — r/specialeducation</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 quote-border card-glow">
+          <p class="text-gray-300 italic mb-4">"I hate that I'm doing paperwork while my aides actually work with students. It shouldn't be this way."</p>
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold text-gray-400">u/</div>
+            <span class="text-sm text-gray-500">Veteran sped teacher — r/specialed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-indigo-950/50 border border-indigo-800/30 rounded-2xl p-8 text-center">
+        <p class="text-lg text-gray-300">
+          There are <strong class="text-white">500,000+ special education teachers</strong> in the US. Each manages 10–30 IEPs per year. Enterprise tools cost school districts $50K+. Individual teachers are left copying boilerplate into software built in 2004. <strong class="text-indigo-300">IEPScribe fixes this.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">From data to draft in minutes</h2>
+        <p class="text-gray-400 max-w-lg mx-auto">Tell IEPScribe about your student. Get a complete, compliant, editable IEP draft. Export and you're done.</p>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Step 1 -->
+        <div class="flex gap-6 items-start">
+          <div class="step-number w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-sm">1</div>
+          <div class="bg-gray-900 rounded-2xl p-6 flex-1 card-glow">
+            <h3 class="font-bold text-lg mb-2">Enter student performance data</h3>
+            <p class="text-gray-400">Input assessment scores, teacher observations, current performance notes, and eligibility category. Takes 5 minutes — no special format required.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex gap-6 items-start">
+          <div class="step-number w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-sm">2</div>
+          <div class="bg-gray-900 rounded-2xl p-6 flex-1 card-glow">
+            <h3 class="font-bold text-lg mb-2">AI generates your PLAAFP + goals</h3>
+            <p class="text-gray-400">IEPScribe writes the Present Level narrative in professional, IEP-compliant language. Then it generates 3–6 SMART annual goals with benchmarks — customized to your student's data, not a template.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex gap-6 items-start">
+          <div class="step-number w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-sm">3</div>
+          <div class="bg-gray-900 rounded-2xl p-6 flex-1 card-glow">
+            <h3 class="font-bold text-lg mb-2">Review, edit, and finalize</h3>
+            <p class="text-gray-400">You stay in control. Edit anything inline — change wording, add goals, adjust baselines. IEPScribe is a powerful starting point, not a black box. You always review before it's final.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex gap-6 items-start">
+          <div class="step-number w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-sm">4</div>
+          <div class="bg-gray-900 rounded-2xl p-6 flex-1 card-glow">
+            <h3 class="font-bold text-lg mb-2">Export and write progress notes in 30 seconds</h3>
+            <p class="text-gray-400">Export to PDF or Word for your district system. At progress report time, mark each goal's progress and IEPScribe writes the quarterly note. No more weekend marathons.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6 bg-gray-900/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Everything a case manager needs</h2>
+        <p class="text-gray-400">Built by people who've actually read IDEA. Every feature exists to save you time without cutting corners on compliance.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow">
+          <div class="feature-icon w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.347a3.75 3.75 0 01-5.3 0l-.347-.347z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">AI PLAAFP Generator</h3>
+          <p class="text-gray-400 text-sm">Turn assessment data and observation notes into a polished, compliant Present Level narrative in seconds.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow">
+          <div class="feature-icon w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Smart Goal Builder</h3>
+          <p class="text-gray-400 text-sm">Choose your goal domain, input baseline data, and get SMART annual goals with measurable benchmarks — pre-formatted to federal requirements.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow">
+          <div class="feature-icon w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Quarterly Progress Notes</h3>
+          <p class="text-gray-400 text-sm">At progress report time, click the progress level for each goal. IEPScribe writes the narrative note. What used to take hours takes 10 minutes.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow">
+          <div class="feature-icon w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Compliance Language Library</h3>
+          <p class="text-gray-400 text-sm">State-specific boilerplate, accommodation banks, and service descriptions — organized and searchable. Never copy-paste from a 2009 Word doc again.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow">
+          <div class="feature-icon w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Student Caseload Dashboard</h3>
+          <p class="text-gray-400 text-sm">See every student's IEP due dates, goal progress, and meeting status in one place. No more digging through folders or spreadsheets.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow">
+          <div class="feature-icon w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Export Anywhere</h3>
+          <p class="text-gray-400 text-sm">Export finished IEPs as PDF or Word. Upload to Frontline, Special Ed MIS, or your district's system. No lock-in, no proprietary formats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Made for everyone who writes IEP sections</h2>
+      <p class="text-gray-400 mb-12 max-w-lg mx-auto">Whether you're a case manager with 25 students or a specialist writing a few IEP sections per year, IEPScribe was built for you.</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gray-900 rounded-2xl p-5 card-glow">
+          <div class="text-3xl mb-3">📚</div>
+          <div class="font-semibold text-sm">Special Ed Teachers</div>
+          <div class="text-xs text-gray-500 mt-1">Resource room, self-contained, inclusion</div>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-5 card-glow">
+          <div class="text-3xl mb-3">🗣️</div>
+          <div class="font-semibold text-sm">Speech-Language Pathologists</div>
+          <div class="text-xs text-gray-500 mt-1">Goals, progress notes, service documentation</div>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-5 card-glow">
+          <div class="text-3xl mb-3">🏫</div>
+          <div class="font-semibold text-sm">School Psychologists</div>
+          <div class="text-xs text-gray-500 mt-1">Assessment summaries, eligibility language</div>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-5 card-glow">
+          <div class="text-3xl mb-3">⚕️</div>
+          <div class="font-semibold text-sm">Occupational Therapists</div>
+          <div class="text-xs text-gray-500 mt-1">Fine motor goals, progress notes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Waitlist -->
+  <section id="waitlist" class="py-24 px-6 bg-gray-900/60">
+    <div class="max-w-xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-1.5 text-sm text-purple-300 font-medium mb-8">
+        🎉 Early access waitlist
+      </div>
+      <h2 class="text-4xl font-bold mb-4">Get your Sunday evenings back.</h2>
+      <p class="text-gray-400 mb-10 text-lg">
+        Join the waitlist and be the first to try IEPScribe when we launch. Early access members get priority onboarding and a free extended trial.
+      </p>
+
+      <!-- Signup form -->
+      <div id="signup-form" class="bg-gray-900 rounded-2xl p-8 card-glow">
+        <div class="flex flex-col sm:flex-row gap-3 mb-4">
+          <input
+            id="email-input"
+            type="email"
+            placeholder="your@email.com"
+            class="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+          />
+          <button
+            onclick="handleSignup()"
+            class="btn-primary text-white font-bold px-6 py-3 rounded-xl whitespace-nowrap"
+          >
+            Join Waitlist
+          </button>
+        </div>
+        <p class="text-xs text-gray-600">No spam. No credit card required. Unsubscribe anytime.</p>
+      </div>
+
+      <!-- Success message (hidden) -->
+      <div id="success-message" class="hidden bg-green-950/50 border border-green-800/40 rounded-2xl p-8">
+        <div class="text-4xl mb-4">🎉</div>
+        <h3 class="text-xl font-bold text-green-400 mb-2">You're on the list!</h3>
+        <p class="text-gray-400">We'll reach out as soon as early access opens. In the meantime, you can forward this page to a fellow sped teacher who could use their weekends back.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 px-6 border-t border-gray-800/60">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center">
+          <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <span class="font-bold">IEPScribe</span>
+      </div>
+      <p class="text-gray-600 text-sm">© 2026 IEPScribe. Write less, teach more.</p>
+      <div class="flex items-center gap-1 text-sm text-gray-600">
+        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>
+        FERPA-conscious design
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSignup() {
+      const email = document.getElementById('email-input').value.trim();
+      if (!email || !email.includes('@')) {
+        document.getElementById('email-input').style.borderColor = '#ef4444';
+        document.getElementById('email-input').placeholder = 'Please enter a valid email';
+        setTimeout(() => {
+          document.getElementById('email-input').style.borderColor = '';
+          document.getElementById('email-input').placeholder = 'your@email.com';
+        }, 2000);
+        return;
+      }
+      // Hide form, show success
+      document.getElementById('signup-form').classList.add('hidden');
+      document.getElementById('success-message').classList.remove('hidden');
+      // In production: POST to your backend here
+      console.log('Signup:', email);
+    }
+
+    // Allow Enter key to submit
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('email-input').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') handleSignup();
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
