@@ -30,6 +30,7 @@ const projects = [
   { slug: "sessionscribe", name: "SessionScribe", desc: "Therapy progress notes in 60 seconds — enter a few session bullet points, get a complete SOAP/DAP note ready to paste into your EHR", color: "violet" },
   { slug: "quotepilot", name: "QuotePilot", desc: "Stop building estimates that get ghosted — fast estimate builder with open tracking and automated follow-ups for independent contractors", color: "orange" },
   { slug: "iepscribe", name: "IEPScribe", desc: "AI IEP drafting for special ed teachers — generate PLAAFP narratives, SMART goals, and progress notes in minutes, not hours", color: "indigo" },
+  { slug: "homevault", name: "HomeVault", desc: "Your home's digital handbook — appliance cards, warranty alerts, paint vault, service logs, and contractor notes organized by room", color: "emerald" },
 ];
 
 const colorMap: Record<string, string> = {

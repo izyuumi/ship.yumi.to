@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeVault — Your Home's Digital Handbook</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #34d399, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-glow:hover {
+      box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.3), 0 8px 32px rgba(52, 211, 153, 0.1);
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(52, 211, 153, 0.15), transparent);
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🏠</span>
+        <span class="font-bold text-lg text-white">HomeVault</span>
+      </div>
+      <a href="#signup" class="bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-semibold text-sm px-4 py-2 rounded-lg transition-colors">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-glow pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium px-4 py-1.5 rounded-full mb-8">
+        <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+        Now in early access
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-white mb-6">
+        Stop hunting through emails and boxes<br />
+        every time something <span class="gradient-text">breaks</span>.
+      </h1>
+
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Your house generates thousands of details — paint colors, appliance models, warranty dates, repair history, filter sizes. HomeVault keeps all of it organized by room, searchable in seconds, and reminds you before warranties expire.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <a href="#signup" class="bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold text-lg px-8 py-4 rounded-xl transition-all hover:scale-105">
+          Get Early Access — Free
+        </a>
+        <a href="#how-it-works" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-colors border border-gray-700">
+          See How It Works
+        </a>
+      </div>
+
+      <!-- Pain snapshot -->
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 max-w-2xl mx-auto text-left">
+        <p class="text-sm text-gray-500 font-medium mb-3">The moment every homeowner dreads...</p>
+        <div class="space-y-2 text-sm text-gray-300">
+          <div class="flex items-start gap-2">
+            <span class="text-red-400 mt-0.5">✗</span>
+            <span>Dishwasher breaks. Is it under warranty? <em class="text-gray-500">No idea. Can't find the receipt.</em></span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-red-400 mt-0.5">✗</span>
+            <span>Need to touch up the living room. What paint color was that? <em class="text-gray-500">I think it was... something gray?</em></span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-red-400 mt-0.5">✗</span>
+            <span>HVAC filter — what size is it? When did I last change it? <em class="text-gray-500">Probably... last year?</em></span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-red-400 mt-0.5">✗</span>
+            <span>That good plumber I used. What was his number? <em class="text-gray-500">Was it in my texts? An email? A receipt somewhere?</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="py-24 px-6 bg-gray-900/40">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white mb-4">Your home, finally organized</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">Set it up once. Every answer is one search away — forever.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow transition-all">
+          <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-2xl mb-4">🗂️</div>
+          <h3 class="text-lg font-semibold text-white mb-2">Organize by Room</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Add each room and log everything in it — appliances, paint, fixtures, flooring. Your home's blueprint in digital form.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow transition-all">
+          <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-2xl mb-4">📷</div>
+          <h3 class="text-lg font-semibold text-white mb-2">Snap & Store</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Photo receipts, scan manuals, attach invoices. Everything lives in one place — not scattered across emails, boxes, and old phones.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-glow transition-all">
+          <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-2xl mb-4">🔔</div>
+          <h3 class="text-lg font-semibold text-white mb-2">Never Miss a Warranty</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Set expiration dates. Get a heads-up 60 days before a warranty runs out — before it's too late to make a claim.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white mb-4">Everything about your home — in one app</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-20">
+        <div>
+          <div class="text-3xl mb-3">🏷️</div>
+          <h3 class="text-2xl font-bold text-white mb-3">Appliance Cards</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">Each appliance gets its own card: brand, model number, serial number, purchase date, store, price, and warranty end date. When it breaks, you open the card — not your junk drawer.</p>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Model & serial number</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Purchase date & store</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Warranty expiration alert</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Attach manual & receipt</li>
+          </ul>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">🍽️</span>
+            <div>
+              <div class="font-semibold text-white">Dishwasher</div>
+              <div class="text-sm text-gray-500">Kitchen</div>
+            </div>
+            <span class="ml-auto bg-emerald-500/10 text-emerald-400 text-xs font-medium px-2 py-1 rounded-full">Under Warranty</span>
+          </div>
+          <div class="grid grid-cols-2 gap-3 text-sm">
+            <div class="bg-gray-800 rounded-lg p-3">
+              <div class="text-gray-500 text-xs mb-1">Model</div>
+              <div class="text-white font-medium">WDT730PAHZ</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-3">
+              <div class="text-gray-500 text-xs mb-1">Serial</div>
+              <div class="text-white font-medium">F02847301</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-3">
+              <div class="text-gray-500 text-xs mb-1">Purchased</div>
+              <div class="text-white font-medium">Mar 2024</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-3">
+              <div class="text-gray-500 text-xs mb-1">Warranty Ends</div>
+              <div class="text-emerald-400 font-medium">Mar 2027</div>
+            </div>
+          </div>
+          <div class="mt-3 flex gap-2">
+            <span class="bg-gray-800 text-gray-400 text-xs px-3 py-1.5 rounded-lg cursor-pointer hover:bg-gray-700">📄 Manual</span>
+            <span class="bg-gray-800 text-gray-400 text-xs px-3 py-1.5 rounded-lg cursor-pointer hover:bg-gray-700">🧾 Receipt</span>
+            <span class="bg-gray-800 text-gray-400 text-xs px-3 py-1.5 rounded-lg cursor-pointer hover:bg-gray-700">📋 Service Log</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-20">
+        <div class="order-last md:order-first bg-gray-900 border border-gray-800 rounded-2xl p-6">
+          <div class="font-semibold text-white mb-3 flex items-center gap-2">
+            <span>🎨</span> Paint Vault — Master Bedroom
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center gap-4 bg-gray-800 rounded-xl p-3">
+              <div class="w-10 h-10 rounded-lg flex-shrink-0" style="background:#8B9CAD"></div>
+              <div>
+                <div class="text-white text-sm font-medium">Walls — Benjamin Moore</div>
+                <div class="text-gray-400 text-xs">Stonington Gray HC-170 · Eggshell</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 bg-gray-800 rounded-xl p-3">
+              <div class="w-10 h-10 rounded-lg flex-shrink-0" style="background:#FFFFFF"></div>
+              <div>
+                <div class="text-white text-sm font-medium">Trim & Ceiling — Sherwin-Williams</div>
+                <div class="text-gray-400 text-xs">Extra White SW 7006 · Semi-Gloss</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="text-3xl mb-3">🎨</div>
+          <h3 class="text-2xl font-bold text-white mb-3">Paint Vault</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">The exact paint color, brand, finish, and sheen for every room — saved forever. Next time you need a touch-up, you'll know exactly what to buy.</p>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Color name, code & brand</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Sheen (eggshell, semi-gloss, flat)</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Wall, trim & ceiling separately</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Color swatch preview</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 card-glow transition-all">
+          <div class="text-2xl mb-3">⏱️</div>
+          <h4 class="font-semibold text-white mb-1">Filter Tracker</h4>
+          <p class="text-sm text-gray-400">Log your HVAC filter size and get a reminder when it's time to replace it. Also tracks water filters, range hood filters, and more.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 card-glow transition-all">
+          <div class="text-2xl mb-3">🔧</div>
+          <h4 class="font-semibold text-white mb-1">Service History</h4>
+          <p class="text-sm text-gray-400">Log every repair: date, contractor, cost, and what was done. See the full history when something breaks again.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 card-glow transition-all">
+          <div class="text-2xl mb-3">👷</div>
+          <h4 class="font-semibold text-white mb-1">Contractor Rolodex</h4>
+          <p class="text-sm text-gray-400">Save your trusted contractors by trade — plumber, electrician, HVAC — with notes, phone, and how you found them.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 card-glow transition-all">
+          <div class="text-2xl mb-3">📁</div>
+          <h4 class="font-semibold text-white mb-1">Document Storage</h4>
+          <p class="text-sm text-gray-400">Upload receipts, permits, inspection reports, and manuals. Everything is tagged to the room or appliance it belongs to.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 card-glow transition-all">
+          <div class="text-2xl mb-3">🔍</div>
+          <h4 class="font-semibold text-white mb-1">Instant Search</h4>
+          <p class="text-sm text-gray-400">Search your entire home in seconds. "Water heater model" → found. "Who installed the floors" → found.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 card-glow transition-all">
+          <div class="text-2xl mb-3">🏡</div>
+          <h4 class="font-semibold text-white mb-1">Resale Ready</h4>
+          <p class="text-sm text-gray-400">When you sell, export a complete home report for buyers. Disclosure docs in minutes, not days of hunting through paperwork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof / validation -->
+  <section class="py-20 px-6 bg-gray-900/40">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-white text-center mb-12">You're not the only one</h2>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <p class="text-gray-300 text-sm italic mb-3">"Every time something breaks, needs replacing, or I'm trying to match something, I end up hunting for things like: paint colors, filter sizes, appliance model numbers, warranty info... And it always turns into digging through emails, old photos, boxes, or notes I forgot I even had."</p>
+          <div class="text-gray-500 text-xs">— r/homeowners</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <p class="text-gray-300 text-sm italic mb-3">"My dishwasher broke and I realized I have no idea if it's still under warranty or when I even bought it."</p>
+          <div class="text-gray-500 text-xs">— r/homeowners, Feb 2026</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <p class="text-gray-300 text-sm italic mb-3">"It's a nightmare to remember everything in papers, drive, especially when things get lost or you need proof for insurance or taxes. Or we need a repair — I don't remember the history."</p>
+          <div class="text-gray-500 text-xs">— r/homeowners, Feb 2026</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <p class="text-gray-300 text-sm italic mb-3">"I want a maintenance calendar that automatically populates based on the list of appliances. Folder section to upload warranties, receipts. A log to track random details like paint color/brand, hardware sizes, measurements for custom counters or cabinetry."</p>
+          <div class="text-gray-500 text-xs">— r/homeowners, Apr 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email signup -->
+  <section id="signup" class="py-24 px-6">
+    <div class="max-w-xl mx-auto text-center">
+      <div class="text-5xl mb-6">🔐</div>
+      <h2 class="text-4xl font-bold text-white mb-4">Be the first to know</h2>
+      <p class="text-gray-400 text-lg mb-8">HomeVault is in early development. Join the waitlist and get free early access when we launch — plus shape what we build.</p>
+
+      <form id="signup-form" class="space-y-3">
+        <input
+          type="email"
+          id="email-input"
+          required
+          placeholder="your@email.com"
+          class="w-full bg-gray-900 border border-gray-700 focus:border-emerald-500 focus:outline-none text-white placeholder-gray-500 px-5 py-4 rounded-xl text-lg transition-colors"
+        />
+        <button
+          type="submit"
+          class="w-full bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-gray-950 font-bold text-lg py-4 rounded-xl transition-all hover:scale-[1.02]"
+        >
+          Join the Waitlist →
+        </button>
+        <p class="text-gray-600 text-xs">No spam. No credit card. Just early access.</p>
+      </form>
+
+      <div id="success-message" class="hidden">
+        <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-8">
+          <div class="text-5xl mb-4">🎉</div>
+          <h3 class="text-2xl font-bold text-emerald-400 mb-2">You're on the list!</h3>
+          <p class="text-gray-400">We'll email you the moment HomeVault is ready. You'll get free early access as a thank-you for believing in us early.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800 py-10 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🏠</span>
+        <span class="font-bold text-white">HomeVault</span>
+        <span class="text-gray-600 text-sm ml-2">Your home's digital handbook</span>
+      </div>
+      <p class="text-gray-600 text-sm">© 2026 HomeVault. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (!email) return;
+      document.getElementById('signup-form').classList.add('hidden');
+      document.getElementById('success-message').classList.remove('hidden');
+      console.log('Signup:', email);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
