@@ -31,6 +31,8 @@ const projects = [
   { slug: "quotepilot", name: "QuotePilot", desc: "Stop building estimates that get ghosted — fast estimate builder with open tracking and automated follow-ups for independent contractors", color: "orange" },
   { slug: "iepscribe", name: "IEPScribe", desc: "AI IEP drafting for special ed teachers — generate PLAAFP narratives, SMART goals, and progress notes in minutes, not hours", color: "indigo" },
   { slug: "homevault", name: "HomeVault", desc: "Your home's digital handbook — appliance cards, warranty alerts, paint vault, service logs, and contractor notes organized by room", color: "emerald" },
+  { slug: "offboardkit", name: "OffboardKit", desc: "Lightweight employee offboarding playbooks with step assignment, auto-reminders, and audit-trail PDF export — for the lone sysadmin", color: "indigo" },
+  { slug: "nudgepay", name: "NudgePay", desc: "Automated invoice follow-up sequences so professional you'll never feel awkward chasing payment again — recover the $2,800/year you're leaving on the table", color: "cyan" },
 ];
 
 const colorMap: Record<string, string> = {

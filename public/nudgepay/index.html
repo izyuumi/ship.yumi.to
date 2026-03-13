@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NudgePay — Stop Losing Money to Unpaid Invoices</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #22d3ee, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-glow {
+      box-shadow: 0 0 0 1px rgba(99,102,241,0.2), 0 4px 24px rgba(99,102,241,0.08);
+    }
+    .card-glow:hover {
+      box-shadow: 0 0 0 1px rgba(99,102,241,0.4), 0 8px 40px rgba(99,102,241,0.16);
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.18), transparent);
+    }
+    .nudge-timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(99,102,241,0.6), rgba(34,211,238,0.3), transparent);
+    }
+    .quote-border {
+      border-left: 3px solid rgba(99,102,241,0.6);
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800/50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-bold text-sm">N</div>
+        <span class="font-bold text-lg tracking-tight">NudgePay</span>
+      </div>
+      <a href="#signup" class="hidden sm:block bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-glow pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-indigo-950/60 border border-indigo-800/40 text-indigo-300 text-xs font-medium px-3 py-1.5 rounded-full mb-8">
+        <span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse"></span>
+        Built for freelancers &amp; small business owners
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6">
+        Stop losing money<br />
+        <span class="gradient-text">to unpaid invoices.</span>
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
+        You've already done the work. You deserve to get paid. NudgePay sends professional, perfectly-timed follow-ups automatically — so you never have to feel awkward chasing a client again.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mb-14">
+        <a href="#signup" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all text-base shadow-lg shadow-indigo-950/50">
+          Get Early Access — Free
+        </a>
+        <a href="#how-it-works" class="bg-gray-800 hover:bg-gray-700 text-gray-200 font-semibold px-8 py-3.5 rounded-xl transition-colors text-base">
+          See How It Works
+        </a>
+      </div>
+
+      <!-- Social proof stat strip -->
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm text-gray-500">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          <span>No collections. No awkwardness.</span>
+        </div>
+        <div class="hidden sm:block text-gray-700">•</div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          <span>Avg. $2,800/year recovered per user</span>
+        </div>
+        <div class="hidden sm:block text-gray-700">•</div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          <span>Setup in under 5 minutes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain section -->
+  <section class="py-20 px-6 bg-gray-900/30">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">We've all been there.</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">The invoice was due 2 weeks ago. You've drafted the follow-up email 3 times and deleted it. Sound familiar?</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <!-- Quotes from real users -->
+        <div class="quote-border bg-gray-900 rounded-xl p-6 card-glow transition-all">
+          <p class="text-gray-300 text-sm leading-relaxed mb-4">"Chasing unpaid invoices is the most awkward part of the job. I hate writing follow-ups because I don't want to damage relationships, but also can't let invoices slide."</p>
+          <div class="flex items-center gap-2 text-xs text-gray-500">
+            <div class="w-6 h-6 rounded-full bg-gray-700 flex items-center justify-center text-gray-400 font-bold text-xs">u/</div>
+            <span>r/smallbusiness</span>
+          </div>
+        </div>
+
+        <div class="quote-border bg-gray-900 rounded-xl p-6 card-glow transition-all">
+          <p class="text-gray-300 text-sm leading-relaxed mb-4">"I just did my 2025 post-mortem. I realized I lost over $3,000 because I'm too socially awkward to chase invoices. I just… let them slide."</p>
+          <div class="flex items-center gap-2 text-xs text-gray-500">
+            <div class="w-6 h-6 rounded-full bg-gray-700 flex items-center justify-center text-gray-400 font-bold text-xs">u/</div>
+            <span>r/smallbusiness</span>
+          </div>
+        </div>
+
+        <div class="quote-border bg-gray-900 rounded-xl p-6 card-glow transition-all">
+          <p class="text-gray-300 text-sm leading-relaxed mb-4">"Late invoices are killing me. I have 4 outstanding right now and every week I tell myself I'll send the email. I never do."</p>
+          <div class="flex items-center gap-2 text-xs text-gray-500">
+            <div class="w-6 h-6 rounded-full bg-gray-700 flex items-center justify-center text-gray-400 font-bold text-xs">u/</div>
+            <span>r/freelance</span>
+          </div>
+        </div>
+
+        <div class="quote-border bg-gray-900 rounded-xl p-6 card-glow transition-all">
+          <p class="text-gray-300 text-sm leading-relaxed mb-4">"Anyone else spend way too much time chasing invoices? I feel like I spend more mental energy worrying about overdue invoices than doing actual work."</p>
+          <div class="flex items-center gap-2 text-xs text-gray-500">
+            <div class="w-6 h-6 rounded-full bg-gray-700 flex items-center justify-center text-gray-400 font-bold text-xs">u/</div>
+            <span>r/entrepreneur</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-amber-950/30 border border-amber-800/30 rounded-xl p-6 text-center">
+        <p class="text-amber-300 font-semibold text-lg mb-1">The average small business loses $2,800/year to invoices that simply go uncollected.</p>
+        <p class="text-amber-500/70 text-sm">Not because clients can't pay — because following up feels too uncomfortable to do consistently.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Set it once. Get paid on time.</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">NudgePay runs your follow-up sequences automatically. You stay focused on your work.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6 mb-16">
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow transition-all text-center">
+          <div class="w-12 h-12 rounded-xl bg-indigo-950/60 border border-indigo-800/30 flex items-center justify-center mx-auto mb-4 text-2xl">🔗</div>
+          <h3 class="font-semibold text-lg mb-2">1. Connect</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Link your invoicing tool (QuickBooks, FreshBooks, Wave, Xero) or paste invoice details manually. Takes 2 minutes.</p>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow transition-all text-center">
+          <div class="w-12 h-12 rounded-xl bg-indigo-950/60 border border-indigo-800/30 flex items-center justify-center mx-auto mb-4 text-2xl">⚙️</div>
+          <h3 class="font-semibold text-lg mb-2">2. Configure</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Choose your follow-up cadence and tone — from "Very gentle" to "Firm." Pick from human-sounding templates or write your own.</p>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow transition-all text-center">
+          <div class="w-12 h-12 rounded-xl bg-indigo-950/60 border border-indigo-800/30 flex items-center justify-center mx-auto mb-4 text-2xl">💸</div>
+          <h3 class="font-semibold text-lg mb-2">3. Get Paid</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">NudgePay sends polished follow-ups on your behalf. Clients get a one-click Pay Now link. You get paid.</p>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="bg-gray-900 rounded-2xl p-8 card-glow">
+        <h3 class="font-bold text-xl mb-8 text-center">What your clients receive (automatically)</h3>
+        <div class="relative nudge-timeline pl-14 space-y-8">
+          <!-- Day 0 -->
+          <div class="relative">
+            <div class="absolute -left-14 w-10 h-10 rounded-full bg-indigo-600/20 border border-indigo-600/50 flex items-center justify-center">
+              <span class="text-indigo-300 text-xs font-bold">Due</span>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-semibold text-white">Invoice #1042 — Due Today</span>
+                <span class="text-xs text-indigo-400 font-medium">Auto-sent</span>
+              </div>
+              <p class="text-gray-400 text-xs">Hi Sarah, just a heads-up that Invoice #1042 ($1,200) is due today. Thanks so much for working together — tap below whenever you're ready.</p>
+              <div class="mt-3">
+                <span class="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full">Pay Now →</span>
+              </div>
+            </div>
+          </div>
+          <!-- Day 7 -->
+          <div class="relative">
+            <div class="absolute -left-14 w-10 h-10 rounded-full bg-amber-600/20 border border-amber-600/50 flex items-center justify-center">
+              <span class="text-amber-300 text-xs font-bold">+7d</span>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-semibold text-white">Gentle Reminder</span>
+                <span class="text-xs text-amber-400 font-medium">Auto-sent</span>
+              </div>
+              <p class="text-gray-400 text-xs">Hi Sarah, following up on Invoice #1042 — still showing as unpaid. No worries if you're busy! Let me know if you have any questions, or tap Pay Now below.</p>
+              <div class="mt-3 flex gap-2">
+                <span class="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full">Pay Now →</span>
+                <span class="text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full">I'll pay by [date]</span>
+              </div>
+            </div>
+          </div>
+          <!-- Day 21 -->
+          <div class="relative">
+            <div class="absolute -left-14 w-10 h-10 rounded-full bg-orange-600/20 border border-orange-600/50 flex items-center justify-center">
+              <span class="text-orange-300 text-xs font-bold">+21d</span>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-semibold text-white">Firm Follow-Up</span>
+                <span class="text-xs text-orange-400 font-medium">Auto-sent</span>
+              </div>
+              <p class="text-gray-400 text-xs">Hi Sarah, Invoice #1042 is now 21 days past due. I'd really appreciate payment by this Friday. Please let me know if there's an issue I can help resolve.</p>
+              <div class="mt-3">
+                <span class="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full">Pay Now →</span>
+              </div>
+            </div>
+          </div>
+          <!-- Day 45 -->
+          <div class="relative">
+            <div class="absolute -left-14 w-10 h-10 rounded-full bg-red-600/20 border border-red-600/50 flex items-center justify-center">
+              <span class="text-red-300 text-xs font-bold">+45d</span>
+            </div>
+            <div class="bg-gray-800/50 rounded-xl p-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-semibold text-white">Final Notice</span>
+                <span class="text-xs text-red-400 font-medium">Auto-sent</span>
+              </div>
+              <p class="text-gray-400 text-xs">Sarah, this is a final notice for Invoice #1042, now 45 days past due. Payment of $1,200 is required by [date]. Please contact me urgently if you have questions.</p>
+              <div class="mt-3">
+                <span class="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full">Pay Now →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6 bg-gray-900/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Everything you need to get paid.</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">Not an invoicing tool. Not a collections agency. Just the smartest follow-up layer your business has ever had.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow transition-all">
+          <div class="text-3xl mb-4">🎚️</div>
+          <h3 class="font-semibold text-base mb-2">Tone Control</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">A simple slider from "Very Gentle" to "Firm." You pick the voice. NudgePay writes the message. No more second-guessing your wording.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow transition-all">
+          <div class="text-3xl mb-4">🤖</div>
+          <h3 class="font-semibold text-base mb-2">Smart Sequences</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Escalating follow-up cadences that know when to pause (client viewed, client responded) and when to nudge again.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow transition-all">
+          <div class="text-3xl mb-4">💳</div>
+          <h3 class="font-semibold text-base mb-2">One-Click Pay Now</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Every email includes a Pay Now button linked to your Stripe, PayPal, or bank transfer. Remove all friction from the payment moment.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow transition-all">
+          <div class="text-3xl mb-4">🔔</div>
+          <h3 class="font-semibold text-base mb-2">Client Snooze</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Clients can tap "I'll pay by [date]" to acknowledge the invoice. You're notified, the sequence adjusts, and no one feels harassed.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow transition-all">
+          <div class="text-3xl mb-4">📊</div>
+          <h3 class="font-semibold text-base mb-2">Receivables Dashboard</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">One view of every outstanding invoice: who owes what, how overdue, what's been sent, and what's at risk of going uncollected.</p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-6 card-glow transition-all">
+          <div class="text-3xl mb-4">🔌</div>
+          <h3 class="font-semibold text-base mb-2">Works With What You Use</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Connects to QuickBooks, FreshBooks, Wave, Xero, or simple CSV import. No ripping out your existing setup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Made for the people who hate asking.</h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">If you've ever deleted a follow-up draft because it felt too pushy, NudgePay is for you.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-gray-900 rounded-2xl p-5 text-center card-glow transition-all">
+          <div class="text-3xl mb-3">🎨</div>
+          <h3 class="font-semibold text-sm">Freelancers</h3>
+          <p class="text-gray-500 text-xs mt-1">Designers, developers, writers, video editors</p>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-5 text-center card-glow transition-all">
+          <div class="text-3xl mb-3">🔧</div>
+          <h3 class="font-semibold text-sm">Contractors</h3>
+          <p class="text-gray-500 text-xs mt-1">Builders, landscapers, electricians, plumbers</p>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-5 text-center card-glow transition-all">
+          <div class="text-3xl mb-3">💼</div>
+          <h3 class="font-semibold text-sm">Consultants</h3>
+          <p class="text-gray-500 text-xs mt-1">Coaches, advisors, bookkeepers, lawyers</p>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-5 text-center card-glow transition-all">
+          <div class="text-3xl mb-3">🏠</div>
+          <h3 class="font-semibold text-sm">Service Biz</h3>
+          <p class="text-gray-500 text-xs mt-1">Photographers, event planners, tutors, cleaners</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email signup -->
+  <section id="signup" class="py-24 px-6 bg-gray-900/50">
+    <div class="max-w-lg mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/40 text-emerald-300 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
+        <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+        Now accepting early access signups
+      </div>
+
+      <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight">
+        Get paid.<br/>
+        <span class="gradient-text">Without the awkward.</span>
+      </h2>
+      <p class="text-gray-400 text-lg mb-10 leading-relaxed">
+        Join the waitlist. Be first to access NudgePay when we launch — and help shape the product with your feedback.
+      </p>
+
+      <div id="form-container">
+        <form id="signup-form" class="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            id="email-input"
+            placeholder="your@email.com"
+            required
+            class="flex-1 bg-gray-800 border border-gray-700 text-white placeholder-gray-500 px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+          />
+          <button
+            type="submit"
+            class="bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all text-sm whitespace-nowrap shadow-lg shadow-indigo-950/50"
+          >
+            Join the Waitlist →
+          </button>
+        </form>
+        <p class="text-gray-600 text-xs mt-4">No spam. No credit card. Just updates when we launch.</p>
+      </div>
+
+      <!-- Success state (hidden) -->
+      <div id="success-state" class="hidden">
+        <div class="bg-emerald-950/40 border border-emerald-800/40 rounded-2xl p-8">
+          <div class="w-16 h-16 rounded-full bg-emerald-600/20 border border-emerald-600/40 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-emerald-300 mb-2">You're on the list! 🎉</h3>
+          <p class="text-gray-400 text-sm">We'll be in touch when NudgePay is ready. In the meantime, go send that follow-up email — we've got the last one. Promise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 px-6 border-t border-gray-800/50">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-600">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-bold text-xs">N</div>
+        <span class="font-semibold text-gray-400">NudgePay</span>
+      </div>
+      <p>© 2026 NudgePay. Helping small businesses get paid since day one.</p>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-gray-400 transition-colors">Privacy</a>
+        <a href="#" class="hover:text-gray-400 transition-colors">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (!email) return;
+
+      // Store email (in real app, POST to backend)
+      console.log('Signup:', email);
+
+      // Show success state
+      document.getElementById('form-container').classList.add('hidden');
+      document.getElementById('success-state').classList.remove('hidden');
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
