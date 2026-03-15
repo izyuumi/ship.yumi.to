@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudioBook — Studio Management for Private Music Teachers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-glow {
+      box-shadow: 0 0 0 1px rgba(167,139,250,0.15), 0 4px 24px rgba(139,92,246,0.08);
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139,92,246,0.25) 0%, transparent 70%);
+    }
+    .feature-icon {
+      background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(96,165,250,0.15));
+      border: 1px solid rgba(167,139,250,0.2);
+    }
+    .cta-gradient {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    }
+    .step-line {
+      background: linear-gradient(to bottom, rgba(139,92,246,0.4), rgba(96,165,250,0.15));
+    }
+    .pain-card {
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.2);
+    }
+    .solve-card {
+      background: rgba(139,92,246,0.07);
+      border: 1px solid rgba(139,92,246,0.2);
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-gray-950/80 backdrop-blur">
+    <div class="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🎵</span>
+        <span class="font-bold text-white tracking-tight">StudioBook</span>
+      </div>
+      <a href="#signup" class="text-sm font-medium px-4 py-1.5 rounded-full cta-gradient text-white hover:opacity-90 transition-opacity">
+        Get early access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-20 hero-glow overflow-hidden">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-medium mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse"></span>
+        Built for independent music teachers
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+        Stop running your studio<br/>
+        <span class="gradient-text">from a sticky note</span>
+      </h1>
+      <p class="text-lg text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed">
+        Track students, log lessons, handle makeup credits automatically, and know exactly what every family owes — without a spreadsheet, a parent portal, or three different apps.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#signup" class="px-8 py-3.5 rounded-xl cta-gradient text-white font-semibold text-base hover:opacity-90 transition-opacity shadow-lg shadow-violet-900/30">
+          Get early access — free
+        </a>
+        <a href="#how-it-works" class="px-8 py-3.5 rounded-xl bg-white/5 border border-white/10 text-gray-300 font-semibold text-base hover:bg-white/10 transition-colors">
+          See how it works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Section -->
+  <section class="py-16 max-w-4xl mx-auto px-5">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Sound familiar?</h2>
+      <p class="text-gray-400">Real frustrations from the r/MusicTeachers community.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="pain-card rounded-2xl p-5">
+        <p class="text-sm text-red-300 italic leading-relaxed">
+          "I have no idea how many makeups I owe Sarah. I think she cancelled twice in October but I can't remember if I gave one back..."
+        </p>
+      </div>
+      <div class="pain-card rounded-2xl p-5">
+        <p class="text-sm text-red-300 italic leading-relaxed">
+          "Billing day is a nightmare. I have a spreadsheet but half the time I forget to update it after cancellations."
+        </p>
+      </div>
+      <div class="pain-card rounded-2xl p-5">
+        <p class="text-sm text-red-300 italic leading-relaxed">
+          "My Music Staff is way overkill for 20 students. I don't need parents to have logins, I just need to keep my own records."
+        </p>
+      </div>
+      <div class="pain-card rounded-2xl p-5">
+        <p class="text-sm text-red-300 italic leading-relaxed">
+          "I used to write lesson notes in a notebook. I lost the notebook. Now I'm trying to remember what each student was working on..."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution intro -->
+  <section class="py-8 max-w-3xl mx-auto px-5 text-center">
+    <div class="solve-card rounded-2xl p-8">
+      <p class="text-xl font-semibold text-violet-200 leading-relaxed">
+        StudioBook is the studio manager that works <em>for the teacher</em> — no parent portals, no client accounts, no complexity. Just your students, your lessons, and your billing — clean and organized.
+      </p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="py-20 max-w-4xl mx-auto px-5">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">How StudioBook works</h2>
+      <p class="text-gray-400">Three minutes of setup. Zero spreadsheets. Clarity on day one.</p>
+    </div>
+    <div class="space-y-6 relative">
+      <div class="absolute left-7 top-8 bottom-8 w-px step-line hidden sm:block"></div>
+      
+      <!-- Step 1 -->
+      <div class="flex gap-5 items-start">
+        <div class="shrink-0 w-14 h-14 rounded-2xl feature-icon flex items-center justify-center text-2xl z-10">🎹</div>
+        <div class="pt-2">
+          <h3 class="font-semibold text-white text-base mb-1">Add your students</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Create a card for each student: name, instrument, lesson day/time, duration, and your rate. Done in 30 seconds per student.</p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex gap-5 items-start">
+        <div class="shrink-0 w-14 h-14 rounded-2xl feature-icon flex items-center justify-center text-2xl z-10">✅</div>
+        <div class="pt-2">
+          <h3 class="font-semibold text-white text-base mb-1">Log each lesson in one tap</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">After every lesson, tap: <span class="text-green-400 font-medium">Attended</span>, <span class="text-yellow-400 font-medium">Cancelled — makeup owed</span>, or <span class="text-violet-400 font-medium">Makeup used</span>. That's it. Credits are tracked automatically.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex gap-5 items-start">
+        <div class="shrink-0 w-14 h-14 rounded-2xl feature-icon flex items-center justify-center text-2xl z-10">📝</div>
+        <div class="pt-2">
+          <h3 class="font-semibold text-white text-base mb-1">Add a quick lesson note</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">After each session, jot one or two sentences: what you worked on, what to practice, where to pick up next time. Never walk into a lesson blind again.</p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex gap-5 items-start">
+        <div class="shrink-0 w-14 h-14 rounded-2xl feature-icon flex items-center justify-center text-2xl z-10">💰</div>
+        <div class="pt-2">
+          <h3 class="font-semibold text-white text-base mb-1">Bill confidently at month-end</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">StudioBook shows you exactly what each family owes: lessons attended × rate, minus any makeup credits applied. One-click copy to paste into a Venmo request or email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 bg-white/[0.02] border-y border-white/5">
+    <div class="max-w-4xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Everything a private studio needs. Nothing it doesn't.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <div class="card-glow bg-gray-900 rounded-2xl p-5">
+          <div class="text-2xl mb-3">🎼</div>
+          <h3 class="font-semibold text-white mb-1.5">Student roster</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Every student in one place — contact info, instrument, schedule, rate, and running makeup balance.</p>
+        </div>
+
+        <div class="card-glow bg-gray-900 rounded-2xl p-5">
+          <div class="text-2xl mb-3">🔁</div>
+          <h3 class="font-semibold text-white mb-1.5">Makeup credit tracking</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">The feature no other tool does well. Credits auto-increment on cancel, auto-decrement when used. Always know what you owe.</p>
+        </div>
+
+        <div class="card-glow bg-gray-900 rounded-2xl p-5">
+          <div class="text-2xl mb-3">📅</div>
+          <h3 class="font-semibold text-white mb-1.5">Weekly lesson view</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">See your whole week at a glance. Who's coming, who cancelled, who has a makeup pending — all in one screen.</p>
+        </div>
+
+        <div class="card-glow bg-gray-900 rounded-2xl p-5">
+          <div class="text-2xl mb-3">📓</div>
+          <h3 class="font-semibold text-white mb-1.5">Lesson notes log</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">A running timeline of notes per student. Walk into every lesson knowing exactly where you left off.</p>
+        </div>
+
+        <div class="card-glow bg-gray-900 rounded-2xl p-5">
+          <div class="text-2xl mb-3">🧾</div>
+          <h3 class="font-semibold text-white mb-1.5">Month-end billing summary</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">One page. Every family. What they owe, how it's calculated, with a copy-paste-ready amount for Venmo, Zelle, or invoice.</p>
+        </div>
+
+        <div class="card-glow bg-gray-900 rounded-2xl p-5">
+          <div class="text-2xl mb-3">🔒</div>
+          <h3 class="font-semibold text-white mb-1.5">No parent portal required</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">This is your tool. Parents don't need accounts. No one gets a login. No awkward "please sign up" emails to families.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="py-20 max-w-3xl mx-auto px-5">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Finally — a tool sized for your studio</h2>
+      <p class="text-gray-400">You're a private teacher, not a music school. You shouldn't pay enterprise prices.</p>
+    </div>
+    <div class="overflow-hidden rounded-2xl border border-white/10">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-white/5 border-b border-white/10">
+            <th class="text-left py-3 px-5 text-gray-400 font-medium">Feature</th>
+            <th class="py-3 px-4 text-gray-400 font-medium text-center">Other tools</th>
+            <th class="py-3 px-4 text-violet-300 font-semibold text-center">StudioBook</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/5">
+          <tr class="bg-gray-950/50">
+            <td class="py-3 px-5 text-gray-300">Makeup credit auto-tracking</td>
+            <td class="py-3 px-4 text-center text-red-400">❌ Manual</td>
+            <td class="py-3 px-4 text-center text-green-400">✅ Automatic</td>
+          </tr>
+          <tr>
+            <td class="py-3 px-5 text-gray-300">Lesson notes per student</td>
+            <td class="py-3 px-4 text-center text-yellow-400">⚠️ Some</td>
+            <td class="py-3 px-4 text-center text-green-400">✅ Built-in</td>
+          </tr>
+          <tr class="bg-gray-950/50">
+            <td class="py-3 px-5 text-gray-300">No parent/client login needed</td>
+            <td class="py-3 px-4 text-center text-red-400">❌ Requires portal</td>
+            <td class="py-3 px-4 text-center text-green-400">✅ Teacher-only</td>
+          </tr>
+          <tr>
+            <td class="py-3 px-5 text-gray-300">Month-end billing breakdown</td>
+            <td class="py-3 px-4 text-center text-yellow-400">⚠️ Complex</td>
+            <td class="py-3 px-4 text-center text-green-400">✅ One click</td>
+          </tr>
+          <tr class="bg-gray-950/50">
+            <td class="py-3 px-5 text-gray-300">Price</td>
+            <td class="py-3 px-4 text-center text-red-400">$20–30/mo + fees</td>
+            <td class="py-3 px-4 text-center text-violet-300 font-semibold">Simple & affordable</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Testimonial-style quotes -->
+  <section class="py-10 max-w-4xl mx-auto px-5">
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="bg-gray-900 rounded-2xl p-5 border border-white/5">
+        <p class="text-sm text-gray-300 italic leading-relaxed mb-4">"I teach 28 students. I've been tracking makeups in my head for 4 years. I need this."</p>
+        <p class="text-xs text-gray-500">— Piano teacher, 4 years private studio</p>
+      </div>
+      <div class="bg-gray-900 rounded-2xl p-5 border border-white/5">
+        <p class="text-sm text-gray-300 italic leading-relaxed mb-4">"My Music Staff is great but way too much for what I need. Something simpler with just the basics would be perfect."</p>
+        <p class="text-xs text-gray-500">— Guitar teacher, home studio</p>
+      </div>
+      <div class="bg-gray-900 rounded-2xl p-5 border border-white/5">
+        <p class="text-sm text-gray-300 italic leading-relaxed mb-4">"I lose track of what I taught in previous lessons all the time. Notes would change everything for my prep."</p>
+        <p class="text-xs text-gray-500">— Violin teacher, 20 students</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Signup CTA -->
+  <section id="signup" class="py-20 max-w-2xl mx-auto px-5">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Join the waitlist</h2>
+      <p class="text-gray-400 leading-relaxed">
+        Be the first to try StudioBook when we launch. Early access is free — and we'll ask a few questions to make sure we build exactly what you need.
+      </p>
+    </div>
+
+    <div class="card-glow bg-gray-900 rounded-2xl p-6 sm:p-8">
+      <form id="signup-form" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1.5">Your name</label>
+          <input
+            type="text"
+            id="name"
+            required
+            placeholder="Jane Smith"
+            class="w-full px-4 py-2.5 rounded-xl bg-gray-800 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1.5">Email address</label>
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="jane@example.com"
+            class="w-full px-4 py-2.5 rounded-xl bg-gray-800 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1.5">What instrument(s) do you teach?</label>
+          <input
+            type="text"
+            id="instrument"
+            placeholder="Piano, guitar, voice..."
+            class="w-full px-4 py-2.5 rounded-xl bg-gray-800 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1.5">How many students do you currently teach?</label>
+          <select
+            id="students"
+            class="w-full px-4 py-2.5 rounded-xl bg-gray-800 border border-white/10 text-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition"
+          >
+            <option value="">Select one...</option>
+            <option value="1-10">1–10 students</option>
+            <option value="11-20">11–20 students</option>
+            <option value="21-35">21–35 students</option>
+            <option value="36+">36+ students</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          class="w-full py-3.5 px-6 rounded-xl cta-gradient text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-violet-900/30"
+        >
+          Join the waitlist — it's free
+        </button>
+        <p class="text-xs text-gray-500 text-center">No spam. No credit card. Just early access.</p>
+      </form>
+
+      <div id="success-message" class="hidden text-center py-8">
+        <div class="text-4xl mb-3">🎶</div>
+        <h3 class="text-lg font-semibold text-white mb-2">You're on the list!</h3>
+        <p class="text-gray-400 text-sm">We'll be in touch when StudioBook is ready for early access. Thanks for sharing your studio with us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-8">
+    <div class="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500">
+      <div class="flex items-center gap-2">
+        <span>🎵</span>
+        <span class="font-semibold text-gray-400">StudioBook</span>
+        <span class="text-gray-600">—</span>
+        <span>Studio management for private music teachers</span>
+      </div>
+      <span>© 2026 StudioBook</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!name || !email) return;
+      
+      // Show success state
+      document.getElementById('signup-form').classList.add('hidden');
+      document.getElementById('success-message').classList.remove('hidden');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

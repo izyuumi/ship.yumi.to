@@ -34,6 +34,7 @@ const projects = [
   { slug: "offboardkit", name: "OffboardKit", desc: "Lightweight employee offboarding playbooks with step assignment, auto-reminders, and audit-trail PDF export — for the lone sysadmin", color: "indigo" },
   { slug: "nudgepay", name: "NudgePay", desc: "Automated invoice follow-up sequences so professional you'll never feel awkward chasing payment again — recover the $2,800/year you're leaving on the table", color: "cyan" },
   { slug: "replog", name: "RepLog", desc: "Session logging for in-person personal trainers — log sessions yourself, track PRs, see progress charts, and get a one-tap pre-session brief so you always know where you left off", color: "emerald" },
+  { slug: "studiobook", name: "StudioBook", desc: "Studio management for private music teachers — student roster, automatic makeup credit tracking, lesson notes, and a clean month-end billing summary. No parent portal, no complexity.", color: "violet" },
 ];
 
 const colorMap: Record<string, string> = {
