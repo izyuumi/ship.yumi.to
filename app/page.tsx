@@ -35,6 +35,7 @@ const projects = [
   { slug: "nudgepay", name: "NudgePay", desc: "Automated invoice follow-up sequences so professional you'll never feel awkward chasing payment again — recover the $2,800/year you're leaving on the table", color: "cyan" },
   { slug: "replog", name: "RepLog", desc: "Session logging for in-person personal trainers — log sessions yourself, track PRs, see progress charts, and get a one-tap pre-session brief so you always know where you left off", color: "emerald" },
   { slug: "studiobook", name: "StudioBook", desc: "Studio management for private music teachers — student roster, automatic makeup credit tracking, lesson notes, and a clean month-end billing summary. No parent portal, no complexity.", color: "violet" },
+  { slug: "firstday", name: "FirstDay", desc: "Employee onboarding that doesn't drop the ball — role templates, multi-party task assignment, new hire portal, and auto-reminders so HR stops being the follow-up person.", color: "blue" },
 ];
 
 const colorMap: Record<string, string> = {
