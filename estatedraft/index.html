@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EstateDraft — Estate Planning Documents in Minutes, Not Hours</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-glow {
+      box-shadow: 0 0 0 1px rgba(167,139,250,0.15), 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: rgba(167,139,250,0.12);
+      flex-shrink: 0;
+    }
+    .step-line::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 44px;
+      bottom: -16px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(167,139,250,0.4), transparent);
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            violet: { 400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed' },
+            blue: { 400: '#60a5fa' },
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="border-b border-gray-800/60 bg-gray-950/80 backdrop-blur-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+            <line x1="9" y1="17" x2="13" y2="17"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-white text-lg">EstateDraft</span>
+      </div>
+      <a href="#signup" class="bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
+    <div class="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/20 rounded-full px-4 py-1.5 text-sm text-violet-300 mb-8">
+      <span class="w-2 h-2 rounded-full bg-violet-400 animate-pulse"></span>
+      Built for estate planning paralegals &amp; solo attorneys
+    </div>
+
+    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-white mb-6">
+      Stop re-typing the same<br />
+      <span class="gradient-text">client data into every document.</span>
+    </h1>
+
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      Enter client information once. EstateDraft instantly generates a complete, ready-to-review estate plan package — will, POA, healthcare directive, and trust — pre-filled and correctly formatted.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="#signup" class="w-full sm:w-auto bg-violet-600 hover:bg-violet-500 text-white font-semibold px-8 py-4 rounded-xl transition-all shadow-lg shadow-violet-900/40 text-lg">
+        Join the Early Access List
+      </a>
+      <a href="#how-it-works" class="w-full sm:w-auto text-gray-400 hover:text-white font-medium px-8 py-4 rounded-xl border border-gray-700 hover:border-gray-500 transition-colors text-lg">
+        See How It Works
+      </a>
+    </div>
+
+    <!-- Social proof -->
+    <p class="mt-8 text-sm text-gray-600">
+      No credit card required &nbsp;·&nbsp; Currently in private beta
+    </p>
+  </section>
+
+  <!-- Pain Section -->
+  <section class="bg-gray-900/50 border-y border-gray-800/60 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-white mb-4">Sound familiar?</h2>
+      <p class="text-gray-400 text-center mb-12 text-lg">This is how most estate planning practices still work in 2026.</p>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-gray-800/60 border border-red-900/30 rounded-xl p-5 flex gap-4 items-start card-glow">
+          <span class="text-2xl mt-0.5">😤</span>
+          <div>
+            <p class="font-semibold text-white mb-1">Copy-paste marathon</p>
+            <p class="text-gray-400 text-sm">Client's name, address, spouse's name, kids' names — typed (or find-and-replaced) into 4–6 different Word documents for every single client package.</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800/60 border border-red-900/30 rounded-xl p-5 flex gap-4 items-start card-glow">
+          <span class="text-2xl mt-0.5">🔁</span>
+          <div>
+            <p class="font-semibold text-white mb-1">One change = update everything</p>
+            <p class="text-gray-400 text-sm">Client calls to change their executor? Now you're hunting through four documents making sure you got every instance. Every. Single. Time.</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800/60 border border-red-900/30 rounded-xl p-5 flex gap-4 items-start card-glow">
+          <span class="text-2xl mt-0.5">⚠️</span>
+          <div>
+            <p class="font-semibold text-white mb-1">One typo ruins a document</p>
+            <p class="text-gray-400 text-sm">A misspelled beneficiary name or wrong pronoun in a will isn't just embarrassing — it can cause legal problems. Manual entry means manual errors.</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800/60 border border-red-900/30 rounded-xl p-5 flex gap-4 items-start card-glow">
+          <span class="text-2xl mt-0.5">🕐</span>
+          <div>
+            <p class="font-semibold text-white mb-1">5–10 hours per week, every week</p>
+            <p class="text-gray-400 text-sm">That's time your paralegal could spend on higher-value work — and time you're paying for pure data entry that should take seconds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="max-w-4xl mx-auto px-6 py-24">
+    <h2 class="text-3xl font-bold text-center text-white mb-4">How EstateDraft works</h2>
+    <p class="text-center text-gray-400 mb-16 text-lg">From blank intake to signed-ready package in under 10 minutes.</p>
+
+    <div class="space-y-8">
+      <!-- Step 1 -->
+      <div class="flex gap-6 relative step-line">
+        <div class="w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center flex-shrink-0 font-bold text-white z-10">1</div>
+        <div class="bg-gray-800/50 border border-gray-700/50 rounded-xl p-6 flex-1 card-glow">
+          <h3 class="font-semibold text-white text-lg mb-2">Complete the guided client intake</h3>
+          <p class="text-gray-400">Fill in a single structured form: client info, family details, assets, executor choices, healthcare preferences, beneficiaries. Conditional logic hides fields that don't apply — no confusing blank fields for childless clients or single individuals.</p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex gap-6 relative step-line">
+        <div class="w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center flex-shrink-0 font-bold text-white z-10">2</div>
+        <div class="bg-gray-800/50 border border-gray-700/50 rounded-xl p-6 flex-1 card-glow">
+          <h3 class="font-semibold text-white text-lg mb-2">EstateDraft generates the full package</h3>
+          <p class="text-gray-400">In seconds, EstateDraft produces a complete document set: Last Will &amp; Testament, Durable Power of Attorney, Healthcare Directive / Living Will, and optionally a Revocable Living Trust. Every field filled. Pronouns correct. Conditional clauses applied.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex gap-6 relative step-line">
+        <div class="w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center flex-shrink-0 font-bold text-white z-10">3</div>
+        <div class="bg-gray-800/50 border border-gray-700/50 rounded-xl p-6 flex-1 card-glow">
+          <h3 class="font-semibold text-white text-lg mb-2">Review and refine in the editor</h3>
+          <p class="text-gray-400">Attorney or paralegal reviews the document in a clean browser editor. Make any changes — update one field and it updates everywhere automatically. No more hunting through Word docs.</p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex gap-6">
+        <div class="w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center flex-shrink-0 font-bold text-white z-10">4</div>
+        <div class="bg-gray-800/50 border border-gray-700/50 rounded-xl p-6 flex-1 card-glow">
+          <h3 class="font-semibold text-white text-lg mb-2">Export a professional PDF bundle</h3>
+          <p class="text-gray-400">Download a beautifully formatted PDF package, ready to send to the client for review and execution. Client history is stored — run an update any time they have a life change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="bg-gray-900/40 border-y border-gray-800/60 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-white mb-4">Everything your practice needs</h2>
+      <p class="text-center text-gray-400 mb-14 text-lg">Built specifically for estate planning — not bolted onto a general legal suite.</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-800/50 border border-gray-700/40 rounded-xl p-6 card-glow">
+          <div class="feature-icon mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">One intake, all documents</h3>
+          <p class="text-gray-400 text-sm">Enter client data once. Will, POA, HCD, and Trust all auto-populated — no repeated typing, no copy-paste.</p>
+        </div>
+
+        <div class="bg-gray-800/50 border border-gray-700/40 rounded-xl p-6 card-glow">
+          <div class="feature-icon mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Smart conditional logic</h3>
+          <p class="text-gray-400 text-sm">Married? Single? Children? Blended family? EstateDraft applies the right clauses automatically based on each client's situation.</p>
+        </div>
+
+        <div class="bg-gray-800/50 border border-gray-700/40 rounded-xl p-6 card-glow">
+          <div class="feature-icon mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Attorney-vetted templates</h3>
+          <p class="text-gray-400 text-sm">Templates built with estate planning attorneys — proper legal language, all required clauses, state-aware formatting.</p>
+        </div>
+
+        <div class="bg-gray-800/50 border border-gray-700/40 rounded-xl p-6 card-glow">
+          <div class="feature-icon mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Live in-browser editing</h3>
+          <p class="text-gray-400 text-sm">Make changes directly in the browser. Update a field once — it reflects everywhere. No more find-and-replace in Word.</p>
+        </div>
+
+        <div class="bg-gray-800/50 border border-gray-700/40 rounded-xl p-6 card-glow">
+          <div class="feature-icon mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Client history &amp; updates</h3>
+          <p class="text-gray-400 text-sm">Client gets married, has a child, changes executor? Reopen their file, update the intake, regenerate. No starting from scratch.</p>
+        </div>
+
+        <div class="bg-gray-800/50 border border-gray-700/40 rounded-xl p-6 card-glow">
+          <div class="feature-icon mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Clean PDF bundle export</h3>
+          <p class="text-gray-400 text-sm">Export a polished, professionally formatted PDF package. Ready to send, sign, and file — no additional formatting work needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial / Quote -->
+  <section class="max-w-3xl mx-auto px-6 py-20 text-center">
+    <div class="bg-gray-800/40 border border-gray-700/50 rounded-2xl p-10 card-glow">
+      <div class="text-4xl mb-6">💬</div>
+      <blockquote class="text-xl text-gray-300 italic leading-relaxed mb-6">
+        "Legal assistants and paralegals in estate planning can do a POA or HCD in their sleep — but we're still spending hours a week just typing the same names and addresses into different Word docs. There has to be a better way."
+      </blockquote>
+      <cite class="text-sm text-gray-500 not-italic">— r/paralegal community member, July 2025</cite>
+    </div>
+  </section>
+
+  <!-- Email Signup -->
+  <section id="signup" class="bg-gradient-to-b from-violet-950/30 to-gray-950 border-t border-violet-900/30 py-24">
+    <div class="max-w-xl mx-auto px-6 text-center">
+      <div class="w-14 h-14 rounded-2xl bg-violet-600 flex items-center justify-center mx-auto mb-6">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14,2 14,8 20,8"/>
+          <line x1="9" y1="13" x2="15" y2="13"/>
+          <line x1="9" y1="17" x2="13" y2="17"/>
+        </svg>
+      </div>
+      <h2 class="text-3xl font-bold text-white mb-4">Get early access</h2>
+      <p class="text-gray-400 mb-8 text-lg">
+        EstateDraft is in private beta. Join the list to be among the first to try it — and help shape what gets built.
+      </p>
+
+      <form id="signup-form" class="flex flex-col sm:flex-row gap-3" onsubmit="handleSubmit(event)">
+        <input
+          type="email"
+          id="email-input"
+          placeholder="you@lawfirm.com"
+          required
+          class="flex-1 bg-gray-800 border border-gray-600 text-white placeholder-gray-500 rounded-xl px-5 py-4 text-base focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors"
+        />
+        <button
+          type="submit"
+          class="bg-violet-600 hover:bg-violet-500 text-white font-semibold px-7 py-4 rounded-xl transition-all shadow-lg shadow-violet-900/50 whitespace-nowrap"
+        >
+          Join Waitlist →
+        </button>
+      </form>
+
+      <div id="success-message" class="hidden mt-6 bg-green-900/30 border border-green-700/40 rounded-xl p-5">
+        <div class="text-2xl mb-2">🎉</div>
+        <p class="text-green-300 font-semibold mb-1">You're on the list!</p>
+        <p class="text-green-400/80 text-sm">We'll reach out when early access opens. Thanks for your interest.</p>
+      </div>
+
+      <p class="mt-6 text-xs text-gray-600">No spam. Unsubscribe any time. We respect your inbox.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/60 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded bg-violet-600 flex items-center justify-center">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+          </svg>
+        </div>
+        <span class="text-gray-500 text-sm font-medium">EstateDraft</span>
+      </div>
+      <p class="text-gray-600 text-sm">© 2026 EstateDraft. Built for estate planning professionals.</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (!email) return;
+
+      // Hide form, show success
+      document.getElementById('signup-form').classList.add('hidden');
+      document.getElementById('success-message').classList.remove('hidden');
+
+      // In production, you'd POST to your email capture endpoint here
+      console.log('Email captured:', email);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

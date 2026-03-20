@@ -36,6 +36,7 @@ const projects = [
   { slug: "replog", name: "RepLog", desc: "Session logging for in-person personal trainers — log sessions yourself, track PRs, see progress charts, and get a one-tap pre-session brief so you always know where you left off", color: "emerald" },
   { slug: "studiobook", name: "StudioBook", desc: "Studio management for private music teachers — student roster, automatic makeup credit tracking, lesson notes, and a clean month-end billing summary. No parent portal, no complexity.", color: "violet" },
   { slug: "firstday", name: "FirstDay", desc: "Employee onboarding that doesn't drop the ball — role templates, multi-party task assignment, new hire portal, and auto-reminders so HR stops being the follow-up person.", color: "blue" },
+  { slug: "estatedraft", name: "EstateDraft", desc: "Enter client data once — get a complete Will, POA, Healthcare Directive, and Trust package auto-generated and ready to review. Stop copy-pasting into Word templates.", color: "violet" },
 ];
 
 const colorMap: Record<string, string> = {
