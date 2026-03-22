@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReconPad — Bank Reconciliation That Doesn't Make You Want to Quit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .glow {
+      box-shadow: 0 0 40px rgba(96, 165, 250, 0.15);
+    }
+    .pulse-dot {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="border-b border-gray-800/60 bg-gray-950/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 bg-blue-500 rounded-md flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        </div>
+        <span class="font-bold text-white text-lg tracking-tight">ReconPad</span>
+      </div>
+      <a href="#signup" class="bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
+    <div class="inline-flex items-center gap-2 bg-blue-950/60 border border-blue-800/50 rounded-full px-4 py-1.5 mb-8">
+      <span class="w-2 h-2 bg-blue-400 rounded-full pulse-dot"></span>
+      <span class="text-blue-300 text-sm font-medium">Built for bookkeepers who are tired of Excel gymnastics</span>
+    </div>
+
+    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+      Bank reconciliation<br />
+      <span class="gradient-text">without the pain</span>
+    </h1>
+
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      QuickBooks reconciliation is a slog. Xero isn't much better. And you're still doing it side-by-side in Excel like it's 2009. ReconPad matches your bank CSV against your books in seconds — and only asks you about the <em class="text-gray-300">5% that didn't match</em>.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#signup" class="bg-blue-500 hover:bg-blue-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors w-full sm:w-auto">
+        Join the waitlist →
+      </a>
+      <a href="#how-it-works" class="text-gray-400 hover:text-white font-medium px-8 py-4 transition-colors">
+        See how it works ↓
+      </a>
+    </div>
+  </section>
+
+  <!-- The Pain Section -->
+  <section class="bg-gray-900/50 border-y border-gray-800/60 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <p class="text-center text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">Sound familiar?</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+        Every month, the same painful ritual
+      </h2>
+
+      <div class="space-y-5">
+        <!-- Pain item -->
+        <div class="flex items-start gap-4 bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <div class="text-2xl mt-0.5">😩</div>
+          <div>
+            <p class="font-semibold text-white mb-1">Export. Copy. Paste. Repeat.</p>
+            <p class="text-gray-400 text-sm">Download bank CSV, export from QBO, open both in Excel, align columns, compare row by row. One missed transaction and you're hunting for 20 minutes.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <div class="text-2xl mt-0.5">🐌</div>
+          <div>
+            <p class="font-semibold text-white mb-1">QuickBooks "auto-match" is anything but automatic</p>
+            <p class="text-gray-400 text-sm">You still click Accept on every single transaction, one at a time, in a tiny scrolling list. A 300-transaction month takes an hour just to click through.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <div class="text-2xl mt-0.5">🔍</div>
+          <div>
+            <p class="font-semibold text-white mb-1">Finding discrepancies is a detective game</p>
+            <p class="text-gray-400 text-sm">You know something's off by $247.50 but have no idea where. The difference could be anywhere in 500 rows. You're doing running balances by hand in a formula column.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <div class="text-2xl mt-0.5">📁</div>
+          <div>
+            <p class="font-semibold text-white mb-1">No audit trail — just a folder of Excel files</p>
+            <p class="text-gray-400 text-sm">When a client asks "why didn't you catch that bank fee in August?" you're digging through Recon_v3_FINAL2.xlsx hoping you documented something.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="max-w-5xl mx-auto px-6 py-24">
+    <p class="text-center text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">How ReconPad works</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+      From two CSVs to a clean reconciliation<br />
+      <span class="text-gray-400 font-normal">in under 5 minutes</span>
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center card-hover">
+        <div class="w-14 h-14 bg-blue-500/20 border border-blue-500/30 rounded-2xl flex items-center justify-center mx-auto mb-5">
+          <svg class="w-7 h-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+          </svg>
+        </div>
+        <div class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">Step 1</div>
+        <h3 class="font-bold text-lg mb-2">Upload two files</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Drop your bank statement CSV and your accounting export (QBO, Xero, Wave, whatever). No integrations, no OAuth, no setup. Just files.</p>
+      </div>
+
+      <div class="text-center card-hover">
+        <div class="w-14 h-14 bg-violet-500/20 border border-violet-500/30 rounded-2xl flex items-center justify-center mx-auto mb-5">
+          <svg class="w-7 h-7 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div class="text-violet-400 font-bold text-xs uppercase tracking-widest mb-2">Step 2</div>
+        <h3 class="font-bold text-lg mb-2">Auto-match fires instantly</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Our fuzzy matching engine pairs transactions by amount, date, and description. 90–95% of transactions match automatically. You see the confirmation in one click.</p>
+      </div>
+
+      <div class="text-center card-hover">
+        <div class="w-14 h-14 bg-emerald-500/20 border border-emerald-500/30 rounded-2xl flex items-center justify-center mx-auto mb-5">
+          <svg class="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div class="text-emerald-400 font-bold text-xs uppercase tracking-widest mb-2">Step 3</div>
+        <h3 class="font-bold text-lg mb-2">Review only the exceptions</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">The discrepancy queue shows only transactions that didn't match — annotate timing differences, flag bank errors, and export a signed-off audit trail PDF.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="bg-gray-900/40 border-y border-gray-800/60 py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-center text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">Features</p>
+      <h2 class="text-3xl font-bold text-center mb-14">Everything you need. Nothing you don't.</h2>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 card-hover">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-blue-500/15 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-white">Works with any CSV</h3>
+          </div>
+          <p class="text-gray-400 text-sm">Chase, BofA, Wells, Stripe, QBO, Xero, Wave, FreshBooks — if it exports CSV, ReconPad reads it. Smart column detection handles messy headers automatically.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 card-hover">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-violet-500/15 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-white">Multi-client workspace</h3>
+          </div>
+          <p class="text-gray-400 text-sm">Bookkeepers juggling 20+ clients see each account's last reconciled date at a glance. Monthly recon history stored per client, always findable.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 card-hover">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-emerald-500/15 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-white">Audit-trail PDF export</h3>
+          </div>
+          <p class="text-gray-400 text-sm">Every reconciliation produces a timestamped PDF: matched items, unmatched items, annotations, and a running variance — ready to file or send to a client.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 card-hover">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-amber-500/15 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-white">Live variance counter</h3>
+          </div>
+          <p class="text-gray-400 text-sm">See the difference between your bank balance and book balance update in real time as you work. You know you're balanced before you're even done.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 card-hover">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-rose-500/15 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-white">Inline annotations</h3>
+          </div>
+          <p class="text-gray-400 text-sm">Add notes to timing differences, bank charges, or reconciling items right in the interface. All notes carry through to the export — no sticky note required.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 card-hover">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-sky-500/15 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-white">No integrations needed</h3>
+          </div>
+          <p class="text-gray-400 text-sm">No bank logins, no accounting API keys, no permissions to manage. Upload CSVs, work locally in your browser, done. Your data never touches a third-party server.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="max-w-4xl mx-auto px-6 py-20">
+    <p class="text-center text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">Who it's for</p>
+    <h2 class="text-3xl font-bold text-center mb-12">Built for the people doing the actual work</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gradient-to-b from-gray-800/60 to-gray-900/40 border border-gray-700/60 rounded-2xl p-6 text-center">
+        <div class="text-4xl mb-4">📚</div>
+        <h3 class="font-bold text-lg mb-2">Freelance Bookkeepers</h3>
+        <p class="text-gray-400 text-sm">Manage 10–30 clients with monthly closes. ReconPad cuts your per-client time in half and gives you a clean deliverable to send.</p>
+      </div>
+
+      <div class="bg-gradient-to-b from-gray-800/60 to-gray-900/40 border border-gray-700/60 rounded-2xl p-6 text-center">
+        <div class="text-4xl mb-4">🏢</div>
+        <h3 class="font-bold text-lg mb-2">Small Business Controllers</h3>
+        <p class="text-gray-400 text-sm">Doing the books for a 10–100 person company. You need month-end close done cleanly without a $5K/mo enterprise tool.</p>
+      </div>
+
+      <div class="bg-gradient-to-b from-gray-800/60 to-gray-900/40 border border-gray-700/60 rounded-2xl p-6 text-center">
+        <div class="text-4xl mb-4">🏦</div>
+        <h3 class="font-bold text-lg mb-2">Accounting Firm Staff</h3>
+        <p class="text-gray-400 text-sm">Junior accountants assigned to recs who need to move faster without sacrificing the audit trail partners need to sign off.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial / Quote -->
+  <section class="bg-blue-950/30 border-y border-blue-900/40 py-16">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <svg class="w-10 h-10 text-blue-400/50 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+      </svg>
+      <blockquote class="text-xl text-gray-200 leading-relaxed mb-6 italic">
+        "I actually find it quicker to find the discrepancies using Excel. The reconciliation features in these accounting softwares still require slow manual oversight and transaction-level accepting."
+      </blockquote>
+      <p class="text-gray-500 text-sm">— Bookkeeper on r/Bookkeeping, April 2025</p>
+    </div>
+  </section>
+
+  <!-- Email Signup -->
+  <section id="signup" class="max-w-2xl mx-auto px-6 py-24 text-center">
+    <div class="bg-gray-900 border border-gray-700 rounded-3xl p-10 glow">
+      <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <svg class="w-7 h-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <h2 class="text-3xl font-bold mb-3">Get early access</h2>
+      <p class="text-gray-400 mb-8">
+        ReconPad is in development. Join the waitlist to be first in — and help shape what gets built. We'll send one email when it's ready.
+      </p>
+
+      <form id="signup-form" class="flex flex-col sm:flex-row gap-3">
+        <input
+          type="email"
+          id="email-input"
+          placeholder="you@yourfirm.com"
+          required
+          class="flex-1 bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-xl px-4 py-3.5 focus:outline-none focus:border-blue-500 transition-colors text-sm"
+        />
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-400 text-white font-bold px-6 py-3.5 rounded-xl transition-colors text-sm whitespace-nowrap"
+        >
+          Join waitlist
+        </button>
+      </form>
+
+      <div id="success-message" class="hidden mt-6 bg-emerald-950/60 border border-emerald-700/50 rounded-xl px-6 py-4">
+        <div class="flex items-center gap-3 justify-center">
+          <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <p class="text-emerald-300 font-medium text-sm">You're on the list! We'll reach out as soon as ReconPad is ready.</p>
+        </div>
+      </div>
+
+      <p class="text-gray-600 text-xs mt-5">No spam. No selling your email. One message when it's live.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/60 py-10">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <div class="w-5 h-5 bg-blue-500 rounded flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        </div>
+        <span class="text-white font-bold text-sm">ReconPad</span>
+      </div>
+      <p class="text-gray-600 text-sm">Bank reconciliation that actually works. &copy; 2026 ReconPad</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (!email) return;
+
+      // Hide form, show success
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('success-message').classList.remove('hidden');
+
+      // In production, POST to your email service here
+      console.log('Waitlist signup:', email);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

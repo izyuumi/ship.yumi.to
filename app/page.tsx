@@ -37,6 +37,7 @@ const projects = [
   { slug: "studiobook", name: "StudioBook", desc: "Studio management for private music teachers — student roster, automatic makeup credit tracking, lesson notes, and a clean month-end billing summary. No parent portal, no complexity.", color: "violet" },
   { slug: "firstday", name: "FirstDay", desc: "Employee onboarding that doesn't drop the ball — role templates, multi-party task assignment, new hire portal, and auto-reminders so HR stops being the follow-up person.", color: "blue" },
   { slug: "estatedraft", name: "EstateDraft", desc: "Enter client data once — get a complete Will, POA, Healthcare Directive, and Trust package auto-generated and ready to review. Stop copy-pasting into Word templates.", color: "violet" },
+  { slug: "reconpad", name: "ReconPad", desc: "Bank reconciliation that doesn't make you want to quit — upload two CSVs, auto-match fires instantly, and you only review the ~5% that didn't match. Clean audit-trail PDF included.", color: "blue" },
 ];
 
 const colorMap: Record<string, string> = {
