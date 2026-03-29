@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VetScribe — SOAP Notes in 60 Seconds</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #34d399, #059669);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .glow {
+      box-shadow: 0 0 40px rgba(52, 211, 153, 0.15);
+    }
+    .before-after {
+      position: relative;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <span class="font-bold text-lg text-white">VetScribe</span>
+      </div>
+      <a href="#signup" class="bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-4 py-2 rounded-lg text-sm transition-colors">
+        Get Early Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-full px-4 py-1.5 text-sm font-medium mb-8">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+        </svg>
+        Built for veterinarians, by people who listened
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+        Stop writing SOAP notes<br/>
+        <span class="gradient-text">after everyone goes home.</span>
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        You became a vet to treat animals — not to spend your evenings typing the same exam findings into a text box. VetScribe turns your clinical observations into complete, copy-ready SOAP notes in under 60 seconds.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#signup" class="bg-emerald-500 hover:bg-emerald-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-lg shadow-emerald-500/25">
+          Join the Early Access List →
+        </a>
+        <a href="#how-it-works" class="border border-gray-700 hover:border-gray-500 text-gray-300 font-semibold px-8 py-4 rounded-xl text-lg transition-colors">
+          See How It Works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Point -->
+  <section class="py-16 px-6 bg-gray-900/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-white mb-4">You're not imagining it. The paperwork is unsustainable.</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Thousands of veterinarians are 2–3 weeks behind on records — right now, tonight. Not because they're slow. Because the math doesn't add up.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="text-4xl font-extrabold text-red-400 mb-2">15+</div>
+          <div class="text-gray-300 font-medium mb-1">Appointments per day</div>
+          <div class="text-gray-500 text-sm">Plus drop-offs, walk-ins, and surgeries. Each requires a complete SOAP note with full legal exposure.</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="text-4xl font-extrabold text-amber-400 mb-2">8–15 min</div>
+          <div class="text-gray-300 font-medium mb-1">Per note, typing from scratch</div>
+          <div class="text-gray-500 text-sm">That's 2+ hours of pure documentation every day — before any follow-ups, callbacks, or admin work.</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="text-4xl font-extrabold text-emerald-400 mb-2">60 sec</div>
+          <div class="text-gray-300 font-medium mb-1">With VetScribe</div>
+          <div class="text-gray-500 text-sm">Enter a few bullet points. Get a complete, clinic-ready SOAP note. Copy it into your PIMS. Done.</div>
+        </div>
+      </div>
+
+      <div class="mt-10 bg-gray-900 border border-gray-700 rounded-2xl p-8">
+        <div class="flex items-start gap-4">
+          <div class="text-emerald-400 mt-1">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-gray-300 text-lg leading-relaxed italic mb-3">
+              "I am consistently at least 2–3 weeks behind at all times. I tried using Talkatoo dictation for about a week, but found that I ended up spending just as much time correcting the grammar as I do typing everything out."
+            </p>
+            <div class="text-gray-500 text-sm">— DVM in private practice, r/Veterinary</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 bg-gray-900 border border-gray-700 rounded-2xl p-8">
+        <div class="flex items-start gap-4">
+          <div class="text-emerald-400 mt-1">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-gray-300 text-lg leading-relaxed italic mb-3">
+              "I use Gemini and ChatGPT a lot. They are fantastic at writing discharge instructions and they even write pretty good SOAPs. But I still have to copy-paste everything manually."
+            </p>
+            <div class="text-gray-500 text-sm">— DVM, r/Veterinary (Oct 2025)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section id="how-it-works" class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-white mb-4">Three steps. One less hour of your night.</h2>
+        <p class="text-gray-400">No dictation. No transcription corrections. No reformatting. Just structured input → complete note.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold">1</div>
+            <h3 class="text-lg font-semibold text-white">Enter case details</h3>
+          </div>
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 text-sm text-gray-400 space-y-2">
+            <div class="flex gap-2">
+              <span class="text-gray-600 shrink-0">Species:</span>
+              <span class="text-gray-300">Canine / Labrador Retriever / 6yr / M</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-600 shrink-0">CC:</span>
+              <span class="text-gray-300">Limping on right forelimb × 3 days</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-600 shrink-0">PE:</span>
+              <span class="text-gray-300">Mild effusion R elbow, pain on flex/ext, BCS 6/9</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-600 shrink-0">Dx:</span>
+              <span class="text-gray-300">OA R elbow, r/o UAP</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-gray-600 shrink-0">Plan:</span>
+              <span class="text-gray-300">Carprofen 2.2mg/kg BID × 7d, recheck in 2wks, rads pending owner approval</span>
+            </div>
+          </div>
+          <p class="mt-3 text-gray-500 text-sm">Takes ~45 seconds. Tap common findings from species-specific templates.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold">2</div>
+            <h3 class="text-lg font-semibold text-white">Get your complete SOAP</h3>
+          </div>
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 text-sm text-gray-400 font-mono space-y-3">
+            <div>
+              <span class="text-emerald-400 font-semibold">S:</span>
+              <span class="ml-1 text-gray-300">6yr MN Labrador Retriever presented for right forelimb lameness of 3 days duration. Owner reports progressive worsening with exercise. No history of trauma...</span>
+            </div>
+            <div>
+              <span class="text-emerald-400 font-semibold">O:</span>
+              <span class="ml-1 text-gray-300">T 38.7°C, HR 88 bpm, RR 24 rpm, BCS 6/9. Ambulatory with grade 2/5 right forelimb lameness. Mild joint effusion palpated in right elbow with pain response on flexion and extension...</span>
+            </div>
+            <div>
+              <span class="text-emerald-400 font-semibold">A:</span>
+              <span class="ml-1 text-gray-300">Osteoarthritis, right elbow. Ununited anconeal process cannot be excluded without radiographic evaluation...</span>
+            </div>
+            <div>
+              <span class="text-emerald-400 font-semibold">P:</span>
+              <span class="ml-1 text-gray-300">Carprofen 2.2 mg/kg PO BID × 7 days. Radiographs pending owner authorization. Recheck in 14 days or sooner if condition worsens...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold">3</div>
+            <h3 class="text-lg font-semibold text-white">Copy into your PIMS</h3>
+          </div>
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 space-y-4">
+            <div class="text-gray-400 text-sm mb-2">Works with any software — no integration required:</div>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <div class="bg-gray-800 rounded-lg px-3 py-2 text-center text-gray-300">Covetrus Pulse</div>
+              <div class="bg-gray-800 rounded-lg px-3 py-2 text-center text-gray-300">Avimark</div>
+              <div class="bg-gray-800 rounded-lg px-3 py-2 text-center text-gray-300">ezyVet</div>
+              <div class="bg-gray-800 rounded-lg px-3 py-2 text-center text-gray-300">Cornerstone</div>
+              <div class="bg-gray-800 rounded-lg px-3 py-2 text-center text-gray-300">Shepherd</div>
+              <div class="bg-gray-800 rounded-lg px-3 py-2 text-center text-gray-300">Any PIMS</div>
+            </div>
+            <button class="w-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 rounded-lg py-3 text-sm font-semibold flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+              Copy to clipboard
+            </button>
+            <p class="text-gray-500 text-xs text-center">Also generates ready-to-send discharge instructions for the same case</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6 bg-gray-900/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-white mb-4">Built for how vets actually work</h2>
+        <p class="text-gray-400">Not a transcription service. Not a human-medicine tool with a vet skin. VetScribe is purpose-built for veterinary practice.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Species-aware terminology</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Canine, feline, equine, avian, exotic — VetScribe knows the right terminology for each species. No more correcting "patient" to "patient (canine)" or fixing breed-inappropriate drug doses.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Quick-tap exam templates</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Tap to select findings from common PE templates by species. Normal findings auto-populate, you only note deviations — the same mental shorthand you already use in your head.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Discharge instructions included</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">From the same case input, generate client-facing discharge instructions in plain language. Medication schedule, activity restrictions, warning signs to watch — all pre-written and editable.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">No PIMS integration required</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Works alongside whatever software your clinic uses. No IT project, no vendor contract, no 6-month implementation. Open VetScribe, fill in 5 fields, copy the note. That's it.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Works on mobile too</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Draft a note between appointments, or quickly generate a note on your phone from the break room. Your notes sync so you can review and copy from any device.</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Your notes, your style</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">VetScribe learns your phrasing preferences over time. Keep full control — every generated note is yours to edit before it ever goes into a record.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before/After -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-white mb-4">Your evenings, reclaimed.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-8">
+          <div class="flex items-center gap-2 mb-6">
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <span class="text-red-400 font-semibold text-sm uppercase tracking-wide">Without VetScribe</span>
+          </div>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 mt-0.5">✗</span>
+              <span>Last appointment finished at 6 PM. Notes still open on screen at 9 PM.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 mt-0.5">✗</span>
+              <span>2–3 weeks of overdue records hanging over your head constantly.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 mt-0.5">✗</span>
+              <span>Tried dictation software — spent as long fixing grammar as typing.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 mt-0.5">✗</span>
+              <span>Relief shifts mean learning a new PIMS every time. Templates don't follow you.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 mt-0.5">✗</span>
+              <span>Using ChatGPT manually — copy-pasting, reformatting, no vet-specific context.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-8 glow">
+          <div class="flex items-center gap-2 mb-6">
+            <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+            <span class="text-emerald-400 font-semibold text-sm uppercase tracking-wide">With VetScribe</span>
+          </div>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <span>Last appointment finished. Notes drafted and copied in 10 minutes total.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <span>Record queue clears daily. No backlog anxiety. No weekend catch-up sessions.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <span>Structured input beats dictation — tap findings, no corrections needed.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <span>Your templates travel with you. Works at any practice, any PIMS.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <span>AI built for vet medicine — correct terminology, drug names, species context, every time.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section id="signup" class="py-24 px-6 bg-gray-900/50">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-4xl font-extrabold text-white mb-4">Get your evenings back.</h2>
+      <p class="text-gray-400 mb-10 text-lg">We're building VetScribe with input from practicing DVMs. Join the early access list to shape the product — and be first in when it launches.</p>
+
+      <div id="signup-form-wrap" class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+        <form id="signup-form" class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <input
+              type="text"
+              placeholder="First name"
+              class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Last name"
+              class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
+            />
+          </div>
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
+            required
+          />
+          <select
+            class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-gray-400 focus:outline-none focus:border-emerald-500 transition-colors"
+          >
+            <option value="">Your role (optional)</option>
+            <option>Small animal DVM</option>
+            <option>Emergency/critical care DVM</option>
+            <option>Relief veterinarian</option>
+            <option>Specialist</option>
+            <option>Vet tech / LVT</option>
+            <option>Practice manager</option>
+            <option>Exotics / mixed practice</option>
+          </select>
+          <button
+            type="submit"
+            class="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-4 rounded-xl text-lg transition-colors shadow-lg shadow-emerald-500/25"
+          >
+            Join the Early Access List →
+          </button>
+        </form>
+
+        <div id="signup-success" class="hidden text-center py-8">
+          <div class="w-16 h-16 bg-emerald-500/20 border border-emerald-500/40 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">You're on the list! 🐾</h3>
+          <p class="text-gray-400">We'll reach out as soon as early access opens. We're building this with real vets — your feedback shapes the product.</p>
+        </div>
+
+        <p class="mt-4 text-gray-600 text-xs text-center">No spam. No sales calls. We'll only contact you about VetScribe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 px-6 border-t border-gray-800">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-emerald-500 flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <span class="text-gray-400 font-medium">VetScribe</span>
+      </div>
+      <p class="text-gray-600 text-sm">Built for the DVMs who stay late so their animals don't have to wait.</p>
+      <p class="text-gray-700 text-xs">© 2026 VetScribe</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('signup-form').classList.add('hidden');
+      document.getElementById('signup-success').classList.remove('hidden');
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

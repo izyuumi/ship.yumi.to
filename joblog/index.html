@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JobLog — Stop Losing Track of Your Job Search</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-glow:hover {
+      box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.3), 0 4px 24px rgba(96, 165, 250, 0.1);
+    }
+    .kanban-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+    .kanban-col {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 14px;
+      min-width: 160px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.5s ease both; }
+    .fade-up-2 { animation: fadeUp 0.5s ease 0.1s both; }
+    .fade-up-3 { animation: fadeUp 0.5s ease 0.2s both; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+  <!-- Nav -->
+  <nav class="border-b border-white/5 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-blue-500 flex items-center justify-center text-white text-sm font-bold">J</div>
+        <span class="font-semibold text-white">JobLog</span>
+      </div>
+      <a href="#signup" class="text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors">Get early access →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+    <div class="fade-up">
+      <span class="pill bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-6 inline-block">Free during early access</span>
+    </div>
+    <h1 class="fade-up-2 text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+      Stop losing track of<br />
+      <span class="gradient-text">your job search.</span>
+    </h1>
+    <p class="fade-up-3 text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
+      You're applying to 30, 40, 50 jobs. You can't remember where you applied, which resume you sent, or when to follow up. JobLog fixes that — simply, without the bloat.
+    </p>
+    <div class="fade-up-3">
+      <a href="#signup" class="inline-block bg-blue-500 hover:bg-blue-400 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors shadow-lg shadow-blue-500/20">
+        Get early access — it's free
+      </a>
+      <p class="mt-3 text-sm text-gray-500">No credit card. No browser extension. No fluff.</p>
+    </div>
+  </section>
+
+  <!-- Pain Identification -->
+  <section class="max-w-3xl mx-auto px-6 pb-20">
+    <div class="bg-gray-900 border border-white/8 rounded-2xl p-8 text-center">
+      <p class="text-2xl font-semibold text-white mb-2">Sound familiar?</p>
+      <p class="text-gray-400 mb-8">Real things real job seekers say every week on Reddit:</p>
+      <div class="space-y-4 text-left">
+        <div class="flex items-start gap-3">
+          <span class="text-red-400 mt-0.5">✗</span>
+          <p class="text-gray-300"><em>"Once applications go beyond 15–20, I start forgetting where I applied, which resume version I used, when I should follow up."</em></p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-red-400 mt-0.5">✗</span>
+          <p class="text-gray-300"><em>"I'm losing my mind scrolling through emails trying to figure out what I applied to."</em></p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-red-400 mt-0.5">✗</span>
+          <p class="text-gray-300"><em>"My spreadsheet has 47 rows and I haven't updated it in two weeks. I just keep applying and hoping."</em></p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-red-400 mt-0.5">✗</span>
+          <p class="text-gray-300"><em>"Job hunting in 2025 is just sending your résumé into a black hole."</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Visual / Kanban Demo -->
+  <section class="max-w-5xl mx-auto px-6 pb-20">
+    <h2 class="text-3xl font-bold text-white text-center mb-4">Your search, finally organized</h2>
+    <p class="text-gray-400 text-center mb-12 text-lg">One clean board. Every application. Every stage. No spreadsheet.</p>
+
+    <!-- Kanban mockup -->
+    <div class="bg-gray-900 border border-white/8 rounded-2xl p-6 overflow-x-auto">
+      <div class="flex gap-4 min-w-max">
+        <!-- Applied -->
+        <div class="kanban-col">
+          <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Applied <span class="text-gray-600">(12)</span></p>
+          <div class="space-y-2">
+            <div class="kanban-card">
+              <div class="font-medium text-gray-200">Stripe</div>
+              <div class="text-gray-500 text-xs">Frontend Engineer</div>
+              <div class="flex items-center justify-between mt-2">
+                <span class="pill bg-gray-700 text-gray-400">Resume v3</span>
+                <span class="text-xs text-gray-600">3d ago</span>
+              </div>
+            </div>
+            <div class="kanban-card">
+              <div class="font-medium text-gray-200">Linear</div>
+              <div class="text-gray-500 text-xs">Product Designer</div>
+              <div class="flex items-center justify-between mt-2">
+                <span class="pill bg-gray-700 text-gray-400">Resume v2</span>
+                <span class="text-xs text-yellow-500">Follow up today</span>
+              </div>
+            </div>
+            <div class="kanban-card opacity-60">
+              <div class="font-medium text-gray-300">Figma</div>
+              <div class="text-gray-500 text-xs">UX Engineer</div>
+              <div class="mt-2">
+                <span class="text-xs text-gray-600">Applied 7d ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Screening -->
+        <div class="kanban-col">
+          <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Screening <span class="text-gray-600">(3)</span></p>
+          <div class="space-y-2">
+            <div class="kanban-card border-blue-500/30">
+              <div class="font-medium text-blue-300">Vercel</div>
+              <div class="text-gray-500 text-xs">Software Engineer</div>
+              <div class="flex items-center justify-between mt-2">
+                <span class="pill bg-blue-500/10 text-blue-400">Phone screen</span>
+                <span class="text-xs text-gray-600">Tomorrow</span>
+              </div>
+            </div>
+            <div class="kanban-card">
+              <div class="font-medium text-gray-200">Notion</div>
+              <div class="text-gray-500 text-xs">Growth Engineer</div>
+              <div class="mt-2">
+                <span class="text-xs text-gray-600">Recruiter reached out</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Interview -->
+        <div class="kanban-col">
+          <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Interview <span class="text-gray-600">(2)</span></p>
+          <div class="space-y-2">
+            <div class="kanban-card border-purple-500/30">
+              <div class="font-medium text-purple-300">Loom</div>
+              <div class="text-gray-500 text-xs">Senior Engineer</div>
+              <div class="flex items-center justify-between mt-2">
+                <span class="pill bg-purple-500/10 text-purple-400">Round 2</span>
+                <span class="text-xs text-gray-600">In 2 days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Offer -->
+        <div class="kanban-col">
+          <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Offer <span class="text-gray-600">(1)</span></p>
+          <div class="space-y-2">
+            <div class="kanban-card border-green-500/30">
+              <div class="font-medium text-green-300">Raycast</div>
+              <div class="text-gray-500 text-xs">Full Stack Engineer</div>
+              <div class="mt-2">
+                <span class="pill bg-green-500/10 text-green-400">🎉 Offer received</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Closed -->
+        <div class="kanban-col opacity-60">
+          <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Closed <span class="text-gray-600">(7)</span></p>
+          <div class="space-y-2">
+            <div class="kanban-card">
+              <div class="font-medium text-gray-400">Google</div>
+              <div class="text-gray-500 text-xs">No response</div>
+            </div>
+            <div class="kanban-card">
+              <div class="font-medium text-gray-400">Dropbox</div>
+              <div class="text-gray-500 text-xs">Rejected after screen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="max-w-5xl mx-auto px-6 pb-20">
+    <h2 class="text-3xl font-bold text-white text-center mb-4">Everything you need. Nothing you don't.</h2>
+    <p class="text-gray-400 text-center mb-12">Built for the active job seeker who applies to lots of places at once.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <div class="bg-gray-900 border border-white/8 rounded-xl p-6 card-glow transition-all">
+        <div class="text-2xl mb-3">📋</div>
+        <h3 class="font-semibold text-white mb-2">Visual kanban board</h3>
+        <p class="text-gray-400 text-sm">See every application at a glance — Applied, Screening, Interview, Offer, Closed. Drag to update. No manual status fields.</p>
+      </div>
+
+      <div class="bg-gray-900 border border-white/8 rounded-xl p-6 card-glow transition-all">
+        <div class="text-2xl mb-3">📄</div>
+        <h3 class="font-semibold text-white mb-2">Resume vault</h3>
+        <p class="text-gray-400 text-sm">Upload all your resume versions. Tag which version you sent to each company. Never wonder "which resume did I use for this one?" again.</p>
+      </div>
+
+      <div class="bg-gray-900 border border-white/8 rounded-xl p-6 card-glow transition-all">
+        <div class="text-2xl mb-3">🔔</div>
+        <h3 class="font-semibold text-white mb-2">Follow-up reminders</h3>
+        <p class="text-gray-400 text-sm">Set a follow-up date per application. Get a daily digest of who to reach out to today. Stop letting opportunities go cold because you forgot.</p>
+      </div>
+
+      <div class="bg-gray-900 border border-white/8 rounded-xl p-6 card-glow transition-all">
+        <div class="text-2xl mb-3">📝</div>
+        <h3 class="font-semibold text-white mb-2">Notes per application</h3>
+        <p class="text-gray-400 text-sm">Log the cover letter angle you used, who your interviewer was, key talking points to prep. Everything in one place before each call.</p>
+      </div>
+
+      <div class="bg-gray-900 border border-white/8 rounded-xl p-6 card-glow transition-all">
+        <div class="text-2xl mb-3">⚡</div>
+        <h3 class="font-semibold text-white mb-2">Quick add</h3>
+        <p class="text-gray-400 text-sm">Paste a job URL or type a company + role. Card created in 3 seconds. No forms, no friction — just log it and move on.</p>
+      </div>
+
+      <div class="bg-gray-900 border border-white/8 rounded-xl p-6 card-glow transition-all">
+        <div class="text-2xl mb-3">📊</div>
+        <h3 class="font-semibold text-white mb-2">Search stats dashboard</h3>
+        <p class="text-gray-400 text-sm">Response rate, average days to first reply, applications sent this week. Understand what's working and stay motivated with real data.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- vs Alternatives -->
+  <section class="max-w-3xl mx-auto px-6 pb-20">
+    <h2 class="text-3xl font-bold text-white text-center mb-10">Simpler than anything else out there</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left">
+        <thead>
+          <tr class="border-b border-white/10">
+            <th class="pb-3 text-gray-500 font-medium">Feature</th>
+            <th class="pb-3 text-center text-blue-400 font-semibold">JobLog</th>
+            <th class="pb-3 text-center text-gray-500 font-medium">Google Sheets</th>
+            <th class="pb-3 text-center text-gray-500 font-medium">Huntr / Teal</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/5">
+          <tr>
+            <td class="py-3 text-gray-300">Kanban board</td>
+            <td class="py-3 text-center text-green-400">✓</td>
+            <td class="py-3 text-center text-red-400">✗</td>
+            <td class="py-3 text-center text-green-400">✓</td>
+          </tr>
+          <tr>
+            <td class="py-3 text-gray-300">Resume version tagging</td>
+            <td class="py-3 text-center text-green-400">✓</td>
+            <td class="py-3 text-center text-red-400">✗</td>
+            <td class="py-3 text-center text-yellow-400">partial</td>
+          </tr>
+          <tr>
+            <td class="py-3 text-gray-300">Follow-up reminders</td>
+            <td class="py-3 text-center text-green-400">✓</td>
+            <td class="py-3 text-center text-red-400">✗</td>
+            <td class="py-3 text-center text-yellow-400">paid only</td>
+          </tr>
+          <tr>
+            <td class="py-3 text-gray-300">Mobile-friendly</td>
+            <td class="py-3 text-center text-green-400">✓</td>
+            <td class="py-3 text-center text-red-400">✗</td>
+            <td class="py-3 text-center text-yellow-400">partial</td>
+          </tr>
+          <tr>
+            <td class="py-3 text-gray-300">No browser extension required</td>
+            <td class="py-3 text-center text-green-400">✓</td>
+            <td class="py-3 text-center text-green-400">✓</td>
+            <td class="py-3 text-center text-red-400">✗</td>
+          </tr>
+          <tr>
+            <td class="py-3 text-gray-300">Free to use</td>
+            <td class="py-3 text-center text-green-400">✓</td>
+            <td class="py-3 text-center text-green-400">✓</td>
+            <td class="py-3 text-center text-red-400">✗ ($20+/mo)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Social proof quote section -->
+  <section class="max-w-3xl mx-auto px-6 pb-20">
+    <div class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-8 text-center">
+      <p class="text-lg text-gray-200 italic mb-4">"I have a separate folder per company, a Notion kanban, AND a spreadsheet. I'm still losing track."</p>
+      <p class="text-sm text-gray-500">— r/jobsearchhacks, September 2025</p>
+      <div class="mt-6 pt-6 border-t border-white/10">
+        <p class="text-gray-300">JobLog is the one tool that replaces the spreadsheet, the folder system, and the Notion board.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Signup -->
+  <section id="signup" class="max-w-2xl mx-auto px-6 pb-24 text-center">
+    <h2 class="text-3xl font-bold text-white mb-3">Get early access</h2>
+    <p class="text-gray-400 mb-8">Be first to know when JobLog launches. Free during early access.</p>
+
+    <div id="form-container">
+      <form id="signup-form" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+        <input
+          type="email"
+          id="email-input"
+          placeholder="your@email.com"
+          required
+          class="flex-1 bg-gray-900 border border-white/15 focus:border-blue-500 focus:outline-none text-white placeholder-gray-600 px-4 py-3 rounded-xl text-sm transition-colors"
+        />
+        <button
+          type="submit"
+          id="submit-btn"
+          class="bg-blue-500 hover:bg-blue-400 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-colors whitespace-nowrap shadow-lg shadow-blue-500/20"
+        >
+          Get early access →
+        </button>
+      </form>
+      <p class="mt-3 text-xs text-gray-600">No spam. Unsubscribe any time.</p>
+    </div>
+
+    <div id="success-message" class="hidden bg-green-500/10 border border-green-500/30 rounded-xl p-6">
+      <div class="text-3xl mb-3">🎉</div>
+      <h3 class="text-xl font-semibold text-green-300 mb-2">You're on the list!</h3>
+      <p class="text-gray-400">We'll email you the moment JobLog is ready for early access. Go ace those interviews.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 px-6 py-8 text-center text-sm text-gray-600">
+    <div class="flex items-center justify-center gap-2 mb-2">
+      <div class="w-5 h-5 rounded-md bg-blue-500 flex items-center justify-center text-white text-xs font-bold">J</div>
+      <span class="font-medium text-gray-500">JobLog</span>
+    </div>
+    <p>Stop losing track. Start landing jobs.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('signup-form');
+    const successMessage = document.getElementById('success-message');
+    const formContainer = document.getElementById('form-container');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (!email) return;
+
+      submitBtn.textContent = 'Saving...';
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-60');
+
+      // Simulate async submission
+      setTimeout(function() {
+        formContainer.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+
+        // Store in localStorage for fun
+        const signups = JSON.parse(localStorage.getItem('joblog_signups') || '[]');
+        signups.push({ email: email, date: new Date().toISOString() });
+        localStorage.setItem('joblog_signups', JSON.stringify(signups));
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>
