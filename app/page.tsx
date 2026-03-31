@@ -39,6 +39,8 @@ const projects = [
   { slug: "estatedraft", name: "EstateDraft", desc: "Enter client data once — get a complete Will, POA, Healthcare Directive, and Trust package auto-generated and ready to review. Stop copy-pasting into Word templates.", color: "violet" },
   { slug: "reconpad", name: "ReconPad", desc: "Bank reconciliation that doesn't make you want to quit — upload two CSVs, auto-match fires instantly, and you only review the ~5% that didn't match. Clean audit-trail PDF included.", color: "blue" },
   { slug: "joblog", name: "JobLog", desc: "Stop losing track of your job search — visual kanban board, resume version vault, follow-up reminders, and search stats so you never wonder where you applied or what to do next.", color: "blue" },
+  { slug: "restockly", name: "Restockly", desc: "The Shopify Stocky replacement — smart reorder alerts, one-click PO creation, demand forecasting, and supplier management for small stores.", color: "emerald" },
+  { slug: "hourproof", name: "HourProof", desc: "Volunteer hours, grant-ready in minutes — log shifts, map to grants, and export a funder-ready PDF report without the spreadsheet panic.", color: "emerald" },
 ];
 
 const colorMap: Record<string, string> = {

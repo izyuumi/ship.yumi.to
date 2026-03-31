@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HourProof — Volunteer Hours, Grant-Ready in Minutes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #34d399, #059669);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .feature-icon {
+      background: linear-gradient(135deg, #064e3b, #065f46);
+    }
+    .cta-btn {
+      background: linear-gradient(135deg, #059669, #047857);
+      transition: all 0.2s ease;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(135deg, #047857, #065f46);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(5,150,105,0.4);
+    }
+    .noise-bg {
+      background-color: #0a0f0d;
+      background-image: radial-gradient(ellipse at 20% 50%, rgba(5,150,105,0.06) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(16,185,129,0.04) 0%, transparent 50%);
+    }
+    .step-line::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 2px;
+      height: 40px;
+      background: linear-gradient(to bottom, #065f46, transparent);
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body class="noise-bg text-gray-100 min-h-screen">
+
+  <!-- Nav -->
+  <nav class="border-b border-gray-800/50 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-sm">H</div>
+        <span class="text-lg font-bold text-white">HourProof</span>
+      </div>
+      <a href="#signup" class="text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors">Get Early Access →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 pt-20 pb-24 text-center">
+    <div class="inline-flex items-center gap-2 bg-emerald-900/30 border border-emerald-800/50 rounded-full px-4 py-1.5 text-emerald-400 text-sm font-medium mb-8">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      Built for grant-funded nonprofits & libraries
+    </div>
+
+    <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+      Stop scrambling for<br/>
+      <span class="gradient-text">volunteer hours at grant time.</span>
+    </h1>
+
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      You rely on grants. Grants require in-kind match documentation. But your "system" is a spreadsheet held together with prayers — and every reporting deadline turns into a panic spiral.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#signup" class="cta-btn text-white font-semibold px-8 py-4 rounded-xl text-lg inline-block">
+        Get Early Access — Free
+      </a>
+      <a href="#how-it-works" class="bg-gray-800/60 border border-gray-700 hover:bg-gray-700/60 text-white font-semibold px-8 py-4 rounded-xl text-lg inline-block transition-colors">
+        See How It Works
+      </a>
+    </div>
+
+    <!-- Social proof -->
+    <p class="mt-8 text-gray-500 text-sm">Trusted by volunteer coordinators at food banks, libraries, and community health orgs</p>
+  </section>
+
+  <!-- Pain Section -->
+  <section class="bg-gray-900/40 border-y border-gray-800/40 py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white text-center mb-4">Sound familiar?</h2>
+      <p class="text-gray-400 text-center mb-12 text-lg">You're not alone. This is the r/nonprofit spreadsheet nightmare.</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-800/40 border border-gray-700/50 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-4">📋</div>
+          <h3 class="font-semibold text-white mb-2">Paper sign-in sheets</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Volunteers scribble their names and hours on a clipboard. Someone has to manually enter it all later. Sometimes that someone is you, at 10pm before a deadline.</p>
+        </div>
+
+        <div class="bg-gray-800/40 border border-gray-700/50 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-4">📊</div>
+          <h3 class="font-semibold text-white mb-2">The Grant Spreadsheet™</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">It has 12 tabs, conditional formatting that nobody touches, and a SUMIF formula that breaks every March. You have no idea which hours count for which grant.</p>
+        </div>
+
+        <div class="bg-gray-800/40 border border-gray-700/50 rounded-2xl p-6 card-hover">
+          <div class="text-3xl mb-4">😰</div>
+          <h3 class="font-semibold text-white mb-2">Reporting deadline panic</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">The funder wants hours by program, by month, with names and valuations. You have a flat list. Sorting and reformatting takes a full day you don't have.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-gray-800/60 border border-amber-800/30 rounded-2xl p-6 text-center">
+        <p class="text-amber-300 text-sm font-medium mb-1">Real quote from r/nonprofit</p>
+        <p class="text-gray-300 italic">"Our old system of [tracking volunteer hours] broke down. We rely on in-kind contributions for grant funding and need a way to prove it without it being weird for volunteers."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="max-w-5xl mx-auto px-6 py-24">
+    <h2 class="text-3xl font-bold text-white text-center mb-4">How HourProof works</h2>
+    <p class="text-gray-400 text-center text-lg mb-16">Log shifts in seconds. Map hours to grants. Export a clean report.</p>
+
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="w-14 h-14 feature-icon rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">👥</div>
+        <div class="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Step 1</div>
+        <h3 class="font-semibold text-white mb-2">Set up your roster</h3>
+        <p class="text-gray-400 text-sm">Add volunteers by name and type — board, staff, intern, general. Import from CSV in seconds.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-14 h-14 feature-icon rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">📅</div>
+        <div class="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Step 2</div>
+        <h3 class="font-semibold text-white mb-2">Log shifts</h3>
+        <p class="text-gray-400 text-sm">Quick-log: pick volunteer, enter date + hours, select which program. Done in 15 seconds per shift. Or let volunteers self-log via a simple link.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-14 h-14 feature-icon rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">🔗</div>
+        <div class="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Step 3</div>
+        <h3 class="font-semibold text-white mb-2">Map to grants</h3>
+        <p class="text-gray-400 text-sm">Connect programs to grants. One program can count toward multiple grants. Set required match hours per grant.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-14 h-14 feature-icon rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">📄</div>
+        <div class="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Step 4</div>
+        <h3 class="font-semibold text-white mb-2">Export the report</h3>
+        <p class="text-gray-400 text-sm">Pick a grant and date range. Get a funder-ready PDF with names, hours, valuation, and totals. One click.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="bg-gray-900/40 border-y border-gray-800/40 py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white text-center mb-4">Everything grant coordinators need</h2>
+      <p class="text-gray-400 text-center text-lg mb-12">Nothing they don't.</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex gap-4 bg-gray-800/40 border border-gray-700/40 rounded-2xl p-6">
+          <div class="w-10 h-10 feature-icon rounded-xl flex items-center justify-center flex-shrink-0 text-lg">📊</div>
+          <div>
+            <h3 class="font-semibold text-white mb-1">Grant Dashboard</h3>
+            <p class="text-gray-400 text-sm">See hours logged vs. required match for every active grant, at a glance. Never be surprised at reporting time.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 bg-gray-800/40 border border-gray-700/40 rounded-2xl p-6">
+          <div class="w-10 h-10 feature-icon rounded-xl flex items-center justify-center flex-shrink-0 text-lg">🧮</div>
+          <div>
+            <h3 class="font-semibold text-white mb-1">Auto In-Kind Valuation</h3>
+            <p class="text-gray-400 text-sm">Set hourly rates by volunteer type (federal, state, or custom). HourProof calculates in-kind dollar value automatically.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 bg-gray-800/40 border border-gray-700/40 rounded-2xl p-6">
+          <div class="w-10 h-10 feature-icon rounded-xl flex items-center justify-center flex-shrink-0 text-lg">📝</div>
+          <div>
+            <h3 class="font-semibold text-white mb-1">Audit Trail</h3>
+            <p class="text-gray-400 text-sm">Every shift log shows who entered it and when. Fully defensible if a funder ever audits your records.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 bg-gray-800/40 border border-gray-700/40 rounded-2xl p-6">
+          <div class="w-10 h-10 feature-icon rounded-xl flex items-center justify-center flex-shrink-0 text-lg">🔗</div>
+          <div>
+            <h3 class="font-semibold text-white mb-1">Volunteer Self-Log Link</h3>
+            <p class="text-gray-400 text-sm">Send volunteers a simple link to log their own hours. No account needed for them — they just enter hours and sign off.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 bg-gray-800/40 border border-gray-700/40 rounded-2xl p-6">
+          <div class="w-10 h-10 feature-icon rounded-xl flex items-center justify-center flex-shrink-0 text-lg">📤</div>
+          <div>
+            <h3 class="font-semibold text-white mb-1">One-Click PDF Reports</h3>
+            <p class="text-gray-400 text-sm">Grant-ready PDF with your org logo, period, volunteer name list, hours by program, and total in-kind value. Attach directly to your funder portal.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 bg-gray-800/40 border border-gray-700/40 rounded-2xl p-6">
+          <div class="w-10 h-10 feature-icon rounded-xl flex items-center justify-center flex-shrink-0 text-lg">🔔</div>
+          <div>
+            <h3 class="font-semibold text-white mb-1">Reporting Deadline Reminders</h3>
+            <p class="text-gray-400 text-sm">Set grant reporting deadlines and HourProof sends you weekly "hours logged so far" summaries so you're never caught short.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-bold text-white text-center mb-12">Built for small-but-mighty orgs</h2>
+
+    <div class="grid md:grid-cols-3 gap-6 text-center">
+      <div class="bg-gray-800/30 border border-gray-700/30 rounded-2xl p-8 card-hover">
+        <div class="text-4xl mb-4">🍎</div>
+        <h3 class="font-semibold text-white mb-2">Nonprofits</h3>
+        <p class="text-gray-400 text-sm">Community orgs, social services, youth programs — any org that files grant reports with in-kind match requirements.</p>
+      </div>
+      <div class="bg-gray-800/30 border border-gray-700/30 rounded-2xl p-8 card-hover">
+        <div class="text-4xl mb-4">📚</div>
+        <h3 class="font-semibold text-white mb-2">Libraries</h3>
+        <p class="text-gray-400 text-sm">Public and community libraries with volunteer programs that support grant applications to IMLS, state agencies, and foundations.</p>
+      </div>
+      <div class="bg-gray-800/30 border border-gray-700/30 rounded-2xl p-8 card-hover">
+        <div class="text-4xl mb-4">🏥</div>
+        <h3 class="font-semibold text-white mb-2">Health Programs</h3>
+        <p class="text-gray-400 text-sm">Community health centers and wellness programs where CHW and volunteer hours count toward federal match requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial-style -->
+  <section class="bg-gray-900/40 border-y border-gray-800/40 py-16">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-gray-300 text-xl italic leading-relaxed mb-6">"I spend the last week of every quarter manually pulling together volunteer hours from three different spreadsheets to build the grant report. By the time I'm done, I'm too tired to actually write the narrative. There has to be a better way."</p>
+      <p class="text-emerald-400 font-medium text-sm">— Volunteer coordinator, community food bank (r/nonprofit)</p>
+    </div>
+  </section>
+
+  <!-- CTA / Signup -->
+  <section id="signup" class="max-w-2xl mx-auto px-6 py-24 text-center">
+    <h2 class="text-4xl font-bold text-white mb-4">Your next grant report<br/>shouldn't take a week.</h2>
+    <p class="text-gray-400 text-lg mb-10">Join the waitlist. Be first when HourProof launches — and help us make sure it fits exactly how your org works.</p>
+
+    <form id="signup-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
+      <input
+        type="email"
+        id="email-input"
+        placeholder="your@nonprofit.org"
+        required
+        class="flex-1 bg-gray-800/60 border border-gray-600 text-white placeholder-gray-500 px-4 py-3 rounded-xl focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/50"
+      />
+      <button type="submit" class="cta-btn text-white font-semibold px-6 py-3 rounded-xl whitespace-nowrap">
+        Get Early Access
+      </button>
+    </form>
+
+    <div id="success-msg" class="hidden mt-4 bg-emerald-900/40 border border-emerald-700/50 rounded-xl p-4 text-emerald-300 text-sm font-medium">
+      ✓ You're on the list! We'll reach out before launch.
+    </div>
+
+    <p class="text-gray-500 text-xs mt-4">No spam. No credit card. Just updates when we're ready.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/50 py-8 text-center text-gray-600 text-sm">
+    <div class="flex items-center justify-center gap-2 mb-2">
+      <div class="w-5 h-5 rounded bg-emerald-700 flex items-center justify-center text-white font-bold text-xs">H</div>
+      <span class="text-gray-400 font-medium">HourProof</span>
+    </div>
+    <p>Volunteer hours, grant-ready in minutes.</p>
+  </footer>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      if (email) {
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('success-msg').classList.remove('hidden');
+        console.log('Signup:', email);
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
